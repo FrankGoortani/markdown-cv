@@ -1,12 +1,20 @@
 ---
 layout: cv
 title: Frank Goortani
+description: Frank Goortani is a skilled Solution Consultant well-versed in the realms of cloud computing, data management, web development, and mobile projects. With a passion for continuous learning and growth in the tech industry, Frank brings a wealth of expertise to the table. Connect with Frank to explore exciting possibilities together!
+keywords: Frank Goortani, Goortani, MLOPS, Solution Consultant, Solution Architect, Software Developer, Full-stack, AWS, Azure, GCP, Mobile Development, Web Development, DevOps, JavaScript, Python, Angular, React, Golang, Typescript, Agile, data engineering
+url: https://goortani.com
+image: media/frankgoortani.png
+favicon: media/favicon.png
+style: kjhealy
 ---
 # Frank Goortani, TOGAF, PMP
 Solution Consultant
 
 <div id="webaddress">
-<a href="frank@goortani.com">frank@goortani.com</a>
+<a href="mailto:frank@goortani.com">frank@goortani.com</a> | 
+<a href="media/Frank-Goortani-Resume-Solution-Architect-2023.pdf" target="_blank">Download PDF</a> | 
+<a href="media/short.md" target="_blank">View short version</a>
 </div>
 
 
@@ -74,7 +82,6 @@ __Canada Life__, Solution Architect
 - Oversaw the architecture, implementation, and automation of an API platform and microservices utilizing Kubernetes, Java Spring Boot, and Apigee.
 - Designed and implemented a suite of maturity tools to enhance the Kubernetes architecture and DevOps functionality. Used tools such as Istio, Helm, Grafana, Prometheus, ELK, Kafka, Zabbix, Rancher, Spinnaker, Terraform, Vault, and Consul.
 - Headed the documentation and setup process for developer machines on both Mac and Windows platforms, leveraging tools such as Homebrew, Chocolatey, Docker, MiniKube, Virtualbox, and Hyper-v.
-
 - Worked with a variety of technologies and tools such as Bamboo, Jenkins, Terraform, Consul, Vault, Stash, Packer, and Splunk.
 - Devised and implemented the roadmap for migration to a microservices architecture using Google Cloud and Kubernetes, utilizing Java Spring, Node, Google Cloud Functions, Bamboo, and Jenkins.
 - Instituted end-to-end Angular Universal Server-Side Rendering to support social sharing and SEO for single-page applications on the website.
@@ -330,10 +337,15 @@ B.Sc. in Computer Software Engineering
 - [StackOverflow](https://stackoverflow.com/users/1136641/frank-goortani)
 - [Twitter](https://twitter.com/FrankGoortani)
 - [Medium](https://medium.com/@FrankGoortani)
-- [Resume](Frank-Goortani-Resume-Solution-Architect-2023.pdf)
+- [Resume](media/Frank-Goortani-Resume-Solution-Architect-2023.pdf)
+- [GitHub](https://github.com/frankgoortani)
 - [ProductHunt](https://www.producthunt.com/@frankgoortani)
-- [AngelList](https://angel.co/frank-goortani)
+- [Wellfound](https://wellfound.com/u/frank-goortani)
 
+## Keywords
+- GoLang, JavaScript, Typescript, Python,  Swift, C#, Ruby, ES6, Java, Objective-C, R, SQL, HTML5, CSS3, Angular, React, Java EE, .NET, RxJava, RxSwift, RxJS, VueJs, Node.JS, Meteor, React Native , Bootstrap, Material Design, SciKit Learn, Azure ML Studio, Express, Redux, Svelte, SolidJS, Lit web components, Vue, Nuxtjs, Pinia, Ngrx, Rxjs, Universal, JSx, Gatsby, Nextjs, Bootstrap, Materialui, Tailwind, Sveltekit, Blazor, Redwood, Blitz, Astro, Gatsby, Pelican, Fast api, Dino, Kotlin, Supabase, Pinecone, Prisma (ORM), Qwik, GraphQL, gRPC, Rest, Jest, Mocha, Selenium, Junit, Nunit, Pytest, Testify, JUnit, NUnit, Selenium, Cucumber, Grafana, Mocha, Puppeteer, Karma, Istanbul, WebDriver, CA Erwin, PowerDesigner, SSIS, SSAS, SSRS, Informatica, Jupiter, iPython, OpenRefine, PyTorch,  Spinnaker, Rest-Assured, WebDriver, Bazel, Netlify,  Flutter, Electron, Shell, Termial, Linux,  Collibra, Artifactory, Nexus
+- PostgreSQL, MySQL, MSSQL, Oracle, Mongodb, Cassandra, Couchbase, Dynamo DB, Sqlite, Redis, SQL Server, Azure CDN, SQL Azure, Oracle, CouchDB, MongoDB, Azure CosmosDB, CouchBase, ElasticSearch, MySQL, Postgresql, Solr, HBase, Spark, Kafka, Hadoop, Spark, PIG, HIVE, Scoop, Cadence, Apache AirFlow, Piper, Redshift, Qlik View, Cognos, SQL Server BI, flywayDB, H2, AWS DynamoDB, AWS RDS, Azure Search, AWS and Azure Storage, OBIEE, Alteryx, Azure ML, Azure Data Lake, Data Factory, Azure Functions, Logic App, Data Streams,   XML, YAML, JSON, Tableau, Kubernetes, Terraform, Jenkins, Circle CI, Nginx, Apache, Heruko, AWS EC2, VPC, S3, Cognito, Lambda, Cloud Front, Cloud Formation, Cloud Watch, IAAS, PAAS, SAAS, AI APIs, Graylog, Datadog, StackDriver, Splunk, Prometheus, Chef, Puppet, Salt, Ant, FastLane
+- Azure, AWS, GCP, DevOps, GraphQL, Apache, Node.JS, Docker, Meteor, React Native, ASP.NET MVC, Heroku, Bitbucket, GitHub, GitLab, Express, Gulp, Grunt, Vite, Maven, Ionic, Angular, Firebase, AWS device farm, AWS API Gateway, Bower, Webpack, Web RTC, PlantUML, Jasmine, Karma, Protractor, TOGAF, PMBOK, BABOK, ITIL, Open ID, OAuth 2.0, Azure VM, K8S, Glassfish, npm, yarn, Sonar, Mockito, Spring Test, Fortify Scan, Cloud Foundry, Azure DevOps, Google Kubernetes, AWS Pipeline, AWS Steps Function, SNS, SQS, LangChain, Visual Studio, R Studio, XCode, Android Studio, IntelliJ, Goland, Eclipse, GitHub codespaces, DevPods, ELK, Cordova, Gladle, JIRA, Confluence, Virtualbox, Bamboo, GIT,  PlantUML, Hyper-v, Helm, Istio,  Zookeeper, Locust, Kong, Dynatrace,  Spring Boot, WASM, Hashicorp Vault, Consul, Packager, Rancher
 
 <!-- ### Footer
 Last updated: July 2023 -->

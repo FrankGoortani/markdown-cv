@@ -1,10 +1,45 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset=utf-8 />
   <title> {% if page.title %} {{ page.title }} | {% endif %} CV</title>
-  <link href="media/{{ site.style }}-screen.css" type="text/css" rel="stylesheet" media="screen">
-  <link href="media/{{ site.style }}-print.css" type="text/css" rel="stylesheet" media="print">
+  
+  <!-- SEO Tags -->
+  <meta name="description" content="{{ page.description }}">
+  <meta name="keywords" content="{{ page.keywords }}">
+  <link rel="canonical" href="{{ page.url }}">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% endif %}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:image" content="{{ page.image }}">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{{ page.url }}">
+  <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% endif %}">
+  <meta property="twitter:description" content="{{ page.description }}">
+  <meta property="twitter:image" content="{{ page.image }}">
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ page.favicon }}">
+  
+  <!-- Stylesheets -->
+  <link href="media/{{ page.style }}-screen.css" type="text/css" rel="stylesheet" media="screen">
+  <link href="media/{{ page.style }}-print.css" type="text/css" rel="stylesheet" media="print">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "{{ page.title }}",
+      "url": "{{ page.url }}",
+      "sameAs": []
+    }
+  </script>
 </head>
 <body>
   <div id="main">
