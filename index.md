@@ -14,7 +14,7 @@ Solution Consultant
 <div id="webaddress">
 <a href="mailto:frank@goortani.com">frank@goortani.com</a> | 
 <a href="media/Frank-Goortani-Resume-Solution-Architect-2023.pdf" target="_blank">Download PDF</a> | 
-<a href="media/short.md" target="_blank">View short version</a>
+<a href="short" target="_blank">View short version</a>
 </div>
 
 

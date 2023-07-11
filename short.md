@@ -7,8 +7,8 @@ Solution Consultant
 
 <div id="webaddress">
 <a href="mailto:frank@goortani.com">frank@goortani.com</a> | 
-<a href="https://github.com/FrankGoortani/markdown-cv/blob/gh-pages/Frank-Goortani-Resume-Solution-Architect-2023.pdf" target="_blank">Download PDF</a> | 
-<a href="https://github.com/FrankGoortani/markdown-cv/blob/gh-pages/short.md" target="_blank">View short version</a>
+<a href="media/Frank-Goortani-Resume-Solution-Architect-2023.pdf" target="_blank">Download PDF</a> | 
+<a href="https://goortani.com" target="_blank">View detailed version</a>
 </div>
 
 
@@ -209,9 +209,10 @@ B.Sc. in Computer Software Engineering
 - [StackOverflow](https://stackoverflow.com/users/1136641/frank-goortani)
 - [Twitter](https://twitter.com/FrankGoortani)
 - [Medium](https://medium.com/@FrankGoortani)
-- [Resume](Frank-Goortani-Resume-Solution-Architect-2023.pdf)
+- [Resume](media/Frank-Goortani-Resume-Solution-Architect-2023.pdf)
+- [GitHub](https://github.com/frankgoortani)
 - [ProductHunt](https://www.producthunt.com/@frankgoortani)
-- [AngelList](https://angel.co/frank-goortani)
+- [Wellfound](https://wellfound.com/u/frank-goortani)
 
 ## Keywords
 - GoLang, JavaScript, Typescript, Python,  Swift, C#, Ruby, ES6, Java, Objective-C, R, SQL, HTML5, CSS3, Angular, React, Java EE, .NET, RxJava, RxSwift, RxJS, VueJs, Node.JS, Meteor, React Native , Bootstrap, Material Design, SciKit Learn, Azure ML Studio, Express, Redux, Svelte, SolidJS, Lit web components, Vue, Nuxtjs, Pinia, Ngrx, Rxjs, Universal, JSx, Gatsby, Nextjs, Bootstrap, Materialui, Tailwind, Sveltekit, Blazor, Redwood, Blitz, Astro, Gatsby, Pelican, Fast api, Dino, Kotlin, Supabase, Pinecone, Prisma (ORM), Qwik, GraphQL, gRPC, Rest, Jest, Mocha, Selenium, Junit, Nunit, Pytest, Testify, JUnit, NUnit, Selenium, Cucumber, Grafana, Mocha, Puppeteer, Karma, Istanbul, WebDriver, CA Erwin, PowerDesigner, SSIS, SSAS, SSRS, Informatica, Jupiter, iPython, OpenRefine, PyTorch,  Spinnaker, Rest-Assured, WebDriver, Bazel, Netlify,  Flutter, Electron, Shell, Termial, Linux,  Collibra, Artifactory, Nexus
