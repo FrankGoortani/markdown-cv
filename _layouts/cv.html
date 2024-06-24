@@ -3,12 +3,12 @@
 <head>
   <meta charset=utf-8 />
   <title> {% if page.title %} {{ page.title }} | {% endif %} CV</title>
-  
+
   <!-- SEO Tags -->
   <meta name="description" content="{{ page.description }}">
   <meta name="keywords" content="{{ page.keywords }}">
   <link rel="canonical" href="{{ page.url }}">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ page.url }}">
@@ -25,7 +25,7 @@
 
   <!-- Favicon -->
   <link rel="icon" href="{{ page.favicon }}">
-  
+
   <!-- Stylesheets -->
   <link href="media/{{ page.style }}-screen.css" type="text/css" rel="stylesheet" media="screen">
   <link href="media/{{ page.style }}-print.css" type="text/css" rel="stylesheet" media="print">
@@ -42,14 +42,6 @@
   </script>
 </head>
 <body>
-  <script>
-    window.difyChatbotConfig = { token: 'FeqWWp8WBk0BxKAh' }
-   </script>
-   <script
-    src="https://udify.app/embed.min.js"
-    id="FeqWWp8WBk0BxKAh"
-    defer>
-   </script>
   <div id="main">
     <div id="content">
     {{ content }}
