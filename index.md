@@ -9,30 +9,31 @@ favicon: media/favicon.png
 style: kjhealy
 ---
 # Frank Goortani, TOGAF, PMP
-Solution Consultant
+Hands on Solution Architect | LLM, Web, Cloud, Mobile, Strategy
 
 <div id="webaddress">
-<a href="mailto:frank@goortani.com">frank@goortani.com</a> | 
-<a href="media/Frank-Goortani-Resume-Solution-Architect-2023.pdf" target="_blank">Download PDF</a> | 
+<a href="mailto:frank@goortani.com">frank@goortani.com</a> |
+<a href="media/Frank Goortani Resume--solution-architect-2024.pdf" target="_blank">Download PDF</a> |
 <a href="short" target="_blank">View short version</a>
 </div>
 
 
 ## Profile
 
-A seasoned Sr. End-to-End Solution Architect with over 20 years of experience, I specialize in Data, Web and Mobile, Cloud, and DevOps architectures. My expertise lies in designing and implementing enterprise applications and custom software. I bring robust leadership skills and a strong academic background in software from prestigious institutions. With significant contributions in both enterprise and startup environments, I have influenced strategy and decision-making at all levels. My dynamic and assertive approach drives innovation and growth.
+Senior solution architect with extensive experience in generative AI, data-driven systems, cloud, and mobile technologies. Over 20 years of expertise in designing and implementing enterprise-grade applications across startups and large enterprises. Skilled in generative AI technologies, including LLMs, AI agents, and automation. Proven leadership in guiding cross-functional teams, driving architectural strategies, and delivering impactful results.
 ### Skills
 
-* Distributed Systems, SOA (Service Oriented Architecture), API platforms, Microservices, integrations
-* Reactive, Functional and OOP Object Oriented Programming in Java, GoLang, Swift, JavaScript
-* Multi-Tier Architecture, Design Patterns, Browser Extensions, VSCode Extensions
-* Full-stack Development, Dev-Ops, Scripting, Product Management, Agile Project Management
-* Mobile application development, Mobile architecture and DevOps, Hybrid / Cross-Platform apps
-* Requirement Analysis, Agile Project Management, Change Management, Stakeholder communications
-* Business Presentations and Reports, Architectural Documentation, Research, POCs
-* Data Modeling (EDM) and Analysis, BI (Business Intelligence), Data Warehouse Design, ETL tools
+* Distributed Systems, API platforms, Microservices, integrations, Workflow systems
+* Generative AI, Large Language Models (LLMs), AI agents, AI automation, Machine Learning
+* Reactive and Functional Programming in Go, Python, Java, Swift, Typescript and JavaScript
+* Full-stack Development, DevOps, Product Management, Agile Project Management
+* Mobile application development, Mobile architecture, Hybrid/Cross-Platform apps
+* Requirement Analysis, Change Management, Stakeholder Communications, Technology Evangelism
+* Business Presentations, Architectural Documentation, Research, POCs
+* Data Modeling, Business Intelligence (BI), Data Warehouse Design, ETL tools
 * Data Governance, Data Streams, Master Data Management (MDM), Reporting, Dashboards
-* Automation, Data Engineering, AIOps, LLMOps, Machine Learning, Data Visualizations, Infographics
+* Automation, Data Science, Data Visualizations, Infographics
+
 
 ### Interests
 
@@ -42,34 +43,44 @@ Startups, GoLang, Python, Typescript, LangChain, LLMs, Microservices
 
 `2021-now`
 __Uber__, Solution Architect
-* Contributed to the full-cycle design, implementation, and maintenance of numerous MVP products:
-  * Uber Charter - request high-capacity group rides in vehicles seating around 14-55 passengers
-  * Uber Park - park and pay at automated parking lots
-  * Uber Concierge - give the Rider / Eater a new way to start a conversation with the agents by initiating a new request
-* Conceptualized and designed the architectural framework for the aforementioned projects, crafting detailed ERD and PRD streamline approval processes. Regularly collaborated with Privacy and Security teams to ensure protocol adherence.
-* Developed robust backend code in Golang, adhering to Uber's Microservices MVCS design patterns, implementing APIs in gRPC, GraphQL and Rest protocols
-* Ensured code reliability and integrity through detailed unit testing within Go's MonoRepo environment.
-* Successfully integrated a range of technologies within the Golang Microservices framework, including MySQL, DocStore (Uber's NoSQL document store), Kafka, and others. This integration process involved working with Up (Uber deployment stack), USecret (Uber Secret Management), Cadence (Uber workflow and activity scheduler), uMonitor (Uber observability, logging), Edge (Uber API gateway), Uber Geofence, Uber Geoproxy, Populous (Uber user services), Rosetta (Uber translation services), Terrablob (Uber cloud storage), Texter/Pusher/PostMaster (Uber communication services), Nava (Uber Front End Tiles), BlackBox tests, Bliss (Call Center Agents dashboard and services), Flipr (Uber configuration management platform), Grafana, Kibana, Hive, HDFS,
-* Managed Front End MonoRepo projects utilizing GraphQL, React, Fusion (similar to NextJs)
-* Conducted in-depth technical interviews for potential Golang Backend and React Front End candidates, assessing skill levels and aptitude for the roles.
-Collaborated on the Privacy Stack for the User Data Export project, integrating Hadoop, Hive, Spark, Cadence, and Piper (Uber's version of Apache AirFlow) to guarantee user privacy and data security.
+* Worked on UDE (User Data Extraction) and DSAR (Data Subject Access Request) Automation as mandates for Security and Privacy teams. The stack included Piper (similar to Airflow), Cadence (similar to Temporal), Python, Go, Microservices, Reactjs, FusionJS, GraphQL, gRPC, Kafka, MySQL, and Docstore.
+* As part of EngSec, worked on an AI Decision Engine called ELLE that helped automate triaging and reviewing Engineering Review Documents in the context of Privacy and Security. The project won several internal recognition awards and was used across multiple sub-disciplines.
+* Worked on the end-to-end design, implementation and maintenance of multiple MVP products:
+o	Uber Charter - request high-capacity group rides in vehicles seating around 14-55 passengers
+o	Uber Park - park and pay at automated parking lots
+o	Uber Concierge - give the Rider / Eater a new way to start a conversation with the agents by initiating a new request
+* Designed the architecture of pieces of the above projects and written detailed ERD and PRD to follow the approval processes, interfacing Privacy and Security teams
+* Implemented Golang BE code following Uber Microservices MVCS design patterns, implementing APIs in gRPC, GraphQL and Rest protocols
+* Implemented detailed unit tests for the backend code in Go MonoRepo
+* Within GoLang Microservices, worked and integrated with MySQL, DocStore (Uber NoSQL document store), Kafka, Up (Uber deployment stack), USecret (Uber Secret Management), Cadence (Uber workflow and activity scheduler), uMonitor (Uber observability, logging), Edge (Uber API gateway), Uber Geofence, Uber Geoproxy, Populous (Uber user services), Rosetta (Uber translation services), Terrablob (Uber cloud storage), Texter/Pusher/PostMaster (Uber communication services), Nava (Uber Front End Tiles), BlackBox tests, Bliss (Call Center Agents dashboard and services), Flipr (Uber configuration management platform), Grafana, Kibana, Hive, HDFS,
+* Worked on FE MonoRepo projects utilizing GraphQL, React, Fusion (similar to NextJs)
+* Provided several detailed technical interviews for GoLang BE and React FE candidates
+
+`2021-now`
+__MatchPS / BayRockLabs__, AI Solutions Lead
+* As the GenAI lead at MatchPoint / BayRockLabs, worked on the architecture of multiple AI automation projects for companies like Lucid. These projects spanned startups and industries such as Ecommerce, Manufacturing, Accounting, Legal, and Hospitality.
+* Involved in technical interviews for MatchPoint resources for several companies including Uber, Robinhood, Netflix, Airbnb, Peloton, and Gap.
+* Involved in multiple technology teams at Uber as external Engineer (above)
 
 `2010-2023`
 __VisionZLab__, Tech Lead – Part Time
-* Participated in automation projects leveraging Open AI APIs and LangChain, spanning various applications from Image OCR to automation agent generation for tasks such as email and blog automation, proofreading, and code review and completion.
-* Engaged in a multitude of projects for local and online Small to Medium Businesses (SMBs) and startups in both B2B and B2C capacities. Roles included Full-Stack Developer, Architect, DevOps, UI Designer, and Product/Project Manager, with a focus on fast implementation and cost-effective solutions.
-* Managed the migration of local solutions to Azure and AWS Cloud platforms, involving infrastructure and network elements as well as websites, cloud services, storage, and document management systems.
-* Contributed to the ongoing development of "Persian Points" (Fidely.club), an integrated SAAS loyalty program using Node.JS, AngularJS, and MongoDB NoSQL database.
-* Participated in a FullStack project combining Java Spring Boot and Angular 2 with an AWS Microservices architecture.
-* Worked on "Exclusive Listings Club" (ExclusiveListings.club), a pre-MLS real estate marketplace. Technology stack included Firebase, NodeJS, AngularJS, Mandrill, MailChimp, SendGrid, Azure, Google Analytics, HTML5, CSS3, jQuery, Bootstrap, iOS, Android, Ionic, and Bitbucket.
-* Developed ELAIN, an AI chatbot serving as a real estate assistant. This system uses Wit.ai, Motion.ai, Twilio, NodeJS, Algolia Search and Azure Machine Learning platform. Also wrote real-time scrapers to collect real estate data from various sites using Python and NodeJS.
-* Created "Dojo Jobs" (DojoJobs.com), a social, gamified job board for IT contractors, using AngularJS, Firebase, HTML5, CSS3 animations, NodeJS, SQL Server 2016, Azure, LinkedIn API, OAuth, Trello, Slack, and Azure Search.
-* Involved in community-based projects like InfoTechUnion.com, a community for senior IT contractors, and Utilister.com, an essential SAAS toolset for real estate professionals built with Ruby on Rails, jQuery, Heroku, and AWS.
-* Developed Hybrid apps for platforms including WebOS, Amazon FireTV, AppleTV, iOS, and Android using Electron and Ionic.
-* Created responsive web applications using a diverse array of languages and technologies, including NodeJS, AngularJS, ReactJS, Meteor, ASP.NET MVC and Web API, PHP, and WordPress.
-* Designed mobile applications for Android and iOS platforms using Objective C, Swift, and Java.## Education
+* Worked on several projects in Local and Online Small to Medium Businesses and startups (both B2B and B2C) in various capacities (Full-Stack Developer, Architect, Dev-ops, UI Designer, Product / Project Manager) Designing, Automating, Integrating and Implementing solutions focusing on fast implementation and low cost. These projects include:
+* • FasterOutcomes: AI Startup in legal industry. Lead the Architecture and development. Stack: React, NextJS, Tailwind CSS, Python, n8n, LangChain, FastAPI, OpenAI LLMs, OCR, AI Agents, Firebase, Google Cloud
+* • Counta AI: AI Startup in Accounting industry. Stack: python, LangChain, FastAPI, CrewAI, AI Agents, Minio, Open Source LLMs, OCR
+* • MirrorMe3D: Mobile Startup in medical industry. Worked on the iOS mobile app that scans the user's face and sends the 3D model to the backend for processing special surgery prosthetics. Stack: iOS Swift
+* Migrating local solutions to Azure and AWS Cloud (from infrastructure and network to Websites, Cloud Services, Storages and Document Management Systems)
+* Persian Points (Fidely.club) – an SAAS Integrated Loyalty program (still in progress) Utilized Node.JS, AngularJS, MongoDB NoSQL database
+* FullStack Project with a combination of Java Spring Boot and Angular 2 with AWS Architecture implementation of Microservices
+* Exclusive Listings Club (ExclusiveListings.club)– a modern marketplace for Real Estate properties before MLS. Utilized Firebase, NodeJS, AngularJS, Mandrill, MailChimp, SendGrid, Azure, Google Analytics, HTML5, CSS3, jQuery, Bootstrap, iOS, Android, Ionic, bitbucket
+* ELAIN: An artificial intelligence chat bot as a real estate helper to answer questions and generate leads utilizing Wit.ai, Motion.ai, Twilio, NodeJS, Algolia Search and Azure Machine Learning platform. Wrote scrapers to gather Real Estate data from various sites in real-time (Python, NodeJS)
+* Dojo Jobs (DojoJobs.com): a socialized gamified job board specialized for IT contractors. AngularJS, Firebase, HTML5, CSS3 animations, NodeJS, SQL Server 2016, Azure, LinkedIn API, OAuth, Trello, Slack, Azure Search
+* InfoTechUnion.com: a community of Senior IT Contractors.
+* Utilister.com: Necessary SAAS toolset for Real Estate professionals. Ruby on Rails, jQuery, Heroku, AWS
+* Developed Hybrid apps for platforms like WebOS, Amazon FireTV, AppleTV, iOS, Android using Electron and Ionic
+* Creating Responsive Web Applications using a wide range of languages and technologies from NodeJS, AngularJS, ReactJS, Meteor, ASP.NET MVC and Web API to PHP and WordPress
+* Designed mobile applications on Android and iOS - Objective C, Swift, Java
 
-`2019-2021`   
+`2019-2021`
 __Canada Life__, Solution Architect
 - Established and led an in-house mobile development and architecture team, overseeing everything from conducting technical interviews to coaching developers and implementing automation for DevOps operations.
 - Collaborated with the Front-End team on the NEST project - a comprehensive, automated component library for React and VueJs components. Utilized tools such as Storybook, Akamai, Jenkins, npm, NodeJS, and Bitbucket.
@@ -343,11 +354,23 @@ B.Sc. in Computer Software Engineering
 - [Wellfound](https://wellfound.com/u/frank-goortani)
 
 ## Keywords
-- GoLang, JavaScript, Typescript, Python,  Swift, C#, Ruby, ES6, Java, Objective-C, R, SQL, HTML5, CSS3, Angular, React, Java EE, .NET, RxJava, RxSwift, RxJS, VueJs, Node.JS, Meteor, React Native , Bootstrap, Material Design, SciKit Learn, Azure ML Studio, Express, Redux, Svelte, SolidJS, Lit web components, Vue, Nuxtjs, Pinia, Ngrx, Rxjs, Universal, JSx, Gatsby, Nextjs, Bootstrap, Materialui, Tailwind, Sveltekit, Blazor, Redwood, Blitz, Astro, Gatsby, Pelican, Fast api, Dino, Kotlin, Supabase, Pinecone, Prisma (ORM), Qwik, GraphQL, gRPC, Rest, Jest, Mocha, Selenium, Junit, Nunit, Pytest, Testify, JUnit, NUnit, Selenium, Cucumber, Grafana, Mocha, Puppeteer, Karma, Istanbul, WebDriver, CA Erwin, PowerDesigner, SSIS, SSAS, SSRS, Informatica, Jupiter, iPython, OpenRefine, PyTorch,  Spinnaker, Rest-Assured, WebDriver, Bazel, Netlify,  Flutter, Electron, Shell, Termial, Linux,  Collibra, Artifactory, Nexus
-- PostgreSQL, MySQL, MSSQL, Oracle, Mongodb, Cassandra, Couchbase, Dynamo DB, Sqlite, Redis, SQL Server, Azure CDN, SQL Azure, Oracle, CouchDB, MongoDB, Azure CosmosDB, CouchBase, ElasticSearch, MySQL, Postgresql, Solr, HBase, Spark, Kafka, Hadoop, Spark, PIG, HIVE, Scoop, Cadence, Apache AirFlow, Piper, Redshift, Qlik View, Cognos, SQL Server BI, flywayDB, H2, AWS DynamoDB, AWS RDS, Azure Search, AWS and Azure Storage, OBIEE, Alteryx, Azure ML, Azure Data Lake, Data Factory, Azure Functions, Logic App, Data Streams,   XML, YAML, JSON, Tableau, Kubernetes, Terraform, Jenkins, Circle CI, Nginx, Apache, Heruko, AWS EC2, VPC, S3, Cognito, Lambda, Cloud Front, Cloud Formation, Cloud Watch, IAAS, PAAS, SAAS, AI APIs, Graylog, Datadog, StackDriver, Splunk, Prometheus, Chef, Puppet, Salt, Ant, FastLane
-- Azure, AWS, GCP, DevOps, GraphQL, Apache, Node.JS, Docker, Meteor, React Native, ASP.NET MVC, Heroku, Bitbucket, GitHub, GitLab, Express, Gulp, Grunt, Vite, Maven, Ionic, Angular, Firebase, AWS device farm, AWS API Gateway, Bower, Webpack, Web RTC, PlantUML, Jasmine, Karma, Protractor, TOGAF, PMBOK, BABOK, ITIL, Open ID, OAuth 2.0, Azure VM, K8S, Glassfish, npm, yarn, Sonar, Mockito, Spring Test, Fortify Scan, Cloud Foundry, Azure DevOps, Google Kubernetes, AWS Pipeline, AWS Steps Function, SNS, SQS, LangChain, Visual Studio, R Studio, XCode, Android Studio, IntelliJ, Goland, Eclipse, GitHub codespaces, DevPods, ELK, Cordova, Gladle, JIRA, Confluence, Virtualbox, Bamboo, GIT,  PlantUML, Hyper-v, Helm, Istio,  Zookeeper, Locust, Kong, Dynatrace,  Spring Boot, WASM, Hashicorp Vault, Consul, Packager, Rancher
+
+- Linux, Mac, Windows, XCode, Android Studio, IntelliJ, Gladle, JIRA, Virtualbox, Bamboo, Jenkins, Circle CI, GIT, SourceTree, n8n, Cadence
+- Azure, AWS, DevOps, Temporal, CA Erwin, PowerDesigner, Jupiter, iPython, OpenRefine, Tesseract OCR, markdown, LangChain, LLMs, Ollama
+- Langgraph, CrewAI, Agentic, AI Crawlers, pydantic, Uvicorn, StreamLit, Google Gemini, OpenAI LLMs, Meta LLMs, Firestore, Firebase functions
+- Nginx, GCP Cloud Run, GCP IAM, Spring, Hibernate, Swagger, JBOSS, JSP, Helm, Jetty, Istio Selenium, Cucumber, Grafana, Spring Boot, Chef, Puppet
+- Salt, AWS EC2, VPC, S3, Cognito, Lambda, SNS, Cloud Front, Cloud Formation, Cloud Watch, IAAS, PAAS, SAAS, AI APIs, Graylog, Datadog, StackDriver
+- Splunk, Prometheus, Spinnaker, Ant, JRebel, Zabbix, Rancher, Angular, React, Next, Svelt, RxJava, RxSwift, RxJS, VueJs, GraphQL, gRPC, Rest, RAG
+- Node.JS, Docker, React Native, Material Design, WebSockets, OnsenUI, shadcn, Tailwind, SciKit Learn, Azure ML Studio, Heroku, Bitbucket, GitHub
+- Express, Maven, Ionic, Redux, Firebase test lab, Jest, Mocha, Puppeteer, Karma, Istanbul, AWS device farm, API Gateway, Webpack, PlantUML, K8S
+- Jasmine, Karma, Protractor, TOGAF, PMBOK, BABOK, ITIL, Open ID, OAuth 2.0, Azure VM, Glassfish, npm, yarn, Dino, Sonar, Mockito, Spring Test
+- Fortify Scan, Cloud Foundry, Azure DevOps, Google Kubernetes, AWS Pipeline, AWS Steps Function, SNS, SQS, Chatbots, Browser Extensions
+- Helm, ELK, Zookeeper, Docker, Rest-Assured, WebDriver, Locust, Kong, Dynatrace, Prompt Engineering, Containers, Apigee, Collibra, Artifactory
+- C#, Ruby, Python, GoLang, JavaScript, ES6, Java, Spring, HTML5, CSS3, XML, YAML, JSON, Tableau, Akamai, Vector DBs, Swift, Objective-C, Cohere
+- SQL Server, Azure CDN, LangFuse, SQL Azure, Oracle, CouchDB, MongoDB, Azure CosmosDB, CouchBase, ElasticSearch, MySQL, Postgresql, Solr
+- HBase, Spark, MySQL, Kafka, Hadoop, Spark, PIG, HIVE, Firebase, Redshift, PineCone, Embedding Models, Agent flow, Aider, CoPilot, Agentic coding
+- Chroma, Weaviate, SQL Server BI, BIDS, SSDT, DynamoDB, Hugging Face models, AWS RDS, Azure Search, AWS and Azure Storage, OBIEE, Alteryx, Azure ML
+- Azure Data Lake, Data Factory, Azure DW, Azure Functions, Logic App, Data Streams, Hashicorp Vault, Packager, Hashicorp Consul, Terraform
 
 <!-- ### Footer
-Last updated: July 2023 -->
-
-
+Last updated: Oct 2024 -->
