@@ -3,30 +3,30 @@ layout: cv
 title: Frank Goortani
 ---
 # Frank Goortani, TOGAF, PMP
-Solution Consultant
+Hands on Solution Architect | LLM, Web, Cloud, Mobile, Strategy
 
 <div id="webaddress">
-<a href="mailto:frank@goortani.com">frank@goortani.com</a> | 
-<a href="media/Frank-Goortani-Resume-Solution-Architect-2023.pdf" target="_blank">Download PDF</a> | 
+<a href="mailto:frank@goortani.com">frank@goortani.com</a> |
+<a href="media/Frank-Goortani-Resume-Solution-Architect-2023.pdf" target="_blank">Download PDF</a> |
 <a href="https://goortani.com" target="_blank">View detailed version</a>
 </div>
 
 
 ## Profile
 
-Senior Solution Architect with 20+ years of experience in Data, Web/Mobile, Cloud, and DevOps solutions. Specialized in enterprise application design and implementation with a proven track record in both startup and enterprise settings. Offers strong leadership and a solid academic software background from top-tier institutions. Known for influencing strategy and fostering innovation and growth.
+Senior solution architect with extensive experience in generative AI, data-driven systems, cloud, and mobile technologies. Over 20 years of expertise in designing and implementing enterprise-grade applications across startups and large enterprises. Skilled in generative AI technologies, including LLMs, AI agents, and automation. Proven leadership in guiding cross-functional teams, driving architectural strategies, and delivering impactful results.
 ### Skills
 
-* Specialized in distributed systems, SOA, API platforms, microservices, and system integrations.
-* Proficient in reactive, functional, and OOP in various languages including Java, GoLang, Swift, JavaScript.
-* Expert in multi-tier architecture, design patterns, browser extensions, and VSCode extensions.
-* Experience in full-stack development, DevOps, scripting, product management, and Agile project management.
-* Skilled in mobile app development and architecture, with a focus on hybrid and cross-platform apps.
-* Accomplished in requirement analysis, change management, and stakeholder communications.
-* Capable of crafting business presentations and reports, architectural documentation, and conducting research.
-* Knowledgeable in data modeling and analysis, BI, data warehouse design, and use of ETL tools.
-* Proficient in data governance, master data management, and creating reporting dashboards.
-* Experienced in automation, data engineering, machine learning, and creating data visualizations.
+* Distributed Systems, API platforms, Microservices, integrations, Workflow systems
+* Generative AI, Large Language Models (LLMs), AI agents, AI automation, Machine Learning
+* Reactive and Functional Programming in Go, Python, Java, Swift, Typescript and JavaScript
+* Full-stack Development, DevOps, Product Management, Agile Project Management
+* Mobile application development, Mobile architecture, Hybrid/Cross-Platform apps
+* Requirement Analysis, Change Management, Stakeholder Communications, Technology Evangelism
+* Business Presentations, Architectural Documentation, Research, POCs
+* Data Modeling, Business Intelligence (BI), Data Warehouse Design, ETL tools
+* Data Governance, Data Streams, Master Data Management (MDM), Reporting, Dashboards
+* Automation, Data Science, Data Visualizations, Infographics
 
 
 ### Interests
@@ -37,6 +37,7 @@ Startups, GoLang, Python, Typescript, LangChain, LLMs, Microservices
 
 `2021-now`
 __Uber__, Solution Architect
+* As part of EngSec, worked on an AI Decision Engine called ELLE that helped automate triaging and reviewing Engineering Review Documents in the context of Privacy and Security. The project won several internal recognition awards and was used across multiple sub-disciplines.
 * Contributed to full-cycle design, implementation, and maintenance of MVP products including Uber Charter, Uber Park, and Uber Concierge.
 * Designed architectural framework for projects, ensuring compliance with privacy and security protocols through collaboration with relevant teams.
 * Developed robust Golang backend code following Uber's Microservices MVCS design patterns, and implemented APIs using gRPC, GraphQL, and Rest protocols.
@@ -56,7 +57,7 @@ __VisionZLab__, Tech Lead – Part Time
 * Developed diverse web and mobile applications for multiple platforms using technologies like NodeJS, AngularJS, ReactJS, PHP, WordPress, Objective C, Swift, and Java.
 
 
-`2019-2021`   
+`2019-2021`
 __Canada Life__, Solution Architect
 * Established and led a mobile development and architecture team, including hiring, coaching, and implementing DevOps automation. Cooperated with the Front-End team on the NEST project to automate component libraries and optimize Salesforce CRM using Angular and Vlocity tools.
 * Developed secure systems for e-signature collection and AODA-compliant PDF generation, while enhancing automation within Azure and GCP stacks. Contributed to the architecture and management of API platforms, microservices, and data streams.
@@ -104,13 +105,13 @@ __Mosaic Sales Solutions__, Software Consultant
 * Contributed to a data gathering web application project, using technologies like SQL Server, R Studio, Alteryx, Ruby on Rails, Angular, and Git. The project involved Rails for backend, Angular and Bootstrap for frontend.
 * Performed various data analyses using R Studio and Alteryx. Designed and created interactive, responsive dashboards for clients using BI tools.
 * Constructed a metadata warehouse, developed Microstrategy dashboards for performance monitoring, and developed a framework for using Alteryx as an ETL tool.
-* Implemented a centralized ETL process, extracting and transforming data from diverse sources like DB2, PostgreSQL, Oracle, MongoDB, and SQL Server, and loading into the Enterprise Data Warehouse (EDW). 
+* Implemented a centralized ETL process, extracting and transforming data from diverse sources like DB2, PostgreSQL, Oracle, MongoDB, and SQL Server, and loading into the Enterprise Data Warehouse (EDW).
 * Provided database support and optimization insights and implemented an archiving strategy for extra-large data warehouses.
 
 
 `2014-2015`
 __TD Bank – Business Intelligence & Data Strategies__, Manager, Software Development
-* Developed, automated, and maintained SharePoint and ASP.NET applications for internal reporting solutions. 
+* Developed, automated, and maintained SharePoint and ASP.NET applications for internal reporting solutions.
 * Contributed to a framework for designing and developing Business Intelligence (BI) projects.
 * Designed and implemented the Banking Services Data Mart for the OMEGA - PEGA project, involving data modeling with PowerDesigner and SSIS, SSRS, SSAS usage. Led multiple BI projects for different departments.
 * Utilized technologies like SQL Server, SSIS, SSAS, SSRS, MDX, .NET 4.5, Visual Studio 2013, ASP.NET MVC4, TIBCO, Momentum, and Cognos.
@@ -220,6 +221,4 @@ B.Sc. in Computer Software Engineering
 - Azure, AWS, GCP, DevOps, GraphQL, Apache, Node.JS, Docker, Meteor, React Native, ASP.NET MVC, Heroku, Bitbucket, GitHub, GitLab, Express, Gulp, Grunt, Vite, Maven, Ionic, Angular, Firebase, AWS device farm, AWS API Gateway, Bower, Webpack, Web RTC, PlantUML, Jasmine, Karma, Protractor, TOGAF, PMBOK, BABOK, ITIL, Open ID, OAuth 2.0, Azure VM, K8S, Glassfish, npm, yarn, Sonar, Mockito, Spring Test, Fortify Scan, Cloud Foundry, Azure DevOps, Google Kubernetes, AWS Pipeline, AWS Steps Function, SNS, SQS, LangChain, Visual Studio, R Studio, XCode, Android Studio, IntelliJ, Goland, Eclipse, GitHub codespaces, DevPods, ELK, Cordova, Gladle, JIRA, Confluence, Virtualbox, Bamboo, GIT,  PlantUML, Hyper-v, Helm, Istio,  Zookeeper, Locust, Kong, Dynatrace,  Spring Boot, WASM, Hashicorp Vault, Consul, Packager, Rancher
 
 <!-- ### Footer
-Last updated: July 2023 -->
-
-
+Last updated: Oct 2024 -->

@@ -1,6 +1,6 @@
 # Frank Goortani's Resume
 Name: Frank Goortani, TOGAF, PMP
-current job title: Solution Consultant
+current job title: Hands on Solution Architect | LLM, Web, Cloud, Mobile, Strategy
 
 ## Profile
 A seasoned Sr. End-to-End Solution Architect with over 20 years of experience, I specialize in Data, Web and Mobile, Cloud, and DevOps architectures. My expertise lies in designing and implementing enterprise applications and custom software. I bring robust leadership skills and a strong academic background in software from prestigious institutions. With significant contributions in both enterprise and startup environments, I have influenced strategy and decision-making at all levels. My dynamic and assertive approach drives innovation and growth.
