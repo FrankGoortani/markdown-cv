@@ -158,12 +158,8 @@ function createQueryButton(label, query) {
 
 // Handle a query button click
 function handleQuery(query) {
-  const resultsContainer = document.getElementById('cv-results');
-  resultsContainer.innerHTML = '<div class="cv-loading">Loading...</div>';
-
-  // Worker URL - using your deployed Cloudflare Worker
-  const workerUrl = 'https://frank-cv-sse.frank-b2a.workers.dev/sse/' + query;
-  connectToSSE(workerUrl);
+  // Call the fetchDataFromJson function with the endpoint
+  fetchDataFromJson(query);
 }
 
 // Handle search query
@@ -171,9 +167,8 @@ function performSearch(term) {
   const resultsContainer = document.getElementById('cv-results');
   resultsContainer.innerHTML = '<div class="cv-loading">Searching for "' + term + '"...</div>';
 
-  // Worker URL with search parameter
-  const workerUrl = 'https://frank-cv-sse.frank-b2a.workers.dev/sse/search?q=' + encodeURIComponent(term);
-  connectToSSE(workerUrl);
+  // Call fetchDataFromJson with the search endpoint
+  fetchDataFromJson('search?q=' + encodeURIComponent(term));
 }
 
 // Handle company experience query
@@ -181,69 +176,82 @@ function getCompanyExperience(company) {
   const resultsContainer = document.getElementById('cv-results');
   resultsContainer.innerHTML = '<div class="cv-loading">Loading experience at "' + company + '"...</div>';
 
-  // Worker URL with company parameter
-  const workerUrl = 'https://frank-cv-sse.frank-b2a.workers.dev/sse/company?name=' + encodeURIComponent(company);
-  connectToSSE(workerUrl);
+  // Call fetchDataFromJson with the company endpoint
+  fetchDataFromJson('company?name=' + encodeURIComponent(company));
 }
 
-// Connect to Server-Sent Events endpoint
-function connectToSSE(url) {
+// Fetch data from static JSON files
+async function fetchDataFromJson(endpoint) {
   const resultsContainer = document.getElementById('cv-results');
-  resultsContainer.innerHTML = '<div class="cv-loading">Connecting...</div>';
+  resultsContainer.innerHTML = '<div class="cv-loading">Loading...</div>';
 
   // Add debug logging
-  console.log('Connecting to SSE:', url);
+  console.log('Fetching from JSON:', endpoint);
 
   try {
-    const eventSource = new EventSource(url);
+    // Construct the JSON file path based on the endpoint
+    let jsonPath;
 
-    eventSource.onmessage = (event) => {
-      try {
-        console.log('Received SSE message:', event.data);
-
-        // Check if we got [DONE]
-        if (event.data.includes('[DONE]')) {
-          console.log('Received DONE signal, closing connection');
-          eventSource.close();
-          return;
-        }
-
-        const data = JSON.parse(event.data);
-
-        // Special handling for resume link
-        if (url.includes('/resume')) {
-          resultsContainer.innerHTML = `<div class="cv-result"><a href="${data.text}" target="_blank" class="cv-resume-link">View/Download PDF Resume</a></div>`;
-        }
-        // Special handling for profile picture
-        else if (url.includes('/picture')) {
-          resultsContainer.innerHTML = `<div class="cv-result cv-picture"><img src="${data.text}" alt="Frank Goortani" /></div>`;
-        }
-        // Handle regular text responses
-        else {
-          // Convert newlines to HTML breaks for proper formatting
-          const formattedText = data.text.replace(/\n/g, '<br>');
-          resultsContainer.innerHTML = `<div class="cv-result">${formattedText}</div>`;
-        }
-      } catch (error) {
-        console.error('Error processing SSE message:', error, event.data);
-        resultsContainer.innerHTML = '<div class="cv-error">Error processing response. Check console for details.</div>';
-        eventSource.close();
+    // Handle company endpoint specially
+    if (endpoint.startsWith('company?name=')) {
+      const companyName = endpoint.split('=')[1].toLowerCase();
+      // Handle specific companies we have JSON for
+      if (companyName.includes('uber')) {
+        jsonPath = 'static-json/company-uber.json';
+      } else if (companyName.includes('home') && companyName.includes('depot')) {
+        jsonPath = 'static-json/company-home-depot.json';
+      } else {
+        throw new Error(`No data available for company: ${companyName}`);
       }
-    };
+    }
+    // Handle search endpoint specially
+    else if (endpoint.startsWith('search?q=')) {
+      const searchTerm = endpoint.split('=')[1].toLowerCase();
+      // For now, we only have JavaScript search results pre-cached
+      if (searchTerm.toLowerCase() === 'javascript') {
+        jsonPath = 'static-json/search-javascript.json';
+      } else {
+        throw new Error(`No pre-cached search results for: ${searchTerm}`);
+      }
+    }
+    // Handle other simple endpoints
+    else {
+      jsonPath = `static-json/${endpoint}.json`;
+    }
 
-    eventSource.onerror = (error) => {
-      console.error('SSE connection error:', error);
-      resultsContainer.innerHTML = '<div class="cv-error">Connection error. Please try again.</div>';
-      eventSource.close();
-    };
+    console.log('Fetching JSON from:', jsonPath);
 
-    // Add onopen handler to confirm successful connection
-    eventSource.onopen = (event) => {
-      console.log('SSE connection opened:', event);
-    };
+    const response = await fetch(jsonPath);
 
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    // Special handling for resume link
+    if (endpoint === 'resume') {
+      resultsContainer.innerHTML = `<div class="cv-result"><a href="${data.text}" target="_blank" class="cv-resume-link">View/Download PDF Resume</a></div>`;
+    }
+    // Special handling for profile picture
+    else if (endpoint === 'picture') {
+      resultsContainer.innerHTML = `<div class="cv-result cv-picture"><img src="${data.text}" alt="Frank Goortani" /></div>`;
+    }
+    // Handle regular text responses
+    else {
+      // Convert newlines to HTML breaks for proper formatting
+      const formattedText = data.text.replace(/\n/g, '<br>');
+      resultsContainer.innerHTML = `<div class="cv-result">${formattedText}</div>`;
+    }
   } catch (error) {
-    console.error('Failed to create EventSource:', error);
-    resultsContainer.innerHTML = '<div class="cv-error">Failed to establish connection.</div>';
+    console.error('Error fetching data:', error);
+
+    if (endpoint.startsWith('search?q=')) {
+      resultsContainer.innerHTML = '<div class="cv-error">Search is limited to precomputed terms. Try searching for "JavaScript" as a demo.</div>';
+    } else if (endpoint.startsWith('company?name=')) {
+      resultsContainer.innerHTML = '<div class="cv-error">Company lookup is limited to "Uber" and "Home Depot" as a demo.</div>';
+    } else {
+      resultsContainer.innerHTML = `<div class="cv-error">Failed to load data. ${error.message}</div>`;
+    }
   }
 }
