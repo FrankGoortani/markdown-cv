@@ -17,10 +17,12 @@ Hands on Solution Architect | LLM, Web, Cloud, Mobile, Strategy
 <a href="short" target="_blank">View short version</a>
 </div>
 
-
 ## Profile
 
-Senior solution architect with extensive experience in generative AI, data-driven systems, cloud, and mobile technologies. Over 20 years of expertise in designing and implementing enterprise-grade applications across startups and large enterprises. Skilled in generative AI technologies, including LLMs, AI agents, and automation. Proven leadership in guiding cross-functional teams, driving architectural strategies, and delivering impactful results.
+Visionary technology executive and AI leader with over 25 years of experience driving strategic innovation in generative AI, intelligent automation, and cloud-native architectures. Proven track record in developing transformative solutions leveraging large language models (LLMs), advanced AI agents, and data-driven systems across startups and Fortune 500 enterprises.
+Highly adept at aligning complex technical strategies with organizational objectives, scaling high-performance teams, and accelerating business outcomes. Skilled in defining enterprise-wide architectural roadmaps, optimizing technology investments, and fostering environments that encourage innovation, agility, and measurable growth. Recognized thought leader in the AI domain, consistently delivering impactful solutions that shape the future of technology and industry.
+
+
 ### Skills
 
 * Distributed Systems, API platforms, Microservices, integrations, Workflow systems
@@ -37,7 +39,7 @@ Senior solution architect with extensive experience in generative AI, data-drive
 
 ### Interests
 
-Startups, GoLang, Python, Typescript, LangChain, LLMs, Microservices
+Startups, GoLang, Python, Typescript, LangChain, LLMs, Microservices, MCPs
 
 ## Work Experience
 
@@ -274,6 +276,11 @@ __Faragam Inc.__, DEVELOPER
 * Implemented and updated unit price detail packages using SQL Server 2005.
 
 ## Education and Professional Development
+`2025`
+__fasteroutcomes.com__
+
+`2024`
+__counta.ai__
 
 `2018`
 __maktub.com__
