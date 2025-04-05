@@ -1,89 +1,86 @@
-# CV Chat Interface Deployment Guide
+# CV Chat Interface Documentation (Static JSON Version)
 
-This guide explains how to deploy the CV chat interface that allows users to query information about Frank Goortani's portfolio.
+This document explains how to use and customize the chat interface for Frank Goortani's CV using the static JSON approach.
 
 ## Overview
 
-The system consists of two main parts:
-1. A **Cloudflare Worker** that processes queries and returns information about your CV
-2. A **JavaScript/CSS frontend** that provides a chat interface on your CV website
+The CV chat interface is a small, floating chat bubble that appears in the bottom-right corner of the CV website. When clicked, it opens a chat interface that allows visitors to:
 
-## Deployment Steps
+- View your professional profile
+- See your skills list
+- Check your interests
+- Search for specific terms
+- Get information about your experience at specific companies
+- View/download your resume
+- See your profile picture
 
-### 1. Set Up a Cloudflare Account
+## How It Works
 
-1. Sign up for a Cloudflare account at [https://dash.cloudflare.com/sign-up](https://dash.cloudflare.com/sign-up) if you don't already have one
-2. After signing in, go to **Workers & Pages** in the sidebar
-3. Click **Create Worker** to create a new worker
+The chat interface fetches data from static JSON files stored in your GitHub Pages repository. Each query type (profile, skills, etc.) has its own JSON file with a standardized format.
 
-### 2. Deploy the Worker
+## Files
 
-1. In the Cloudflare dashboard, after clicking "Create Worker", you'll see a code editor
-2. Replace all the code with the contents of the `cv-worker.js` file we created
-3. Click **Save and Deploy**
-4. After deployment, note the URL of your worker (in your case: `https://frank-cv-sse.frank-b2a.workers.dev`)
+### Frontend Files
+- `assets/css/cv-chat.css` - Styling for the chat interface
+- `assets/js/cv-chat.js` - JavaScript code that creates the interface and fetches JSON data
+- `_layouts/cv.html` - Template file that includes the chat interface
 
-### 3. Update the Frontend Code
+### Static JSON Files
+- `static-json/profile.json` - Professional profile information
+- `static-json/skills.json` - List of skills
+- `static-json/interests.json` - Professional interests
+- `static-json/resume.json` - Path to resume PDF
+- `static-json/picture.json` - Path to profile picture
+- `static-json/company-*.json` - Experience at specific companies
+- `static-json/search-*.json` - Pre-computed search results
 
-You need to update the worker URL in the JavaScript file:
+## Customization
 
-1. Open `assets/js/cv-chat.js`
-2. Find all instances of `https://your-worker.workers.dev` and replace them with your actual Cloudflare Worker URL (`https://frank-cv-sse.frank-b2a.workers.dev`)
-3. Save the file
+### Modifying the Chat Interface
 
-### 4. Push Changes to GitHub Pages
+You can customize the appearance of the chat interface by editing the CSS file:
 
-1. Commit all the new and modified files to your GitHub repository:
-   ```
-   git add assets/css/cv-chat.css
-   git add assets/js/cv-chat.js
-   git add _layouts/cv.html
-   git commit -m "Add CV chat interface"
-   git push
-   ```
+- Change colors, sizes, fonts, etc. in `assets/css/cv-chat.css`
+- Modify button labels and other text in `assets/js/cv-chat.js`
 
-2. Wait a few minutes for GitHub Pages to rebuild and deploy your site
+### Updating CV Data
 
-## Customization Options
+Your CV data is stored in individual JSON files:
 
-### Changing Colors
+1. Find the appropriate JSON file in the `static-json/` directory
+2. Update the content as needed
+3. Commit and push to your GitHub repository
 
-To change the color scheme of the chat interface:
+### Adding New Content
 
-1. Open `assets/css/cv-chat.css`
-2. Find the color references (e.g., `#0078d7` for the main blue color)
-3. Replace them with your preferred colors
+To add new content types:
 
-### Modifying CV Data
+1. Create a new JSON file in the `static-json/` directory
+2. Follow the standard format: `{"text": "Your content here with \n newlines for formatting"}`
+3. Update the JavaScript to recognize and handle the new content type
 
-To update the CV information that's returned by the worker:
+## Integration with Claude (MCP)
 
-1. Edit the `cvData` object at the top of `cv-worker.js`
-2. Re-deploy the worker in the Cloudflare dashboard
+The chat interface can be accessed by Claude and other AI assistants using the Model Context Protocol (MCP). This allows the AI to answer questions about your CV by connecting to the same static JSON files used by the chat interface.
 
 ## Troubleshooting
 
-### Worker Not Responding
+### Chat Interface Not Loading
 
-- Verify the Worker URL is correct in the JavaScript file
-- Check the Cloudflare Workers dashboard to ensure the worker is active
-- Look at the browser console for any JavaScript errors
+- Check that the CSS and JS files are included in your CV template
+- Verify that all static JSON files are properly deployed
+- Check browser console for errors
 
-### CORS Issues
+### JSON Fetch Issues
 
-If you see CORS errors in the browser console:
+- Ensure path references are correct in the JavaScript code
+- Check that JSON files are valid and properly formatted
+- Verify that GitHub Pages is correctly serving the static files
 
-1. Make sure the Worker's `Access-Control-Allow-Origin` header is set correctly
-2. The current setting allows any origin (`*`), but you may need to set it to your specific domain for better security
+## Benefits of the Static Approach
 
-### Chat Interface Not Appearing
-
-- Verify that both the CSS and JavaScript files are being loaded (check browser network tab)
-- Check if there are any JavaScript console errors
-- Make sure the DOM content is fully loaded before the script runs
-
-## Notes
-
-- The Cloudflare Workers free tier should be sufficient for this application, as it allows up to 100,000 requests per day
-- You'll need to reconnect to your worker after 30 seconds of inactivity (this is handled automatically by the frontend code)
-- The worker uses Server-Sent Events (SSE) instead of WebSockets for simplicity and broader compatibility
+- No server costs or maintenance of Cloudflare Workers
+- Works directly on GitHub Pages without additional configuration
+- No rate limits or quotas to worry about
+- Easier to update individual pieces of content
+- Better performance with direct file access
