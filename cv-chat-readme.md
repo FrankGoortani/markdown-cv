@@ -1,6 +1,6 @@
-# CV Chat Interface Documentation (Static JSON Version)
+# CV Chat Interface Documentation (SSE Version)
 
-This document explains how to use and customize the chat interface for Frank Goortani's CV using the static JSON approach.
+This document explains how to use and customize the chat interface for Frank Goortani's CV using the Server-Sent Events (SSE) approach.
 
 ## Overview
 
@@ -16,23 +16,19 @@ The CV chat interface is a small, floating chat bubble that appears in the botto
 
 ## How It Works
 
-The chat interface fetches data from static JSON files stored in your GitHub Pages repository. Each query type (profile, skills, etc.) has its own JSON file with a standardized format.
+The chat interface connects to a Cloudflare Worker that implements a Server-Sent Events (SSE) endpoint. This provides real-time streaming of responses and allows for both a web interface and MCP integration for AI assistants.
 
 ## Files
 
 ### Frontend Files
 - `assets/css/cv-chat.css` - Styling for the chat interface
-- `assets/js/cv-chat.js` - JavaScript code that creates the interface and fetches JSON data
+- `assets/js/cv-chat.js` - JavaScript code that creates the interface and connects to the SSE endpoint
 - `_layouts/cv.html` - Template file that includes the chat interface
 
-### Static JSON Files
-- `static-json/profile.json` - Professional profile information
-- `static-json/skills.json` - List of skills
-- `static-json/interests.json` - Professional interests
-- `static-json/resume.json` - Path to resume PDF
-- `static-json/picture.json` - Path to profile picture
-- `static-json/company-*.json` - Experience at specific companies
-- `static-json/search-*.json` - Pre-computed search results
+### Backend Files
+- `sse-worker.js` - Cloudflare Worker code that implements the SSE endpoint and MCP server
+- `cloudflare-sse-setup.md` - Instructions for deploying the worker to Cloudflare
+- `sse-test.html` - Test page for the chat interface
 
 ## Customization
 
@@ -45,42 +41,54 @@ You can customize the appearance of the chat interface by editing the CSS file:
 
 ### Updating CV Data
 
-Your CV data is stored in individual JSON files:
+Your CV data is stored directly in the `sse-worker.js` file in the `cvData` object:
 
-1. Find the appropriate JSON file in the `static-json/` directory
-2. Update the content as needed
-3. Commit and push to your GitHub repository
+1. Edit the appropriate section in the `cvData` object (profile, skills, etc.)
+2. For new searchable terms, add them to the `search` object
+3. For new companies, add them to the `company` object
+4. Re-deploy the worker to Cloudflare
 
-### Adding New Content
+## Integration with Cline and Other MCP Clients
 
-To add new content types:
+The chat interface can be accessed by Cline, Claude, and other AI assistants using the Model Context Protocol (MCP). This allows the AI to answer questions about your CV by connecting to the same SSE endpoint used by the chat interface.
 
-1. Create a new JSON file in the `static-json/` directory
-2. Follow the standard format: `{"text": "Your content here with \n newlines for formatting"}`
-3. Update the JavaScript to recognize and handle the new content type
+### Setting Up Cline with Your MCP Server
 
-## Integration with Claude (MCP)
+1. **Open the MCP Servers Interface**
+   - Click on the Cline icon in the VSCode sidebar
+   - Open the menu (⋮) in the top right corner of the Cline panel
+   - Select "MCP Servers" from the dropdown menu
 
-The chat interface can be accessed by Claude and other AI assistants using the Model Context Protocol (MCP). This allows the AI to answer questions about your CV by connecting to the same static JSON files used by the chat interface.
+2. **Add a new Remote MCP Server**
+   - Click on the "Remote Servers" tab
+   - Fill in the required information:
+     - **Server Name**: `frank-cv` (or any descriptive name)
+     - **Server URL**: `https://frank-cv-sse.frank-b2a.workers.dev/sse`
+   - Click "Add Server" to initiate the connection
+
+3. **Verify and Use the Server**
+   - A green indicator means the server is connected
+   - Now you can ask Cline questions about Frank's CV
+   - Example queries: "What skills does Frank have?", "Describe Frank's experience at Uber"
 
 ## Troubleshooting
 
 ### Chat Interface Not Loading
 
 - Check that the CSS and JS files are included in your CV template
-- Verify that all static JSON files are properly deployed
+- Verify that the Cloudflare Worker is deployed and running
 - Check browser console for errors
 
-### JSON Fetch Issues
+### SSE Connection Issues
 
-- Ensure path references are correct in the JavaScript code
-- Check that JSON files are valid and properly formatted
-- Verify that GitHub Pages is correctly serving the static files
+- Open your browser's Network tab and filter for "EventSource" to see the SSE connections
+- Check for any CORS errors in the console
+- Verify that your SSE endpoints are returning the proper content type and headers
 
-## Benefits of the Static Approach
+## Benefits of the SSE Approach
 
-- No server costs or maintenance of Cloudflare Workers
-- Works directly on GitHub Pages without additional configuration
-- No rate limits or quotas to worry about
-- Easier to update individual pieces of content
-- Better performance with direct file access
+- Real-time streaming responses
+- Works directly with GitHub Pages
+- No need for custom domain routing or DNS configuration
+- One implementation for both web interface and AI assistant integration
+- All data in one place for easier maintenance

@@ -35,33 +35,38 @@ The previous implementation used static JSON files. The new implementation:
    - `https://cv-sse-worker.yourname.workers.dev`
    - This is your SSE server URL
 
-## Step 2: Set Up Custom Domain (Optional but Recommended)
+## Step 2: Configure the Frontend JavaScript
 
-For your SSE endpoints to work with the website, they should be on the same domain to avoid CORS issues.
+The frontend JavaScript has been updated to use the direct Worker URL:
 
-1. **Add a route in Cloudflare**
-   - In your Cloudflare dashboard, go to the domain you use for your CV site (e.g., goortani.com)
-   - Go to "Workers Routes"
-   - Add a new route:
-     - Route pattern: `goortani.com/sse*`
-     - Worker: Select your deployed worker (e.g., "cv-sse-worker")
+```javascript
+const sseUrl = `https://frank-cv-sse.frank-b2a.workers.dev/sse/${endpoint}`;
+```
 
-2. **Update your frontend code**
-   - The JavaScript in your CV site is already configured to use `/sse/` paths, which will now route to your Worker
+This approach has several benefits:
+- Works directly with GitHub Pages without custom domain routing
+- Avoids CORS issues as the worker has permissive CORS headers
+- Simplifies deployment (no need to set up DNS or Cloudflare routes)
 
-## Step 3: Configure Claude with the Remote MCP Server
+## Step 3: Configure Cline with the Remote MCP Server
 
-1. **Go to Claude settings**
-   - Open Claude in your web browser
-   - Click on settings (gear icon)
-   - Go to "MCP Servers" section
+To connect Cline to your MCP server:
+
+1. **Open the MCP Servers Interface**
+   - Click on the Cline icon in the VSCode sidebar
+   - Open the menu (⋮) in the top right corner of the Cline panel
+   - Select "MCP Servers" from the dropdown menu
 
 2. **Add a new Remote MCP Server**
-   - Select the "Remote (SSE)" tab
-   - Fill in the server details:
-     - **Server Name**: Enter a name for your server (e.g., "cv-mcp")
-     - **Server URL**: `https://goortani.com/sse` (or your worker URL + `/sse` if not using a custom domain)
-   - Click "Add Server"
+   - Click on the "Remote Servers" tab in the MCP Servers interface
+   - Fill in the required information:
+     - **Server Name**: `frank-cv` (or any descriptive name)
+     - **Server URL**: `https://frank-cv-sse.frank-b2a.workers.dev/sse` (or your own worker URL + `/sse`)
+   - Click "Add Server" to initiate the connection
+
+3. **Verify Connection**
+   - Cline will attempt to connect to the server
+   - A green dot indicates the server is connected and ready to use
 
 ## Step 4: Test the Implementation
 

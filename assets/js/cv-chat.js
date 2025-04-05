@@ -190,7 +190,7 @@ function fetchDataFromJson(endpoint) {
 
   try {
     // Full path to the SSE endpoint
-    const sseUrl = `/sse/${endpoint}`;
+    const sseUrl = `https://frank-cv-sse.frank-b2a.workers.dev/sse/${endpoint}`;
     console.log('SSE URL:', sseUrl);
 
     const eventSource = new EventSource(sseUrl);

@@ -56,17 +56,17 @@
   <h2>Implementation Details</h2>
 
   <div class="box">
-    <h3>JSON Files in /sse/ Directory</h3>
-    <p>All responses are now served from JSON files in the <span class="highlight">/sse/</span> directory:</p>
+    <h3>Direct Cloudflare Worker Integration</h3>
+    <p>All responses are now served directly from a Cloudflare Worker via <span class="highlight">Server-Sent Events (SSE)</span>:</p>
     <ul>
-      <li><span class="highlight">profile.json</span> - Professional profile</li>
-      <li><span class="highlight">skills.json</span> - Skills list</li>
-      <li><span class="highlight">interests.json</span> - Professional interests</li>
-      <li><span class="highlight">resume.json</span> - Path to resume PDF</li>
-      <li><span class="highlight">picture.json</span> - Path to profile picture</li>
-      <li><span class="highlight">company-uber.json</span> - Uber experience</li>
-      <li><span class="highlight">company-home-depot.json</span> - Home Depot experience</li>
-      <li><span class="highlight">search-javascript.json</span> - Search results for "JavaScript"</li>
+      <li><span class="highlight">https://frank-cv-sse.frank-b2a.workers.dev/sse/profile</span> - Professional profile</li>
+      <li><span class="highlight">https://frank-cv-sse.frank-b2a.workers.dev/sse/skills</span> - Skills list</li>
+      <li><span class="highlight">https://frank-cv-sse.frank-b2a.workers.dev/sse/interests</span> - Professional interests</li>
+      <li><span class="highlight">https://frank-cv-sse.frank-b2a.workers.dev/sse/resume</span> - Path to resume PDF</li>
+      <li><span class="highlight">https://frank-cv-sse.frank-b2a.workers.dev/sse/picture</span> - Path to profile picture</li>
+      <li><span class="highlight">https://frank-cv-sse.frank-b2a.workers.dev/sse/company?name=uber</span> - Uber experience</li>
+      <li><span class="highlight">https://frank-cv-sse.frank-b2a.workers.dev/sse/company?name=home%20depot</span> - Home Depot experience</li>
+      <li><span class="highlight">https://frank-cv-sse.frank-b2a.workers.dev/sse/search?q=javascript</span> - Search results for "JavaScript"</li>
     </ul>
   </div>
 
@@ -75,7 +75,7 @@
     <p>The MCP server is implemented as a Cloudflare Worker that connects to these same JSON files:</p>
     <ul>
       <li>Uses standard MCP protocol for AI assistants</li>
-      <li>Fetches data from <span class="highlight">https://goortani.com/sse/</span> endpoints</li>
+      <li>Fetches data from <span class="highlight">https://frank-cv-sse.frank-b2a.workers.dev/sse</span> endpoints</li>
       <li>Handles error cases gracefully</li>
       <li>Provides consistent responses across both web interface and AI assistants</li>
     </ul>
