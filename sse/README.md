@@ -1,6 +1,6 @@
-# Static JSON Files for CV Chat Interface
+# CV Data Files for Chat Interface
 
-This directory contains pre-generated JSON responses that power the CV chat interface. These static files replace the need for a dynamic backend server, allowing the chat functionality to work directly from GitHub Pages.
+This directory contains the JSON files that power the CV chat interface. These static files provide data for the chat interface and MCP server, allowing users to query information about Frank Goortani's portfolio.
 
 ## Overview
 
@@ -28,6 +28,16 @@ Each JSON file follows a simple structure:
 ### Search Results
 - `search-javascript.json` - Search results for "JavaScript"
 
+## How These Files Are Used
+
+1. **Direct Access via Chat Interface**:
+   - The frontend JavaScript accesses these files directly when users click on buttons or search
+   - For example, clicking the "Skills" button fetches `sse/skills.json`
+
+2. **Indirect Access via MCP Server**:
+   - The Cloudflare Worker for MCP server also accesses these files
+   - This allows AI assistants like Claude to query your CV information
+
 ## Adding More Content
 
 ### For New Companies
@@ -36,7 +46,7 @@ To add experience for a new company:
 
 1. Create a file named `company-{companyname}.json` (use lowercase and hyphens)
 2. Format the content with proper newlines (`\n`) for the chat display
-3. Update the `fetchDataFromJson` function in `assets/js/cv-chat.js` to recognize the new company
+3. Update the JavaScript in `assets/js/cv-chat.js` to recognize the new company
 
 Example for a new company:
 
@@ -52,7 +62,7 @@ To add a new pre-computed search result:
 
 1. Create a file named `search-{term}.json` (use lowercase and hyphens)
 2. Format the content as a search result with matches
-3. Update the `fetchDataFromJson` function in `assets/js/cv-chat.js` to recognize the new search term
+3. Update the JavaScript in `assets/js/cv-chat.js` to recognize the new search term
 
 Example for a new search term:
 
@@ -62,11 +72,10 @@ Example for a new search term:
 }
 ```
 
-## Benefits of the Static Approach
+## Benefits of This Approach
 
 - No server costs or external dependencies
 - Works directly on GitHub Pages
 - No rate limits or quotas
 - Fast loading times
 - Simple to update and maintain
-- Can still create an MCP server that connects to these static files
