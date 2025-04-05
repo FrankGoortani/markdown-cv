@@ -8,16 +8,72 @@ const cvData = {
   profile: "Senior solution architect with extensive experience in generative AI, data-driven systems, cloud, and mobile technologies. Over 20 years of expertise in designing and implementing enterprise-grade applications across startups and large enterprises. Skilled in generative AI technologies, including LLMs, AI agents, and automation. Proven leadership in guiding cross-functional teams, driving architectural strategies, and delivering impactful results.",
 
   skills: [
-    "Distributed Systems, API platforms, Microservices, integrations, Workflow systems",
-    "Generative AI, Large Language Models (LLMs), AI agents, AI automation, Machine Learning",
-    "Reactive and Functional Programming in Go, Python, Java, Swift, Typescript and JavaScript",
-    "Full-stack Development, DevOps, Product Management, Agile Project Management",
-    "Mobile application development, Mobile architecture, Hybrid/Cross-Platform apps",
-    "Requirement Analysis, Change Management, Stakeholder Communications, Technology Evangelism",
-    "Business Presentations, Architectural Documentation, Research, POCs",
-    "Data Modeling, Business Intelligence (BI), Data Warehouse Design, ETL tools",
-    "Data Governance, Data Streams, Master Data Management (MDM), Reporting, Dashboards",
-    "Automation, Data Science, Data Visualizations, Infographics"
+    // Architecture & Solution Design
+    "Enterprise Architecture, TOGAF, Solution Design, Reference Architectures, Design Patterns",
+    "Distributed Systems, API Platforms, API Gateway, Microservices, Service Mesh, Event-Driven Architecture",
+    "Integration Patterns, ESB, Workflow Systems, Temporal, Cadence, Serverless Architecture",
+    "Infrastructure as Code, IaaS, PaaS, SaaS, Cloud Architecture, Multi-Cloud Strategy",
+
+    // AI & Machine Learning
+    "Generative AI, Large Language Models (LLMs), AI Agents, AI Automation, RAG (Retrieval-Augmented Generation)",
+    "Prompt Engineering, Vector Databases, Embeddings, AI-Driven Decision Systems, OpenAI, Gemini",
+    "Machine Learning, AI Crawlers, Semantic Search, Natural Language Processing, Computer Vision",
+    "LangChain, LangGraph, CrewAI, Multimodal AI Systems, Fine-Tuning, Agentic AI Systems",
+
+    // Programming & Development
+    "Reactive Programming, Functional Programming, Object-Oriented Programming, SOLID Principles",
+    "Go/Golang, Python, Java, Swift, TypeScript, JavaScript, C#, Ruby, HTML5, CSS3, XML, YAML, JSON",
+    "Full-Stack Development, MERN Stack, MEAN Stack, JAMstack, Isomorphic Applications",
+    "Web Development, UI/UX Design, Responsive Design, Progressive Web Apps (PWAs)",
+
+    // Mobile Development
+    "Mobile Application Architecture, Native Mobile Development (iOS, Android), Hybrid Mobile Apps",
+    "Cross-Platform Development, React Native, Ionic, Swift, Objective-C, Java for Android, Kotlin",
+    "Mobile DevOps, App Store Optimization, Mobile Testing, Mobile Security, Mobile Analytics",
+
+    // DevOps & CI/CD
+    "DevOps, CI/CD Pipelines, Continuous Integration, Continuous Deployment, GitOps",
+    "Infrastructure Automation, Configuration Management, Container Orchestration, Kubernetes",
+    "Docker, Helm, Istio, Service Mesh, Infrastructure Monitoring, Application Performance Monitoring",
+    "Jenkins, Bamboo, CircleCI, GitLab CI, GitHub Actions, Spinnaker, ArgoCD, FluxCD",
+
+    // Cloud Platforms & Technologies
+    "AWS (Amazon Web Services), Azure, GCP (Google Cloud Platform), Pivotal Cloud Foundry",
+    "Serverless Computing, AWS Lambda, Azure Functions, Google Cloud Functions, Cloud Run",
+    "Container Services, EKS, AKS, GKE, Fargate, Cloud Storage Solutions, CDN Integration",
+    "Cloud Security, IAM, VPC Configuration, Network Design, Cloud Cost Optimization",
+
+    // Data Engineering & Analytics
+    "Data Modeling, Database Design, Dimensional Modeling, Star Schema, Snowflake Schema",
+    "Business Intelligence (BI), Data Warehouse Design, ETL/ELT Processes, Data Lakes",
+    "Data Governance, Data Quality, Master Data Management (MDM), Data Catalogs",
+    "Data Streaming, Real-time Analytics, Batch Processing, Lambda Architecture, Kappa Architecture",
+    "Big Data Technologies, Hadoop Ecosystem, Spark, Hive, Pig, Kafka, HBASE",
+    "SQL and NoSQL Databases, Data Visualization, Dashboards, Reporting Solutions",
+
+    // Project & Product Management
+    "Agile Methodologies, Scrum, Kanban, SAFe, Lean Software Development, XP",
+    "Product Management, Product Strategy, Roadmap Planning, Feature Prioritization",
+    "Project Management, PMP, Risk Management, Resource Allocation, Budget Management",
+    "Stakeholder Management, Requirements Gathering, User Stories, Acceptance Criteria",
+
+    // Security & Compliance
+    "Security Architecture, Authentication & Authorization, OAuth 2.0, OpenID Connect",
+    "Data Privacy, GDPR, CCPA, HIPAA, PCI-DSS Compliance, Security by Design",
+    "Threat Modeling, Security Testing, Penetration Testing, Security Code Reviews",
+    "Zero Trust Architecture, Identity Management, Secure API Design, Security Automation",
+
+    // Team Leadership & People Management
+    "Technical Team Leadership, Mentoring, Technical Coaching, Team Building",
+    "Recruiting Technical Talent, Interview Processes, Onboarding, Performance Management",
+    "Cross-functional Team Collaboration, Offshore Team Management, Distributed Teams",
+    "Technical Communication, Technology Evangelism, Knowledge Sharing, Community Building",
+
+    // Soft Skills & Business Acumen
+    "Business Presentations, Technical Documentation, Whiteboarding, Architecture Review",
+    "Change Management, Digital Transformation, Technology Strategy, Innovation Management",
+    "ROI Analysis, TCO Calculation, Business Case Development, Value Stream Mapping",
+    "Vendor Management, Technology Evaluation, Technical Due Diligence, Technology Roadmapping"
   ],
 
   interests: ["Startups", "GoLang", "Python", "Typescript", "LangChain", "LLMs", "Microservices"],
@@ -94,17 +150,98 @@ const cvData = {
   },
 
   keywords: [
-    "Linux", "Mac", "Windows", "XCode", "Android Studio", "IntelliJ", "Gladle", "JIRA", "Virtualbox",
-    "Bamboo", "Jenkins", "Circle CI", "GIT", "SourceTree", "n8n", "Cadence",
-    "Azure", "AWS", "DevOps", "Temporal", "CA Erwin", "PowerDesigner", "Jupiter", "iPython",
-    "OpenRefine", "Tesseract OCR", "markdown", "LangChain", "LLMs", "Ollama",
-    "Langgraph", "CrewAI", "Agentic", "AI Crawlers", "pydantic", "Uvicorn", "StreamLit",
-    "Google Gemini", "OpenAI LLMs", "Meta LLMs", "Firestore", "Firebase functions",
-    "Nginx", "GCP Cloud Run", "GCP IAM", "Spring", "Hibernate", "Swagger", "JBOSS", "JSP",
-    "Helm", "Jetty", "Istio Selenium", "Cucumber", "Grafana", "Spring Boot", "Chef", "Puppet",
-    "JavaScript", "TypeScript", "Python", "GoLang", "Java", "Swift", "React", "Angular", "Node.js",
-    "Kubernetes", "Docker", "Microservices", "API", "REST", "GraphQL", "gRPC", "MongoDB", "MySQL",
-    "PostgreSQL", "Firebase", "AWS Lambda", "Serverless", "CI/CD", "DevOps", "Agile", "Scrum"
+    // Operating Systems & Development Environments
+    "Linux", "Mac", "Windows", "Ubuntu", "CentOS", "RedHat", "iOS", "Android",
+    "XCode", "Android Studio", "IntelliJ", "Visual Studio", "VS Code", "Eclipse", "Vim", "Emacs",
+    "Gradle", "Maven", "npm", "yarn", "Webpack", "Babel", "ESLint", "TSLint", "Prettier",
+
+    // Project Management & Collaboration Tools
+    "JIRA", "Confluence", "Trello", "Asana", "Monday.com", "ClickUp", "Notion",
+    "Slack", "Microsoft Teams", "Zoom", "GitHub", "GitLab", "BitBucket", "SourceTree",
+    "Miro", "Figma", "Zeplin", "InVision", "Sketch", "Adobe XD", "Lucidchart",
+
+    // DevOps & CI/CD Tools
+    "Jenkins", "Bamboo", "CircleCI", "GitHub Actions", "GitLab CI", "Travis CI",
+    "Docker", "Kubernetes", "Helm", "Istio", "Rancher", "OpenShift", "Mesos", "Marathon",
+    "Terraform", "Ansible", "Chef", "Puppet", "Salt", "Vagrant", "Packer", "Consul", "Vault",
+    "Spinnaker", "ArgoCD", "FluxCD", "Harness", "GitOps", "Datadog", "New Relic",
+
+    // Cloud Platforms & Services
+    "AWS EC2", "AWS S3", "AWS Lambda", "AWS Cognito", "AWS SNS", "AWS SQS", "AWS CloudFront",
+    "AWS CloudFormation", "AWS CloudWatch", "AWS RDS", "AWS DynamoDB", "AWS Redshift",
+    "Azure VMs", "Azure App Service", "Azure Functions", "Azure Storage", "Azure DevOps",
+    "Azure CosmosDB", "Azure SQL", "Azure Active Directory", "Azure Kubernetes Service",
+    "GCP Compute Engine", "GCP Cloud Run", "GCP Cloud Functions", "GCP Storage", "GCP IAM",
+    "GCP BigQuery", "GCP Dataflow", "GCP Pub/Sub", "GCP Firestore", "GCP Cloud Spanner",
+    "Firebase", "Firebase Auth", "Firebase Functions", "Firebase Storage", "Firestore",
+    "Heroku", "Digital Ocean", "Linode", "Cloudflare", "Akamai", "Fastly", "Netlify", "Vercel",
+
+    // Virtualization & Containerization
+    "VirtualBox", "VMware", "Hyper-V", "KVM", "Docker", "Docker Compose", "Docker Swarm",
+    "Kubernetes", "K8s", "Minikube", "MiniShift", "EKS", "AKS", "GKE", "OpenShift",
+    "Containers", "Microservices", "Service Mesh", "Linkerd", "Envoy", "Kong", "Ambassador",
+
+    // Workflow & Task Automation
+    "Airflow", "Temporal", "Cadence", "n8n", "Zapier", "IFTTT", "Power Automate",
+    "Celery", "RabbitMQ", "Kafka", "ActiveMQ", "Cron", "Systemd", "Windows Task Scheduler",
+
+    // Programming Languages & Frameworks
+    "JavaScript", "TypeScript", "Python", "GoLang", "Java", "C#", "Swift", "Objective-C",
+    "Ruby", "PHP", "Scala", "Kotlin", "Dart", "Rust", "C++", "C", "Bash", "PowerShell",
+    "React", "Angular", "Vue.js", "Next.js", "Nuxt.js", "Svelte", "Ember.js", "jQuery",
+    "Redux", "NgRx", "Vuex", "MobX", "React Query", "SWR", "Apollo Client", "Relay",
+    "Node.js", "Express", "NestJS", "Spring Boot", "Spring Framework", "Django", "Flask",
+    "Rails", "Laravel", "ASP.NET Core", "FastAPI", "Gin", "Echo", "Fiber", "Rocket",
+    "Bootstrap", "Material UI", "Tailwind CSS", "Chakra UI", "Ant Design", "Bulma", "Foundation",
+
+    // Data & Databases
+    "SQL", "MySQL", "PostgreSQL", "SQL Server", "Oracle", "SQLite", "MariaDB",
+    "MongoDB", "Cassandra", "CouchDB", "Redis", "Neo4j", "Elasticsearch", "DynamoDB",
+    "Firebase Realtime DB", "Firestore", "FaunaDB", "Supabase", "Datomic", "InfluxDB",
+    "GraphQL", "REST", "gRPC", "SOAP", "WebSockets", "WebRTC", "Server-Sent Events",
+    "Prisma", "SQLAlchemy", "Hibernate", "Entity Framework", "Sequelize", "TypeORM",
+    "ETL", "ELT", "SSIS", "SSAS", "SSRS", "PowerBI", "Tableau", "Looker", "Metabase",
+
+    // AI & Machine Learning
+    "LangChain", "LLMs", "Ollama", "LangGraph", "CrewAI", "Agentic", "AI Crawlers",
+    "Pydantic", "Uvicorn", "StreamLit", "FastAPI", "Gradio", "HuggingFace", "Transformers",
+    "Google Gemini", "OpenAI", "GPT", "Claude", "Meta LLMs", "Mistral", "Llama", "Vicuna",
+    "Prompt Engineering", "RAG", "Vector Databases", "Pinecone", "Weaviate", "Chroma",
+    "TensorFlow", "PyTorch", "Scikit-learn", "Keras", "ONNX", "MXNet", "JAX", "SpaCy",
+
+    // Web Servers & Middleware
+    "Nginx", "Apache", "IIS", "Tomcat", "Jetty", "JBOSS", "WildFly",
+    "Express", "Koa", "Fastify", "Hapi", "Spring WebFlux", "WSGI", "ASGI", "Gunicorn",
+    "HTTP", "HTTPS", "HTTP/2", "HTTP/3", "TLS", "SSL", "Web Security", "CORS", "XSS", "CSRF",
+
+    // Testing & Quality Assurance
+    "Jest", "Mocha", "Jasmine", "Karma", "Cypress", "Selenium", "Puppeteer", "Playwright",
+    "JUnit", "TestNG", "NUnit", "xUnit", "PyTest", "Nose", "RSpec", "PHPUnit",
+    "Cucumber", "Gherkin", "BDD", "TDD", "ATDD", "Postman", "Insomnia", "SoapUI",
+    "JMeter", "Locust", "Gatling", "K6", "LoadRunner", "BlazeMeter", "Lighthouse",
+    "SonarQube", "ESLint", "Prettier", "Black", "Flake8", "JSLint", "JSHint", "Checkstyle",
+
+    // Monitoring & Observability
+    "Grafana", "Prometheus", "ELK Stack", "Elasticsearch", "Logstash", "Kibana",
+    "Datadog", "New Relic", "Dynatrace", "AppDynamics", "Sentry", "Rollbar", "LogRocket",
+    "Jaeger", "Zipkin", "OpenTracing", "OpenTelemetry", "Splunk", "Graylog", "Loki",
+
+    // Security & Identity
+    "OAuth 2.0", "OpenID Connect", "SAML", "JWT", "Keycloak", "Auth0", "Okta",
+    "Azure AD", "AWS Cognito", "Firebase Auth", "Google Identity Platform", "LDAP",
+    "SSO", "MFA", "2FA", "RBAC", "ABAC", "Zero Trust", "Biometrics", "Encryption",
+    "TLS", "SSL", "HTTPS", "VPN", "Firewall", "WAF", "OWASP", "Penetration Testing",
+
+    // Methodologies & Practices
+    "Agile", "Scrum", "Kanban", "SAFe", "LeSS", "XP", "Lean", "DevOps", "DataOps", "MLOps",
+    "GitOps", "Trunk-Based Development", "Feature Flags", "Blue-Green Deployment",
+    "Canary Deployment", "A/B Testing", "Chaos Engineering", "Site Reliability Engineering",
+    "BDD", "TDD", "DDD", "Event Storming", "CQRS", "Event Sourcing", "Hexagonal Architecture",
+
+    // Industry-Specific
+    "FinTech", "HealthTech", "EdTech", "PropTech", "InsurTech", "LegalTech", "RetailTech",
+    "Mobility", "Smart Cities", "IoT", "Blockchain", "Cryptocurrency", "NFT", "DeFi",
+    "GDPR", "CCPA", "HIPAA", "SOX", "PCI-DSS", "ISO 27001", "SOC 2", "NIST", "FedRAMP"
   ],
 
   resumeUrl: "media/Frank Goortani Resume--solution-architect-2024.pdf",
@@ -174,25 +311,47 @@ function getCompanyExperience(companyName) {
   return `No experience found for company "${companyName}".`;
 }
 
-// Main event handler for the Worker
-addEventListener('fetch', event => {
-  // Handle CORS preflight requests
-  if (event.request.method === 'OPTIONS') {
-    return event.respondWith(handleCORS(event.request));
-  }
+// Export a default object for Cloudflare Workers
+export default {
+  async fetch(request, env, ctx) {
+    // Handle CORS preflight requests
+    if (request.method === 'OPTIONS') {
+      return handleCORS(request);
+    }
 
-  // Handle SSE connections
-  if (event.request.headers.get('Accept') === 'text/event-stream') {
-    return event.respondWith(handleSSE(event.request));
-  }
+    // For testing purposes, allow direct URL queries without EventSource
+    const url = new URL(request.url);
+    const path = url.pathname.split('/').pop() || '';
+    const queryParam = url.searchParams.get('q') || '';
+    const companyParam = url.searchParams.get('name') || '';
 
-  // All other requests get a simple response explaining the API
-  return event.respondWith(new Response(
-    'This endpoint supports SSE connections for Frank Goortani\'s CV queries. ' +
-    'Connect with an EventSource and append a query path (profile, skills, interests, search, company, resume, picture).',
-    { status: 200 }
-  ));
-});
+    // Check if the path contains 'sse'
+    if (url.pathname.includes('/sse/')) {
+      // Special headers for SSE
+      const headers = {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+        'Access-Control-Allow-Origin': '*'
+      };
+
+      return handleSSERequest(request, path, queryParam, companyParam, headers);
+    }
+
+    // All other requests get a simple response explaining the API
+    return new Response(
+      'This endpoint supports SSE connections for Frank Goortani\'s CV queries. ' +
+      'Connect with an EventSource and append a query path (profile, skills, interests, search, company, resume, picture).',
+      {
+        status: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'text/plain'
+        }
+      }
+    );
+  }
+};
 
 // Handle CORS preflight requests
 function handleCORS(request) {
@@ -201,67 +360,68 @@ function handleCORS(request) {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Headers': 'Content-Type, Accept',
       'Access-Control-Max-Age': '86400',
     },
   });
 }
 
-// Handle SSE connections and queries
-async function handleSSE(request) {
-  const url = new URL(request.url);
-  const path = url.pathname.split('/').pop() || '';
-  const queryParam = url.searchParams.get('q') || '';
-  const companyParam = url.searchParams.get('name') || '';
+// Handle SSE requests
+async function handleSSERequest(request, path, queryParam, companyParam, headers) {
+  try {
+    // For simplicity and debugging, let's create a basic response without streaming
+    let response;
 
-  // Create response headers for SSE
-  const headers = {
-    'Content-Type': 'text/event-stream',
-    'Cache-Control': 'no-cache',
-    'Connection': 'keep-alive',
-    'Access-Control-Allow-Origin': '*'
-  };
-
-  const stream = new ReadableStream({
-    start(controller) {
-      // Handle different query types
-      let response;
-
-      switch(path) {
-        case 'profile':
-          response = cvData.profile;
-          break;
-        case 'skills':
-          response = `Skills:\n• ${cvData.skills.join('\n• ')}`;
-          break;
-        case 'interests':
-          response = `Interests: ${cvData.interests.join(', ')}`;
-          break;
-        case 'search':
-          response = searchCV(queryParam);
-          break;
-        case 'company':
-          response = getCompanyExperience(companyParam);
-          break;
-        case 'resume':
-          response = cvData.resumeUrl;
-          break;
-        case 'picture':
-          response = cvData.pictureUrl;
-          break;
-        default:
-          response = 'Welcome to Frank Goortani\'s CV API.\n\nAvailable queries:\n• profile\n• skills\n• interests\n• search?q=term\n• company?name=companyName\n• resume\n• picture';
-      }
-
-      // Send the response as an SSE message
-      const message = `data: ${JSON.stringify({ text: response })}\n\n`;
-      controller.enqueue(new TextEncoder().encode(message));
-
-      // End the stream
-      controller.enqueue(new TextEncoder().encode('data: [DONE]\n\n'));
-      controller.close();
+    switch(path) {
+      case 'profile':
+        response = cvData.profile;
+        break;
+      case 'skills':
+        response = `Skills:\n• ${cvData.skills.join('\n• ')}`;
+        break;
+      case 'interests':
+        response = `Interests: ${cvData.interests.join(', ')}`;
+        break;
+      case 'search':
+        response = searchCV(queryParam);
+        break;
+      case 'company':
+        response = getCompanyExperience(companyParam);
+        break;
+      case 'resume':
+        response = cvData.resumeUrl;
+        break;
+      case 'picture':
+        response = cvData.pictureUrl;
+        break;
+      default:
+        response = 'Welcome to Frank Goortani\'s CV API.\n\nAvailable queries:\n• profile\n• skills\n• interests\n• search?q=term\n• company?name=companyName\n• resume\n• picture';
     }
-  });
 
-  return new Response(stream, { headers });
+    // Create a properly formatted SSE response
+    // Each event must be prefixed with "data: " and end with "\n\n"
+    const encoder = new TextEncoder();
+    const responseData = encoder.encode(`data: ${JSON.stringify({ text: response })}\n\n`);
+    const doneData = encoder.encode(`data: {"text":"[DONE]"}\n\n`);
+
+    // Use a ReadableStream but with proper encoding
+    const stream = new ReadableStream({
+      start(controller) {
+        controller.enqueue(responseData);
+        controller.enqueue(doneData);
+        controller.close();
+      }
+    });
+
+    return new Response(stream, { headers });
+  } catch (error) {
+    // Return a more detailed error message
+    return new Response(`Error processing request: ${error.message}`, {
+      status: 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'text/plain'
+      }
+    });
+  }
 }

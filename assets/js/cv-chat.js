@@ -189,40 +189,61 @@ function getCompanyExperience(company) {
 // Connect to Server-Sent Events endpoint
 function connectToSSE(url) {
   const resultsContainer = document.getElementById('cv-results');
-  const eventSource = new EventSource(url);
+  resultsContainer.innerHTML = '<div class="cv-loading">Connecting...</div>';
 
-  eventSource.onmessage = (event) => {
-    try {
-      const data = JSON.parse(event.data);
+  // Add debug logging
+  console.log('Connecting to SSE:', url);
 
-      // Check if this is the end message
-      if (data.text === '[DONE]') {
+  try {
+    const eventSource = new EventSource(url);
+
+    eventSource.onmessage = (event) => {
+      try {
+        console.log('Received SSE message:', event.data);
+
+        // Check if we got [DONE]
+        if (event.data.includes('[DONE]')) {
+          console.log('Received DONE signal, closing connection');
+          eventSource.close();
+          return;
+        }
+
+        const data = JSON.parse(event.data);
+
+        // Special handling for resume link
+        if (url.includes('/resume')) {
+          resultsContainer.innerHTML = `<div class="cv-result"><a href="${data.text}" target="_blank" class="cv-resume-link">View/Download PDF Resume</a></div>`;
+        }
+        // Special handling for profile picture
+        else if (url.includes('/picture')) {
+          resultsContainer.innerHTML = `<div class="cv-result cv-picture"><img src="${data.text}" alt="Frank Goortani" /></div>`;
+        }
+        // Handle regular text responses
+        else {
+          // Convert newlines to HTML breaks for proper formatting
+          const formattedText = data.text.replace(/\n/g, '<br>');
+          resultsContainer.innerHTML = `<div class="cv-result">${formattedText}</div>`;
+        }
+      } catch (error) {
+        console.error('Error processing SSE message:', error, event.data);
+        resultsContainer.innerHTML = '<div class="cv-error">Error processing response. Check console for details.</div>';
         eventSource.close();
-        return;
       }
+    };
 
-      // Special handling for resume link
-      if (url.includes('/resume')) {
-        resultsContainer.innerHTML = `<div class="cv-result"><a href="${data.text}" target="_blank" class="cv-resume-link">View/Download PDF Resume</a></div>`;
-      }
-      // Special handling for profile picture
-      else if (url.includes('/picture')) {
-        resultsContainer.innerHTML = `<div class="cv-result cv-picture"><img src="${data.text}" alt="Frank Goortani" /></div>`;
-      }
-      // Handle regular text responses
-      else {
-        // Convert newlines to HTML breaks for proper formatting
-        const formattedText = data.text.replace(/\n/g, '<br>');
-        resultsContainer.innerHTML = `<div class="cv-result">${formattedText}</div>`;
-      }
-    } catch (error) {
-      resultsContainer.innerHTML = '<div class="cv-error">Error processing response.</div>';
+    eventSource.onerror = (error) => {
+      console.error('SSE connection error:', error);
+      resultsContainer.innerHTML = '<div class="cv-error">Connection error. Please try again.</div>';
       eventSource.close();
-    }
-  };
+    };
 
-  eventSource.onerror = () => {
-    resultsContainer.innerHTML = '<div class="cv-error">Connection error. Please try again.</div>';
-    eventSource.close();
-  };
+    // Add onopen handler to confirm successful connection
+    eventSource.onopen = (event) => {
+      console.log('SSE connection opened:', event);
+    };
+
+  } catch (error) {
+    console.error('Failed to create EventSource:', error);
+    resultsContainer.innerHTML = '<div class="cv-error">Failed to establish connection.</div>';
+  }
 }
