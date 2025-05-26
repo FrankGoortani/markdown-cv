@@ -5,18 +5,23 @@ description: Frank Goortani is a skilled Solution Consultant well-versed in the 
 keywords: Frank Goortani, Goortani, MLOPS, Solution Consultant, Solution Architect, Software Developer, Full-stack, AWS, Azure, GCP, Mobile Development, Web Development, DevOps, JavaScript, Python, Angular, React, Golang, Typescript, Agile, data engineering
 ---
 # Frank Goortani, TOGAF, PMP
-Hands on Solution Architect | LLM, Web, Cloud, Mobile, Strategy
+Technology Leader & AI Strategist | LLM, Web, Cloud, Mobile
 
 <div id="webaddress">
 <a href="mailto:frank@goortani.com">frank@goortani.com</a> |
 <a href="media/Frank Goortani Resume--solution-architect-2024.pdf" target="_blank">Download PDF</a> |
 <a href="https://goortani.com" target="_blank">View detailed version</a>
+<a href="blog" target="_blank">Blog</a>
 </div>
 
 
 ## Profile
 
 Senior solution architect with extensive experience in generative AI, data-driven systems, cloud, and mobile technologies. Over 20 years of expertise in designing and implementing enterprise-grade applications across startups and large enterprises. Skilled in generative AI technologies, including LLMs, AI agents, and automation. Proven leadership in guiding cross-functional teams, driving architectural strategies, and delivering impactful results.
+### Key Achievements
+- Led award-winning AI initiative at Uber.
+- Formed and scaled an in-house mobile team at Canada Life.
+- Led Home Depot Canada's 50-member on-/off-shore front-end engineering & QA organization, modernized the e-commerce platform, and delivered initiatives that nearly doubled online sales.
 ### Skills
 
 * Distributed Systems, API platforms, Microservices, integrations, Workflow systems
@@ -34,6 +39,9 @@ Senior solution architect with extensive experience in generative AI, data-drive
 ### Interests
 
 Startups, GoLang, Python, Typescript, LangChain, LLMs, Microservices
+## Vision & Futurism
+Frank explores the future impact of AI and automation on businesses and regularly shares insights with the tech community.
+
 
 ## Work Experience
 
