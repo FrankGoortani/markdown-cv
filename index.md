@@ -9,12 +9,13 @@ favicon: media/favicon.png
 style: kjhealy
 ---
 # Frank Goortani, TOGAF, PMP
-Hands on Solution Architect | LLM, Web, Cloud, Mobile, Strategy
+Technology Leader & AI Strategist | LLM, Web, Cloud, Mobile
 
 <div id="webaddress">
 <a href="mailto:frank@goortani.com">frank@goortani.com</a> |
 <a href="media/Frank Goortani Resume--solution-architect-2024.pdf" target="_blank">Download PDF</a> |
 <a href="short" target="_blank">View short version</a>
+<a href="blog" target="_blank">Blog</a>
 </div>
 
 ## Profile
@@ -22,6 +23,13 @@ Hands on Solution Architect | LLM, Web, Cloud, Mobile, Strategy
 Visionary technology executive and AI leader with over 25 years of experience driving strategic innovation in generative AI, intelligent automation, and cloud-native architectures. Proven track record in developing transformative solutions leveraging large language models (LLMs), advanced AI agents, and data-driven systems across startups and Fortune 500 enterprises.
 Highly adept at aligning complex technical strategies with organizational objectives, scaling high-performance teams, and accelerating business outcomes. Skilled in defining enterprise-wide architectural roadmaps, optimizing technology investments, and fostering environments that encourage innovation, agility, and measurable growth. Recognized thought leader in the AI domain, consistently delivering impactful solutions that shape the future of technology and industry.
 
+
+### Key Achievements
+
+- Led cross-functional teams of 10+ engineers on award-winning AI decision engine at Uber.
+- Established and grew an in-house mobile architecture team at Canada Life.
+- Architected cloud solutions adopted across multiple business units, improving reliability and speed to market.
+- Delivered AI-driven products for startups across ecommerce, legal and accounting sectors.
 
 ### Skills
 
@@ -40,6 +48,10 @@ Highly adept at aligning complex technical strategies with organizational object
 ### Interests
 
 Startups, GoLang, Python, Typescript, LangChain, LLMs, Microservices, MCPs
+## Vision & Futurism
+
+Frank believes AI will transform every industry in the next decade. He actively explores emerging trends in generative AI, automation and cloud-native architectures, sharing insights through articles and community discussions.
+
 
 ## Work Experience
 
