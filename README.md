@@ -63,3 +63,7 @@ Eliseo Papa ([Twitter](http://twitter.com/elipapa)/[Github](http://github.com/el
 ### License
 
 [MIT License](https://github.com/elipapa/markdown-cv/blob/master/LICENSE)
+
+### Note
+
+The experimental CV chat interface has been removed from this repository.
