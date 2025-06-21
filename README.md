@@ -67,3 +67,8 @@ Eliseo Papa ([Twitter](http://twitter.com/elipapa)/[Github](http://github.com/el
 ### Note
 
 The experimental CV chat interface has been removed from this repository.
+
+### Policies
+
+- `robots.txt` provides crawler directives.
+- `llm.txt` explains how content may be used with language models.

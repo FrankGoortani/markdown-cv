@@ -1,0 +1,13 @@
+# Frank Goortani CV
+
+> This site hosts Frank Goortani's curriculum vitae and related documentation.
+
+Use of this content to train large language models or other automated systems is prohibited without written permission.
+
+## Key Pages
+
+- [Full CV](https://goortani.com) - comprehensive résumé detailing Frank's experience.
+- [Short CV](https://goortani.com/short) - quick overview of qualifications.
+- [Blog](https://goortani.com/blog) - articles on technology leadership and AI.
+- [Chatbot Documentation](https://goortani.com/chatbotdoc) - usage guide for the site assistant.
+- [Source Repository](https://github.com/FrankGoortani/markdown-cv) - site source and issue tracking.
