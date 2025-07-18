@@ -1,17 +1,20 @@
 ---
 layout: cv
 title: Frank Goortani
-description: Frank Goortani is a skilled Solution Consultant well-versed in the realms of cloud computing, data management, web development, and mobile projects. With a passion for continuous learning and growth in the tech industry, Frank brings a wealth of expertise to the table. Connect with Frank to explore exciting possibilities together!
-keywords: Frank Goortani, Goortani, MLOPS, Solution Consultant, Solution Architect, Software Developer, Full-stack, AWS, Azure, GCP, Mobile Development, Web Development, DevOps, JavaScript, Python, Angular, React, Golang, Typescript, Agile, data engineering
+description: Frank Goortani is a technology leader and AI strategist specializing in cloud, data and mobile solutions.
+keywords: Frank Goortani, AI strategist, Generative AI consultant, Cloud expert, DevOps, Solution Architect
 ---
-# Frank Goortani, TOGAF, PMP
-Technology Leader & AI Strategist | LLM, Web, Cloud, Mobile
 
-<div id="webaddress">
-<a href="mailto:frank@goortani.com">frank@goortani.com</a> |
-<a href="media/Frank Goortani Resume--solution-architect-2024.pdf" target="_blank">Download PDF</a> |
-<a href="https://goortani.com" target="_blank">View detailed version</a>
-<a href="blog" target="_blank">Blog</a>
+<div class="hero">
+  <img src="media/frankgoortani.png" alt="Frank Goortani">
+  <h1>Frank Goortani, TOGAF, PMP</h1>
+  <p>Technology Leader &amp; AI Strategist | LLM, Web, Cloud, Mobile</p>
+  <div id="webaddress">
+    <a href="mailto:frank@goortani.com">frank@goortani.com</a> |
+    <a href="media/Frank Goortani Resume--solution-architect-2024.pdf" target="_blank">Download PDF</a> |
+    <a href="https://goortani.com" target="_blank">View detailed version</a>
+    <a href="blog" target="_blank">Blog</a>
+  </div>
 </div>
 
 
