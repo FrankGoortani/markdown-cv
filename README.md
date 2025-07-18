@@ -57,6 +57,11 @@ Any other styling is possible. More CSS style contributions and forks are welcom
 ### Author
 
 Eliseo Papa ([Twitter](http://twitter.com/elipapa)/[Github](http://github.com/elipapa)/[Website](https://elipapa.github.io)).
+### Site Features
+- Navigation bar and hero banner for quick access to sections.
+- Dedicated Projects and Awards sections.
+- Expanded contact links including Calendly.
+
 
 ![Eliseo Papa](https://s.gravatar.com/avatar/eae1f0c01afda2bed9ce9cb88f6873f6?s=100)
 

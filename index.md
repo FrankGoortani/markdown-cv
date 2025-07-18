@@ -1,21 +1,24 @@
 ---
 layout: cv
 title: Frank Goortani
-description: Frank Goortani is a skilled Solution Consultant well-versed in the realms of cloud computing, data management, web development, and mobile projects. With a passion for continuous learning and growth in the tech industry, Frank brings a wealth of expertise to the table. Connect with Frank to explore exciting possibilities together!
-keywords: Frank Goortani, Goortani, MLOPS, Solution Consultant, Solution Architect, Software Developer, Full-stack, AWS, Azure, GCP, Mobile Development, Web Development, DevOps, JavaScript, Python, Angular, React, Golang, Typescript, Agile, data engineering
+description: Frank Goortani is a technology leader and AI strategist specializing in cloud, data and mobile solutions.
+keywords: Frank Goortani, AI strategist, Generative AI consultant, Cloud expert, DevOps, Solution Architect
 url: https://goortani.com
 image: media/frankgoortani.png
 favicon: media/favicon.png
 style: kjhealy
 ---
-# Frank Goortani, TOGAF, PMP
-Technology Leader & AI Strategist | LLM, Web, Cloud, Mobile
 
-<div id="webaddress">
-<a href="mailto:frank@goortani.com">frank@goortani.com</a> |
-<a href="media/Frank Goortani Resume--solution-architect-2024.pdf" target="_blank">Download PDF</a> |
-<a href="short" target="_blank">View short version</a>
-<a href="blog" target="_blank">Blog</a>
+<div class="hero">
+  <img src="media/frankgoortani.png" alt="Frank Goortani">
+  <h1>Frank Goortani, TOGAF, PMP</h1>
+  <p>Technology Leader &amp; AI Strategist | LLM, Web, Cloud, Mobile</p>
+  <div id="webaddress">
+    <a href="mailto:frank@goortani.com">frank@goortani.com</a> |
+    <a href="media/Frank Goortani Resume--solution-architect-2024.pdf" target="_blank">Download PDF</a> |
+    <a href="short" target="_blank">View short version</a>
+    <a href="blog" target="_blank">Blog</a>
+  </div>
 </div>
 
 ## Profile
@@ -55,22 +58,15 @@ Frank believes AI will transform every industry in the next decade. He actively 
 
 ## Work Experience
 
-`2021-now`
+`2021–Present`
 __Uber__, Solution Architect
-* Worked on UDE (User Data Extraction) and DSAR (Data Subject Access Request) Automation as mandates for Security and Privacy teams. The stack included Piper (similar to Airflow), Cadence (similar to Temporal), Python, Go, Microservices, Reactjs, FusionJS, GraphQL, gRPC, Kafka, MySQL, and Docstore.
-* As part of EngSec, worked on an AI Decision Engine called ELLE that helped automate triaging and reviewing Engineering Review Documents in the context of Privacy and Security. The project won several internal recognition awards and was used across multiple sub-disciplines.
-* Worked on the end-to-end design, implementation and maintenance of multiple MVP products:
-o	Uber Charter - request high-capacity group rides in vehicles seating around 14-55 passengers
-o	Uber Park - park and pay at automated parking lots
-o	Uber Concierge - give the Rider / Eater a new way to start a conversation with the agents by initiating a new request
-* Designed the architecture of pieces of the above projects and written detailed ERD and PRD to follow the approval processes, interfacing Privacy and Security teams
-* Implemented Golang BE code following Uber Microservices MVCS design patterns, implementing APIs in gRPC, GraphQL and Rest protocols
-* Implemented detailed unit tests for the backend code in Go MonoRepo
-* Within GoLang Microservices, worked and integrated with MySQL, DocStore (Uber NoSQL document store), Kafka, Up (Uber deployment stack), USecret (Uber Secret Management), Cadence (Uber workflow and activity scheduler), uMonitor (Uber observability, logging), Edge (Uber API gateway), Uber Geofence, Uber Geoproxy, Populous (Uber user services), Rosetta (Uber translation services), Terrablob (Uber cloud storage), Texter/Pusher/PostMaster (Uber communication services), Nava (Uber Front End Tiles), BlackBox tests, Bliss (Call Center Agents dashboard and services), Flipr (Uber configuration management platform), Grafana, Kibana, Hive, HDFS,
-* Worked on FE MonoRepo projects utilizing GraphQL, React, Fusion (similar to NextJs)
-* Provided several detailed technical interviews for GoLang BE and React FE candidates
 
-`2021-now`
+* Led development of UDE and DSAR automation for Security and Privacy teams using Go and Python.
+* Created the ELLE AI Decision Engine, winning multiple internal awards and adopted company-wide.
+* Delivered MVPs for Uber Charter, Uber Park and Uber Concierge with scalable backend APIs and React front ends.
+* Integrated internal services for data, messaging, deployment and observability to ensure reliability.
+* Authored ERDs and PRDs and interviewed candidates for backend and frontend roles.
+`2021–Present`
 __MatchPS / BayRockLabs__, AI Solutions Lead
 * As the GenAI lead at MatchPoint / BayRockLabs, worked on the architecture of multiple AI automation projects for companies like Lucid. These projects spanned startups and industries such as Ecommerce, Manufacturing, Accounting, Legal, and Hospitality.
 * Involved in technical interviews for MatchPoint resources for several companies including Uber, Robinhood, Netflix, Airbnb, Peloton, and Gap.
@@ -287,7 +283,15 @@ __Faragam Inc.__, DEVELOPER
 * Completed comprehensive requirements documents for business applications and project proposals, including time and cost/resource estimation and progress reports.
 * Implemented and updated unit price detail packages using SQL Server 2005.
 
-## Education and Professional Development
+## Projects {#projects}
+- Uber AI Decision Engine (ELLE) – automated privacy reviews and won internal awards.
+- NEST component library for Canada Life – streamlined frontend development across teams.
+- Persian Points loyalty platform – designed scalable architecture for growing user base.
+
+## Awards & Publications
+- ELLE AI Decision Engine received Uber Engineering Excellence Award (2024).
+
+## Certifications & Education
 `2025`
 __fasteroutcomes.com__
 
@@ -362,13 +366,14 @@ M.Sc. in Management
 __AmirKabir University__
 B.Sc. in Computer Software Engineering
 
-## Links
+## Contact {#contact}
 - [LinkedIn](https://www.linkedin.com/in/frankgoortani/)
 - [StackOverflow](https://stackoverflow.com/users/1136641/frank-goortani)
 - [Twitter](https://twitter.com/FrankGoortani)
 - [Medium](https://medium.com/@FrankGoortani)
 - [Resume](media/Frank-Goortani-Resume-Solution-Architect-2023.pdf)
 - [GitHub](https://github.com/frankgoortani)
+- [Calendly](https://calendly.com/frankgoortani)
 - [ProductHunt](https://www.producthunt.com/@frankgoortani)
 - [Wellfound](https://wellfound.com/u/frank-goortani)
 
@@ -381,6 +386,7 @@ B.Sc. in Computer Software Engineering
 - Salt, AWS EC2, VPC, S3, Cognito, Lambda, SNS, Cloud Front, Cloud Formation, Cloud Watch, IAAS, PAAS, SAAS, AI APIs, Graylog, Datadog, StackDriver
 - Splunk, Prometheus, Spinnaker, Ant, JRebel, Zabbix, Rancher, Angular, React, Next, Svelt, RxJava, RxSwift, RxJS, VueJs, GraphQL, gRPC, Rest, RAG
 - Node.JS, Docker, React Native, Material Design, WebSockets, OnsenUI, shadcn, Tailwind, SciKit Learn, Azure ML Studio, Heroku, Bitbucket, GitHub
+- [Calendly](https://calendly.com/frankgoortani)
 - Express, Maven, Ionic, Redux, Firebase test lab, Jest, Mocha, Puppeteer, Karma, Istanbul, AWS device farm, API Gateway, Webpack, PlantUML, K8S
 - Jasmine, Karma, Protractor, TOGAF, PMBOK, BABOK, ITIL, Open ID, OAuth 2.0, Azure VM, Glassfish, npm, yarn, Dino, Sonar, Mockito, Spring Test
 - Fortify Scan, Cloud Foundry, Azure DevOps, Google Kubernetes, AWS Pipeline, AWS Steps Function, SNS, SQS, Chatbots, Browser Extensions
