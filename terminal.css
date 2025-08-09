@@ -29,13 +29,16 @@ a:hover { border-bottom-style: solid; }
 
 .screen {
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
   padding: 16px;
-  overflow: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .term {
-  max-width: 980px;
+  max-width: min(980px, calc(100vw - 32px));
+  width: 100%;
   margin: 0 auto;
   padding: 24px 20px 100px;
   border: 2px solid var(--fg);
@@ -43,6 +46,7 @@ a:hover { border-bottom-style: solid; }
   background: rgba(0,0,0,0.25);
   box-shadow: 0 0 40px rgba(0,255,140,0.2), inset 0 0 40px rgba(0,255,140,0.08);
   position: relative;
+  box-sizing: border-box;
 }
 
 .term::after {
@@ -99,7 +103,10 @@ a:hover { border-bottom-style: solid; }
 .output {
   white-space: pre-wrap;
   word-break: break-word;
+  overflow-wrap: break-word;
   min-height: 280px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .prompt {
@@ -165,13 +172,14 @@ hr {
 /* Tablet breakpoint (768px and below) */
 @media (max-width: 768px) {
   .screen {
-    padding: 12px;
+    padding: 8px;
   }
   
   .term {
-    max-width: 100%;
+    max-width: calc(100vw - 16px);
     padding: 20px 16px 80px;
     border-radius: 4px;
+    margin: 0 auto;
   }
   
   .header {
@@ -225,12 +233,14 @@ hr {
 /* Mobile breakpoint (480px and below) */
 @media (max-width: 480px) {
   .screen {
-    padding: 8px;
+    padding: 4px;
   }
   
   .term {
+    max-width: calc(100vw - 8px);
     padding: 16px 12px 70px;
     border-width: 1px;
+    margin: 0 auto;
   }
   
   .header {
@@ -303,8 +313,15 @@ hr {
   }
   
   /* Prevent horizontal scrolling */
-  * {
+  *, *::before, *::after {
     max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Ensure no element causes overflow */
+  .term, .header, .output, .nav-inline, .prompt {
+    width: 100%;
+    box-sizing: border-box;
   }
   
   /* Better link styling for touch */
