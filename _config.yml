@@ -1,2 +1,47 @@
-markdown:   kramdown
-style:  kjhealy
+# GitHub Pages configuration for terminal-themed CV website
+# This ensures proper handling of assets and paths
+
+# Site settings
+title: "Frank Goortani | Terminal CV"
+description: "Technology Leader & AI Strategist - Terminal-themed CV website"
+baseurl: "" # Leave empty for GitHub Pages user/organization sites
+url: "" # Will be set automatically by GitHub Pages
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+timezone: America/Toronto
+
+# Jekyll plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Exclude files from processing
+exclude:
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - tools/
+  - README.md
+  - .gitignore
+
+# Include files that would normally be excluded
+include:
+  - _config.yml
+
+# Sass/SCSS settings
+sass:
+  sass_dir: .
+  style: compressed
+
+# Collections and defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# GitHub Pages specific settings
+github: [metadata]

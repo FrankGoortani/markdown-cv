@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <style>
+      .terminal-bg { fill: #0b0f0c; }
+      .terminal-fg { fill: #00ff9c; }
+      .terminal-text { 
+        font-family: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        font-size: 14px;
+        font-weight: bold;
+        text-anchor: middle;
+        dominant-baseline: central;
+      }
+      .terminal-border { 
+        fill: none; 
+        stroke: #00ff9c; 
+        stroke-width: 1;
+      }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="terminal-bg" width="32" height="32" rx="2"/>
+  
+  <!-- Border -->
+  <rect class="terminal-border" x="1" y="1" width="30" height="30" rx="1"/>
+  
+  <!-- CV Text -->
+  <text class="terminal-fg terminal-text" x="16" y="16">CV</text>
+  
+  <!-- Small terminal-style decorations -->
+  <circle class="terminal-fg" cx="5" cy="5" r="1" opacity="0.6"/>
+  <circle class="terminal-fg" cx="27" cy="5" r="1" opacity="0.6"/>
+  <circle class="terminal-fg" cx="5" cy="27" r="1" opacity="0.6"/>
+  <circle class="terminal-fg" cx="27" cy="27" r="1" opacity="0.6"/>
+</svg>

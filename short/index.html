@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Frank Goortani | Short CV — Terminal Edition</title>
+  <meta name="description" content="Concise CV of Frank Goortani - Technology Leader & AI Strategist. Experience in Generative AI, LLMs, cloud architecture, and mobile development. Interactive terminal interface.">
+  <meta name="keywords" content="Frank Goortani, Short CV, Solution Architect, AI Strategist, Resume, Terminal CV">
+  <link rel="canonical" href="https://goortani.github.io/goortani-terminal-site/short/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://goortani.github.io/goortani-terminal-site/short/">
+  <meta property="og:title" content="Frank Goortani | Short CV — Terminal Edition">
+  <meta property="og:description" content="Concise CV of Frank Goortani - Technology Leader & AI Strategist specializing in Generative AI and cloud architecture.">
+  <meta property="og:image" content="https://goortani.github.io/goortani-terminal-site/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Frank Goortani | Short CV">
+  <meta name="twitter:description" content="Concise CV of Technology Leader & AI Strategist specializing in Generative AI and cloud architecture.">
+
+  <meta name="robots" content="index, follow">
+  
+  <!-- Favicon and Icons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#00ff9c">
+  
+  <link rel="stylesheet" href="../terminal.css">
+</head>
+<body>
+  <div class="screen">
+    <div class="term" role="region" aria-label="terminal">
+      <div class="header">
+        <div class="brand glow">GOORTANI::CV[short]</div>
+        <div class="nav-inline">
+          <span class="badge">Terminal</span>
+          <a href="../" title="Home">Home</a>
+          <a href="./" title="Short CV">Short</a>
+          <a href="https://medium.com/@FrankGoortani" title="Blog">Blog</a>
+          <a href="mailto:frank@goortani.com" title="Email Frank">Email</a>
+          <a href="https://goortani.com/media/Frank%20Goortani%20Resume--solution-architect-2024.pdf" target="_blank" rel="noopener" title="PDF Resume">Download&nbsp;PDF</a>
+        </div>
+      </div>
+
+      <div id="out" class="output" aria-live="polite"></div>
+
+      <div class="prompt" aria-label="command prompt">
+        <span class="prompt-label glow">$</span>
+        <input id="cmd" type="text" autocomplete="off" spellcheck="false" placeholder="type commands (try: help, short, links)">
+        <span class="cursor" aria-hidden="true"></span>
+      </div>
+
+      <div class="footer">
+        <span>Tip: Type <kbd>short</kbd> to view concise CV. Use <kbd>links</kbd> for quick navigation.</span>
+      </div>
+    </div>
+  </div>
+  <script defer src="../terminal.js"></script>
+  <script>
+    // Auto-show short CV on load
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        const evt = new KeyboardEvent('keydown', {key: 'Enter'});
+        const input = document.getElementById('cmd');
+        input.value = 'short';
+        input.dispatchEvent(evt);
+        input.focus();
+      }, 50);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+
+/* 90s Hacker / HomeBrew Terminal style */
+:root{
+  --fg: #00ff9c;
+  --fg-dim: #5fffb1;
+  --bg: #0b0f0c;
+  --accent: #00ffaa;
+  --error: #ff3b3b;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #0b0f0c 0%, #060907 70%, #020403 100%);
+  color: var(--fg);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--fg);
+}
+a:hover { border-bottom-style: solid; }
+
+.screen {
+  position: relative;
+  min-height: 100%;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.term {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 20px 100px;
+  border: 2px solid var(--fg);
+  border-radius: 6px;
+  background: rgba(0,0,0,0.25);
+  box-shadow: 0 0 40px rgba(0,255,140,0.2), inset 0 0 40px rgba(0,255,140,0.08);
+  position: relative;
+}
+
+.term::after {
+  /* subtle scanlines */
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0), rgba(0,0,0,0) 2px,
+    rgba(0,255,160,0.03) 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,255,160,0.25);
+  margin-bottom: 16px;
+}
+
+.brand {
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.badge {
+  opacity: 0.9;
+  padding: 2px 8px;
+  border: 1px solid var(--fg);
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.nav-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+}
+
+.nav-inline a {
+  border-bottom: 0;
+  padding: 0 2px;
+}
+.nav-inline a::before { content: "["; opacity: .65; margin-right: 2px; }
+.nav-inline a::after { content: "]"; opacity: .65; margin-left: 2px; }
+
+.output {
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 280px;
+}
+
+.prompt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: sticky;
+  bottom: 16px;
+  padding-top: 12px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.4));
+  backdrop-filter: blur(1px);
+}
+
+.prompt-label {
+  color: var(--fg-dim);
+}
+
+#cmd {
+  flex: 1;
+  background: transparent;
+  color: var(--fg);
+  border: none;
+  outline: none;
+  font: inherit;
+  padding: 6px 8px;
+  border-bottom: 1px dashed rgba(0,255,160,0.45);
+}
+
+kbd { 
+  border: 1px solid rgba(0,255,160,0.25);
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: .9em;
+}
+
+.footer {
+  margin-top: 18px;
+  opacity: .75;
+  font-size: 12px;
+}
+
+.glow { text-shadow: 0 0 6px rgba(0,255,160,0.6), 0 0 14px rgba(0,255,160,0.3); }
+
+hr {
+  border: 0;
+  border-top: 1px dashed rgba(0,255,160,0.25);
+  margin: 12px 0;
+}
+
+/* blink cursor effect */
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background: var(--fg);
+  margin-left: 4px;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Mobile and responsive design improvements */
+
+/* Tablet breakpoint (768px and below) */
+@media (max-width: 768px) {
+  .screen {
+    padding: 12px;
+  }
+  
+  .term {
+    max-width: 100%;
+    padding: 20px 16px 80px;
+    border-radius: 4px;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .brand {
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .nav-inline {
+    justify-content: center;
+    gap: 8px 12px;
+    font-size: 14px;
+  }
+  
+  .badge {
+    font-size: 11px;
+    padding: 1px 6px;
+  }
+  
+  .output {
+    min-height: 200px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .prompt {
+    gap: 8px;
+    bottom: 12px;
+    padding-top: 16px;
+  }
+  
+  #cmd {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px 10px;
+    border-bottom: 2px solid rgba(0,255,160,0.6);
+    border-radius: 4px;
+    min-height: 44px; /* Touch target size */
+  }
+  
+  .footer {
+    font-size: 11px;
+    text-align: center;
+  }
+}
+
+/* Mobile breakpoint (480px and below) */
+@media (max-width: 480px) {
+  .screen {
+    padding: 8px;
+  }
+  
+  .term {
+    padding: 16px 12px 70px;
+    border-width: 1px;
+  }
+  
+  .header {
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+  }
+  
+  .brand {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+  }
+  
+  .nav-inline {
+    gap: 6px 8px;
+    font-size: 13px;
+    flex-wrap: wrap;
+  }
+  
+  .nav-inline a {
+    padding: 4px 6px;
+    border: 1px solid rgba(0,255,160,0.3);
+    border-radius: 3px;
+    background: rgba(0,255,160,0.05);
+    min-height: 32px; /* Touch target */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .nav-inline a::before,
+  .nav-inline a::after {
+    display: none; /* Remove brackets on mobile for cleaner look */
+  }
+  
+  .output {
+    min-height: 150px;
+    font-size: 13px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  
+  .prompt {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(4px);
+    border-top: 1px solid rgba(0,255,160,0.3);
+  }
+  
+  .prompt-label {
+    font-size: 14px;
+  }
+  
+  #cmd {
+    font-size: 16px;
+    padding: 14px 12px;
+    border: 1px solid rgba(0,255,160,0.5);
+    border-radius: 6px;
+    background: rgba(0,0,0,0.8);
+    min-height: 48px; /* Larger touch target */
+  }
+  
+  .footer {
+    font-size: 10px;
+    margin-bottom: 60px; /* Account for fixed prompt */
+  }
+  
+  /* Prevent horizontal scrolling */
+  * {
+    max-width: 100%;
+  }
+  
+  /* Better link styling for touch */
+  a {
+    min-height: 24px;
+    display: inline-block;
+    padding: 2px 4px;
+  }
+}
+
+/* Enhanced touch and focus styles */
+@media (hover: none) and (pointer: coarse) {
+  /* Touch device specific styles */
+  #cmd:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(0,255,170,0.4);
+  }
+  
+  .nav-inline a:hover,
+  .nav-inline a:focus {
+    background: rgba(0,255,160,0.15);
+    border-color: var(--accent);
+    outline: none;
+  }
+  
+  a:hover,
+  a:focus {
+    background: rgba(0,255,160,0.1);
+    border-radius: 2px;
+    outline: none;
+  }
+}
+
+/* Typography improvements */
+@media (max-width: 768px) {
+  html, body {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .output {
+    line-height: 1.7;
+  }
+  
+  /* Better spacing for terminal output sections */
+  .output > * {
+    margin-bottom: 8px;
+  }
+  
+  .output strong {
+    display: block;
+    margin: 12px 0 8px 0;
+    color: var(--accent);
+  }
+  
+  /* Enhanced visual hierarchy */
+  .output a {
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 480px) {
+  html, body {
+    font-size: 13px;
+  }
+  
+  .output {
+    line-height: 1.8;
+  }
+  
+  /* More spacing on mobile */
+  .output > * {
+    margin-bottom: 10px;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .term {
+    padding: 12px 16px 60px;
+  }
+  
+  .output {
+    min-height: 120px;
+  }
+  
+  .prompt {
+    bottom: 8px;
+    padding-top: 8px;
+  }
+  
+  #cmd {
+    min-height: 36px;
+    padding: 8px 10px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .term::after { display: none; }
+  .cursor { animation: none; }
+}
