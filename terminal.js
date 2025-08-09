@@ -24,7 +24,55 @@
   // print helpers
   const write = (s="") => { out.insertAdjacentHTML("beforeend", s + "\n"); out.scrollTop = out.scrollHeight; };
   const line = (s="") => write(s.replace(/\n+$/,"")+"\n");
-  const hr = () => write("────────────────────────────────────────────────────────");
+  
+  // Responsive terminal width calculation
+  const getTerminalWidth = () => {
+    const outputEl = $("#out");
+    if (!outputEl) return 60; // fallback
+    
+    // Create a test element to measure character width
+    const testEl = document.createElement('span');
+    testEl.style.visibility = 'hidden';
+    testEl.style.position = 'absolute';
+    testEl.style.fontFamily = getComputedStyle(outputEl).fontFamily;
+    testEl.style.fontSize = getComputedStyle(outputEl).fontSize;
+    testEl.textContent = 'M'; // Use 'M' as it's typically the widest character
+    outputEl.appendChild(testEl);
+    
+    const charWidth = testEl.getBoundingClientRect().width;
+    const availableWidth = outputEl.getBoundingClientRect().width - 40; // Account for padding
+    
+    outputEl.removeChild(testEl);
+    
+    const terminalWidth = Math.max(40, Math.min(60, Math.floor(availableWidth / charWidth)));
+    return terminalWidth;
+  };
+  
+  // Responsive horizontal rule
+  const hr = () => {
+    const width = getTerminalWidth();
+    write("─".repeat(width));
+  };
+  
+  // Responsive box creation
+  const createBox = (content) => {
+    const width = getTerminalWidth();
+    const lines = Array.isArray(content) ? content : [content];
+    
+    // Top border
+    write("┌" + "─".repeat(width - 2) + "┐");
+    
+    // Content lines
+    lines.forEach(line => {
+      const paddedLine = line.length > width - 4
+        ? line.substring(0, width - 7) + "..."
+        : line + " ".repeat(width - 4 - line.length);
+      write("│ " + paddedLine + " │");
+    });
+    
+    // Bottom border
+    write("└" + "─".repeat(width - 2) + "┘");
+  };
 
   // content cache
   const cache = {};
@@ -258,10 +306,11 @@
   });
 
   // Boot message
-  write("┌────────────────────────────────────────────────────────────┐");
-  write("│  GOORTANI//TERMINAL  v1.99  ::  HomeBrew Edition           │");
-  write("│  Type `help` to get started.                               │");
-  write("└────────────────────────────────────────────────────────────┘\n");
+  createBox([
+    "GOORTANI//TERMINAL  v1.99  ::  HomeBrew Edition",
+    "Type `help` to get started."
+  ]);
+  write(""); // Empty line
   // show quick links
   commands.links();
 })();
