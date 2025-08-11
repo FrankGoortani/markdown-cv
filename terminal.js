@@ -7,7 +7,7 @@
   const input = $("#cmd");
 
   const links = {
-    resume_pdf: "https://goortani.com/media/Frank%20Goortani%20Resume--solution-architect-2024.pdf",
+    resume_pdf: "https://goortani.com/media/Frank%20Goortani%20Resume--solution-architect-2025.pdf",
     short: "./short/",
     blog: "https://medium.com/@FrankGoortani",
     linkedin: "https://www.linkedin.com/in/frankgoortani/",
@@ -24,12 +24,12 @@
   // print helpers
   const write = (s="") => { out.insertAdjacentHTML("beforeend", s + "\n"); out.scrollTop = out.scrollHeight; };
   const line = (s="") => write(s.replace(/\n+$/,"")+"\n");
-  
+
   // Responsive terminal width calculation
   const getTerminalWidth = () => {
     const outputEl = $("#out");
     if (!outputEl) return 60; // fallback
-    
+
     // Create a test element to measure character width
     const testEl = document.createElement('span');
     testEl.style.visibility = 'hidden';
@@ -38,30 +38,30 @@
     testEl.style.fontSize = getComputedStyle(outputEl).fontSize;
     testEl.textContent = 'M'; // Use 'M' as it's typically the widest character
     outputEl.appendChild(testEl);
-    
+
     const charWidth = testEl.getBoundingClientRect().width;
     const availableWidth = outputEl.getBoundingClientRect().width - 40; // Account for padding
-    
+
     outputEl.removeChild(testEl);
-    
+
     const terminalWidth = Math.max(40, Math.min(60, Math.floor(availableWidth / charWidth)));
     return terminalWidth;
   };
-  
+
   // Responsive horizontal rule
   const hr = () => {
     const width = getTerminalWidth();
     write("─".repeat(width));
   };
-  
+
   // Responsive box creation
   const createBox = (content) => {
     const width = getTerminalWidth();
     const lines = Array.isArray(content) ? content : [content];
-    
+
     // Top border
     write("┌" + "─".repeat(width - 2) + "┐");
-    
+
     // Content lines
     lines.forEach(line => {
       const paddedLine = line.length > width - 4
@@ -69,7 +69,7 @@
         : line + " ".repeat(width - 4 - line.length);
       write("│ " + paddedLine + " │");
     });
-    
+
     // Bottom border
     write("└" + "─".repeat(width - 2) + "┘");
   };
