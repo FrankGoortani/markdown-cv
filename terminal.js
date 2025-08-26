@@ -13,7 +13,7 @@
   })();
 
   const links = {
-    resume_pdf: "https://goortani.com/media/Frank%20Goortani%20Resume--solution-architect-2025.pdf",
+    resume_pdf: rootPath + "resume/",
     short: rootPath + "short/",
     blog: "https://medium.com/@FrankGoortani",
     linkedin: "https://www.linkedin.com/in/frankgoortani/",
