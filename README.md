@@ -3,6 +3,8 @@
 
 A lightweight, interactive terminal-style CV website featuring a retro 90s hacker aesthetic. Users navigate through content using familiar terminal commands in an authentic CRT-style interface.
 
+Live site: <https://goortani.com>
+
 ## 🚀 Features
 
 - **Interactive Terminal Interface**: Command-based navigation system

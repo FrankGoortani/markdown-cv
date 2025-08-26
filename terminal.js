@@ -6,9 +6,15 @@
   const out = $("#out");
   const input = $("#cmd");
 
+  // determine base path relative to site root for subdirectory pages
+  const rootPath = (() => {
+    const depth = window.location.pathname.split("/").filter(Boolean).length;
+    return depth ? "../".repeat(depth) : "./";
+  })();
+
   const links = {
     resume_pdf: "https://goortani.com/media/Frank%20Goortani%20Resume--solution-architect-2025.pdf",
-    short: "./short/",
+    short: rootPath + "short/",
     blog: "https://medium.com/@FrankGoortani",
     linkedin: "https://www.linkedin.com/in/frankgoortani/",
     stackoverflow: "https://stackoverflow.com/users/1136641/frank-goortani",
@@ -78,16 +84,9 @@
   const cache = {};
   // Resolve content paths relative to site root, regardless of current page location
   function resolvePath(contentPath) {
-    const currentPath = window.location.pathname;
-    const isInSubdirectory = currentPath.includes('/short/');
-
-    if (isInSubdirectory) {
-      // From /short/ page, need to go up one level to reach content
-      return '../' + contentPath.replace('./', '');
-    } else {
-      // From root page, use path as-is
-      return contentPath;
-    }
+    const depth = window.location.pathname.split("/").filter(Boolean).length;
+    if (depth === 0) return contentPath;
+    return "../".repeat(depth) + contentPath.replace("./", "");
   }
 
   async function load(path){

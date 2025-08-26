@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://goortani.github.io/goortani-terminal-site/sitemap.xml
+Sitemap: https://goortani.com/sitemap.xml
 
 # Crawl-delay for polite crawling
 Crawl-delay: 1
