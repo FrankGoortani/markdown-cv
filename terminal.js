@@ -152,7 +152,8 @@
     },
     about(){
       line("FRANK GOORTANI — Technology Leader & AI Strategist (TOGAF, PMP)");
-      line("Focus: Generative AI (LLMs, agents), distributed systems, cloud-native, and mobile.");
+      line("Focus: Generative AI (LLMs, agents, agentic coding), distributed systems, cloud-native, and mobile.");
+      line("Expert in Claude Code, Cursor, MCP development - achieving 3-5x productivity gains.");
       line("Email: "+links.email.replace("mailto:",""));
       line("Type `cv` for full resume or `short` for concise version.");
     },
@@ -160,6 +161,7 @@
       // intentionally concise; full list lives in cv pages
       line([
         "SKILLS SNAPSHOT",
+        "- Agentic Coding: Claude Code, Cursor, GitHub Copilot, MCP Development",
         "- GenAI (LLMs, agents, RAG), Python, Go, Java, TypeScript",
         "- Systems: APIs, microservices, event streams (Kafka)",
         "- Cloud/DevOps: GCP, AWS, Kubernetes, CI/CD",

@@ -1,153 +1,214 @@
-# CLAUDE.md - AI Agent Instructions for Terminal CV Website
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
-This is a **terminal-themed CV website** for Frank Goortani, featuring a 90s hacker/homebrew aesthetic with a command-based interface. The site is built as a lightweight, static website that simulates a terminal environment where users can interact with commands to view different sections of the CV.
+Terminal-themed CV website for Frank Goortani featuring a 90s hacker aesthetic with command-based navigation. Built as a static site with vanilla JavaScript, optimized for GitHub Pages deployment.
 
-## Key Features
+## Development Commands
 
-- **Interactive Terminal Interface**: Users type commands to navigate and view content
-- **Retro Terminal Aesthetic**: Green-on-black color scheme with CRT-style effects
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
-- **GitHub Pages Compatible**: Uses relative paths and proper configuration
-- **SEO Optimized**: Comprehensive meta tags, structured data, and sitemap
-- **Accessible**: Keyboard navigation, screen reader support, ARIA labels
+### Local Development Server (Required)
+CORS restrictions prevent opening `index.html` directly. Always use a local server:
+
+```bash
+# Python 3 (recommended)
+python3 -m http.server 8080
+
+# Alternative options
+npx serve
+npx http-server -p 8080
+php -S localhost:8080
+```
+
+Open `http://localhost:8080` in browser.
+
+### Content Import Tool
+```bash
+npm install
+node tools/import-from-goortani.js
+```
+
+Fetches CV content from goortani.com and generates `content/cv-full.html` and `content/cv-short.html`.
 
 ## Architecture
 
-### Core Files
-- [`index.html`](index.html) - Main terminal interface with command input
-- [`terminal.js`](terminal.js) - Command router and terminal logic
-- [`terminal.css`](terminal.css) - Terminal styling with responsive breakpoints
-- [`content/`](content/) - CV content files (HTML format)
-- [`_config.yml`](_config.yml) - GitHub Pages configuration
+### Core System Components
 
-### Command System
-The terminal accepts these commands:
-- `help` - Show available commands
-- `about` - Display profile summary
-- `cv` - Load full CV from content/cv-full.html
-- `short` - Load short CV from content/cv-short.html
-- `skills` - Quick skills overview
-- `projects` - Project highlights
-- `links` - All important links
-- `contact` - Contact information
-- `blog` - Open Medium profile
-- `pdf` - Download resume PDF
-- `clear` - Clear terminal screen
+**Three-file core:**
+- `index.html` - Terminal interface structure with SEO metadata
+- `terminal.js` - Command router, content loader, and terminal output system
+- `terminal.css` - Retro terminal styling with responsive breakpoints (768px, 480px)
 
-### Content Management
-- CV content is stored in [`content/cv-full.html`](content/cv-full.html) and [`content/cv-short.html`](content/cv-short.html)
-- Links are centralized in [`content/links.json`](content/links.json) and [`terminal.js`](terminal.js)
-- Import tool available at [`tools/import-from-goortani.js`](tools/import-from-goortani.js)
+**Command system architecture:**
+```javascript
+const commands = {
+  // Sync commands output directly
+  help() { line("text"); },
 
-## AI Agent Guidelines
+  // Async commands load external content
+  async cv() {
+    const html = await load("./content/cv-full.html");
+    write(html);
+  }
+};
+```
 
-### When Working on This Project
+**Content loading with caching:**
+- `load(path)` - Fetches and caches HTML content
+- `resolvePath(path)` - Handles relative paths from both root and `/short/` subdirectory
+- Content cached in `cache` object to prevent redundant fetches
 
-1. **Maintain Terminal Aesthetic**: All changes should preserve the retro terminal look and feel
-2. **Test Command Functionality**: Ensure all terminal commands work correctly
-3. **Check Path Compatibility**: Use relative paths for GitHub Pages compatibility
-4. **Preserve Responsive Design**: Test changes across mobile, tablet, and desktop
-5. **Validate SEO Elements**: Ensure meta tags and structured data remain intact
+**Terminal output helpers:**
+- `write(s)` - Append HTML to terminal
+- `line(s)` - Append text line with newline
+- `hr()` - Responsive horizontal rule (adapts to terminal width)
+- `createBox(content)` - Draw bordered box around content
 
-### Common Tasks
+### Path Resolution Strategy
 
-#### Adding New Commands
-1. Add command function to `commands` object in [`terminal.js`](terminal.js:40)
-2. Update help text in [`help()`](terminal.js:41) function
-3. Test command functionality in terminal interface
+Critical for GitHub Pages compatibility:
+- All paths must be relative (start with `./`)
+- `resolvePath()` handles both root page and `/short/` subdirectory contexts
+- Links object centralizes external URLs
 
-#### Updating CV Content
-1. Modify [`content/cv-full.html`](content/cv-full.html) or [`content/cv-short.html`](content/cv-short.html)
-2. Ensure HTML is clean and properly formatted
-3. Test loading via `cv` or `short` commands
+### Responsive Terminal Width System
 
-#### Styling Changes
-1. Modify [`terminal.css`](terminal.css) using CSS custom properties
-2. Test responsive breakpoints (768px, 480px)
-3. Ensure terminal aesthetic is preserved
+Terminal UI adapts to viewport size:
+- `getTerminalWidth()` - Calculates character width based on actual font metrics
+- Returns 40-60 characters based on available space
+- Used by `hr()` and `createBox()` for responsive ASCII art
 
-#### Link Updates
-1. Update both [`content/links.json`](content/links.json) and [`terminal.js`](terminal.js:9)
-2. Test all links via `links` command
-3. Verify external links open in new tabs
+## Common Modifications
 
-### Technical Considerations
+### Adding New Terminal Command
 
-#### GitHub Pages Deployment
-- Use relative paths (`./ ` instead of `/`)
-- Ensure [`_config.yml`](_config.yml) is properly configured
-- Test subdomain path resolution
+1. Add command function to `commands` object in `terminal.js`:
+```javascript
+const commands = {
+  newcommand() {
+    line("Command output here");
+  },
+  // or async for content loading
+  async loadcontent() {
+    const html = await load("./content/file.html");
+    write(html);
+    hr();
+  }
+};
+```
 
-#### SEO and Performance
-- Maintain structured data in [`index.html`](index.html)
-- Keep meta descriptions under 160 characters
-- Optimize for Core Web Vitals
+2. Update help text in `help()` function (line ~107)
 
-#### Accessibility
-- Preserve ARIA labels and roles
-- Maintain keyboard navigation
-- Ensure high contrast ratios
-- Test with screen readers
+3. Optionally add to `ls()` directory listing (line ~124)
 
-### File Structure Understanding
+### Updating CV Content
+
+Modify `content/cv-full.html` or `content/cv-short.html`. Loaded via `cv` and `short` commands using the `load()` function.
+
+### Updating Links
+
+**Must update both locations:**
+1. `links` object in `terminal.js` (line ~9)
+2. `content/links.json` (not currently used by terminal.js, but maintained for consistency)
+
+### Styling Changes
+
+Edit CSS custom properties in `terminal.css`:
+```css
+:root {
+  --fg: #00ff9c;        /* Terminal text */
+  --fg-dim: #5fffb1;    /* Dimmed text */
+  --bg: #0b0f0c;        /* Background */
+  --accent: #00ffaa;    /* Highlights */
+  --error: #ff3b3b;     /* Errors */
+}
+```
+
+Responsive breakpoints at 768px (tablet) and 480px (mobile).
+
+## GitHub Pages Deployment
+
+### Path Requirements
+- All paths relative: `./content/file.html` not `/content/file.html`
+- No leading slashes in any resource references
+- `_config.yml` configures Jekyll processing
+
+### Configuration Files
+- `_config.yml` - GitHub Pages settings
+- `sitemap.xml` - SEO sitemap (update URLs when changing domain)
+- `robots.txt` - Search engine directives
+- Meta tags in `index.html` - Update canonical URLs and structured data
+
+### SEO Elements
+- Structured data (JSON-LD) in `index.html`
+- Open Graph and Twitter Card meta tags
+- Comprehensive meta descriptions (<160 chars)
+
+## Key Technical Patterns
+
+### Command Argument Handling
+The `search` command demonstrates argument parsing:
+```javascript
+search(query) {
+  // Receives joined arguments from run() function
+  // Example: "search python AI" → query = "python AI"
+}
+```
+
+Arguments split in `run()` function and passed as single string to command.
+
+### Content Caching Strategy
+- First load fetches from network
+- Subsequent loads return cached HTML
+- Search command leverages cache to avoid redundant fetches
+- Cache persists for session duration
+
+### Responsive Terminal Rendering
+- Dynamic width calculation based on actual character metrics
+- Creates temporary `<span>` element to measure 'M' character width
+- Accounts for padding and calculates max characters per line
+- Used for horizontal rules and bordered boxes
+
+## Special Considerations
+
+### Terminal Aesthetic Preservation
+All changes must maintain:
+- Green-on-black CRT color scheme
+- Monospace font rendering
+- Command-line interface patterns
+- Retro 90s hacker aesthetic
+
+### Accessibility Requirements
+- Maintain ARIA labels and roles
+- Preserve keyboard navigation
+- Ensure screen reader compatibility
+- High contrast ratios for readability
+
+### Cross-Browser Compatibility
+Test across Chrome, Firefox, Safari, and Edge. Vanilla JavaScript ensures broad compatibility.
+
+## File Reference
 
 ```
 /
-├── index.html              # Main terminal interface
-├── terminal.js             # Command system and logic
-├── terminal.css            # Terminal styling
-├── _config.yml            # GitHub Pages config
-├── sitemap.xml            # SEO sitemap
-├── robots.txt             # Search engine directives
+├── index.html                    # Terminal interface + SEO
+├── terminal.js                   # Command system
+├── terminal.css                  # Styling + responsive
+├── _config.yml                   # GitHub Pages config
+├── sitemap.xml                   # SEO sitemap
+├── robots.txt                    # Search engine rules
 ├── short/
-│   └── index.html         # Short CV page
+│   └── index.html               # Auto-loads short CV
 ├── content/
-│   ├── cv-full.html       # Full CV content
-│   ├── cv-short.html      # Short CV content
-│   └── links.json         # Centralized links
+│   ├── cv-full.html             # Full resume content
+│   ├── cv-short.html            # Concise resume
+│   └── links.json               # Link configuration
 └── tools/
-    └── import-from-goortani.js  # Content import tool
+    └── import-from-goortani.js  # Content import utility
 ```
 
-### Troubleshooting Common Issues
+## Additional Documentation
 
-#### Commands Not Working
-- Check [`terminal.js`](terminal.js) command object syntax
-- Verify function names match command strings
-- Test with browser console for JavaScript errors
-
-#### Styling Issues
-- Check CSS custom properties in `:root`
-- Verify responsive breakpoint syntax
-- Test terminal aesthetic preservation
-
-#### Path Resolution Problems
-- Ensure all paths are relative (start with `./`)
-- Check [`_config.yml`](_config.yml) configuration
-- Test GitHub Pages subdomain compatibility
-
-#### Content Loading Issues
-- Verify HTML syntax in content files
-- Check file paths in load functions
-- Test with browser network tab for 404s
-
-## Context for AI Agents
-
-This website represents a unique approach to presenting a professional CV through an interactive terminal interface. The design balances nostalgia (90s terminal aesthetic) with modern web standards (responsive design, SEO, accessibility).
-
-**Key Success Factors:**
-- Terminal commands must be intuitive and discoverable
-- Responsive design must work seamlessly across devices
-- Professional content presentation within terminal aesthetic
-- Fast loading and GitHub Pages compatibility
-- Strong SEO foundation for professional visibility
-
-**User Experience Goals:**
-- Engaging, memorable first impression
-- Easy navigation via familiar terminal commands
-- Professional credibility through quality content
-- Accessibility for all users regardless of device or ability
-
-When modifying this project, always consider both the technical implementation and the user experience. The terminal interface should feel authentic while remaining user-friendly and professional.
+- `AGENTS.md` - Detailed technical architecture and agent interaction guidelines
+- `README.md` - User-facing documentation with setup instructions
