@@ -33,12 +33,12 @@
   <link rel="stylesheet" href="../terminal.css">
 </head>
 <body>
+  <a href="#cmd" class="skip-link">Skip to command input</a>
   <div class="screen">
     <div class="term" role="region" aria-label="terminal">
       <div class="header">
-        <div class="brand glow">GOORTANI::CV[short]</div>
+        <div class="brand">GOORTANI::CV[short]</div>
         <div class="nav-inline">
-          <span class="badge">Terminal</span>
           <a href="../" title="Home">Home</a>
           <a href="./" title="Short CV">Short</a>
           <a href="https://medium.com/@FrankGoortani" title="Blog">Blog</a>
@@ -50,8 +50,8 @@
       <div id="out" class="output" aria-live="polite"></div>
 
       <div class="prompt" aria-label="command prompt">
-        <span class="prompt-label glow">$</span>
-        <input id="cmd" type="text" autocomplete="off" spellcheck="false" placeholder="type commands (try: help, short, links)">
+        <span class="prompt-label">$</span>
+        <input id="cmd" type="text" autocomplete="off" spellcheck="false" autofocus placeholder="type commands (try: help, short, links)">
         <span class="cursor" aria-hidden="true"></span>
       </div>
 

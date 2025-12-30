@@ -1,104 +1,337 @@
+/* Modern Terminal CV - 2025 Refresh */
+/* Retains terminal aesthetic with contemporary design flourishes */
 
-/* 90s Hacker / HomeBrew Terminal style */
-:root{
+/* ============================================
+   1. DESIGN TOKENS & CUSTOM PROPERTIES
+   ============================================ */
+
+:root {
+  /* Core terminal colors - evolved palette */
   --fg: #00ff9c;
   --fg-dim: #5fffb1;
-  --bg: #0b0f0c;
-  --accent: #00ffaa;
-  --error: #ff3b3b;
+  --fg-muted: #3d9970;
+  --bg: #0a0f0c;
+  --bg-elevated: #0f1512;
+  --bg-surface: #131a16;
+
+  /* Accent system */
+  --accent-primary: #00ffaa;
+  --accent-secondary: #00d4ff;
+  --accent-warm: #ff6b35;
+  --accent-subtle: rgba(0, 255, 156, 0.08);
+
+  /* Semantic colors */
+  --success: #00ff9c;
+  --warning: #ffaa00;
+  --error: #ff4444;
+  --info: #00d4ff;
+
+  /* Surface layers (for glassmorphism) */
+  --surface-1: rgba(0, 255, 156, 0.03);
+  --surface-2: rgba(0, 255, 156, 0.06);
+  --surface-3: rgba(0, 255, 156, 0.10);
+  --surface-border: rgba(0, 255, 156, 0.15);
+
+  /* Typography */
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Fira Code",
+               Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Fluid typography scale */
+  --text-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem);
+  --text-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);
+  --text-base: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
+  --text-lg: clamp(1rem, 0.925rem + 0.375vw, 1.125rem);
+  --text-xl: clamp(1.125rem, 1rem + 0.625vw, 1.375rem);
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Animation timing */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 }
 
-* { box-sizing: border-box; }
+/* ============================================
+   2. BASE RESET & FOUNDATIONS
+   ============================================ */
 
-html, body {
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  height: 100%;
-  background: radial-gradient(ellipse at center, #0b0f0c 0%, #060907 70%, #020403 100%);
-  color: var(--fg);
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  line-height: 1.5;
 }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 30% 20%, rgba(0, 255, 156, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(0, 212, 255, 0.02) 0%, transparent 50%),
+    radial-gradient(ellipse at center, var(--bg) 0%, #050807 100%);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
+/* ============================================
+   3. LINKS & INTERACTIVE ELEMENTS
+   ============================================ */
 
 a {
   color: var(--fg);
   text-decoration: none;
-  border-bottom: 1px dashed var(--fg);
+  position: relative;
+  transition: color 0.2s var(--ease-out);
 }
-a:hover { border-bottom-style: solid; }
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s var(--ease-out);
+}
+
+a:hover::after,
+a:focus::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+a:hover {
+  color: var(--accent-secondary);
+}
+
+/* ============================================
+   4. SCREEN CONTAINER
+   ============================================ */
 
 .screen {
   position: relative;
   min-height: 100vh;
-  padding: 16px;
+  min-height: 100dvh;
+  padding: var(--space-4);
   overflow-x: hidden;
   width: 100%;
-  box-sizing: border-box;
 }
+
+/* ============================================
+   5. TERMINAL CONTAINER - GLASSMORPHISM
+   ============================================ */
 
 .term {
-  max-width: min(980px, calc(100vw - 32px));
+  position: relative;
+  max-width: min(900px, calc(100vw - 32px));
   width: 100%;
   margin: 0 auto;
-  padding: 24px 20px 100px;
-  border: 2px solid var(--fg);
-  border-radius: 6px;
-  background: rgba(0,0,0,0.25);
-  box-shadow: 0 0 40px rgba(0,255,140,0.2), inset 0 0 40px rgba(0,255,140,0.08);
-  position: relative;
-  box-sizing: border-box;
+  padding: var(--space-6) var(--space-5) 100px;
+
+  /* Glassmorphism effect */
+  background: linear-gradient(
+    135deg,
+    rgba(10, 15, 12, 0.92),
+    rgba(15, 21, 18, 0.88)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* Border with gradient */
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+
+  /* Layered shadows for depth */
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 156, 0.05),
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 12px 24px rgba(0, 0, 0, 0.2),
+    0 0 80px rgba(0, 255, 156, 0.06),
+    inset 0 1px 0 rgba(0, 255, 156, 0.08);
+
+  /* Entrance animation */
+  animation: terminalFadeIn 0.5s var(--ease-out);
 }
 
-.term::after {
-  /* subtle scanlines */
-  content: "";
-  pointer-events: none;
+@keyframes terminalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle noise texture overlay */
+.term::before {
+  content: '';
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(0,0,0,0), rgba(0,0,0,0) 2px,
-    rgba(0,255,160,0.03) 3px
-  );
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.015;
+  pointer-events: none;
   mix-blend-mode: overlay;
 }
+
+/* Optional: subtle scan line effect (reduced from original) */
+.term::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 156, 0.008) 2px,
+    rgba(0, 255, 156, 0.008) 4px
+  );
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ============================================
+   6. HEADER SECTION
+   ============================================ */
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0,255,160,0.25);
-  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-4);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--surface-2);
 }
 
 .brand {
-  letter-spacing: 1px;
+  font-size: var(--text-xl);
   font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, var(--fg) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
 }
 
+/* Status badge with pulse */
 .badge {
-  opacity: 0.9;
-  padding: 2px 8px;
-  border: 1px solid var(--fg);
-  border-radius: 4px;
-  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background: var(--surface-2);
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--fg-dim);
 }
+
+.badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--success);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 8px var(--success);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+}
+
+/* ============================================
+   7. NAVIGATION
+   ============================================ */
 
 .nav-inline {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 16px;
+  gap: var(--space-2) var(--space-3);
   align-items: center;
 }
 
 .nav-inline a {
-  border-bottom: 0;
-  padding: 0 2px;
+  position: relative;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--fg-dim);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s var(--ease-out);
 }
-.nav-inline a::before { content: "["; opacity: .65; margin-right: 2px; }
-.nav-inline a::after { content: "]"; opacity: .65; margin-left: 2px; }
+
+.nav-inline a::before {
+  content: "[";
+  opacity: 0.4;
+  margin-right: 2px;
+  transition: opacity 0.2s;
+}
+
+.nav-inline a::after {
+  content: "]";
+  opacity: 0.4;
+  margin-left: 2px;
+  position: static;
+  background: none;
+  transform: none;
+  height: auto;
+  width: auto;
+  transition: opacity 0.2s;
+}
+
+.nav-inline a:hover,
+.nav-inline a:focus {
+  color: var(--fg);
+  background: var(--surface-1);
+}
+
+.nav-inline a:hover::before,
+.nav-inline a:hover::after,
+.nav-inline a:focus::before,
+.nav-inline a:focus::after {
+  opacity: 0.8;
+}
+
+/* ============================================
+   8. OUTPUT AREA
+   ============================================ */
 
 .output {
   white-space: pre-wrap;
@@ -106,323 +339,425 @@ a:hover { border-bottom-style: solid; }
   overflow-wrap: break-word;
   min-height: 280px;
   width: 100%;
-  box-sizing: border-box;
+  line-height: 1.7;
 }
+
+/* Content styling within output */
+.output strong,
+.output b {
+  color: var(--accent-secondary);
+  font-weight: 600;
+}
+
+.output em,
+.output i {
+  color: var(--fg-dim);
+  font-style: normal;
+}
+
+/* Command echo styling */
+.cmd-echo {
+  color: var(--accent-primary);
+  text-shadow: 0 0 10px rgba(0, 255, 156, 0.4);
+}
+
+/* ============================================
+   9. COMMAND PROMPT
+   ============================================ */
 
 .prompt {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-3);
   position: sticky;
-  bottom: 16px;
-  padding-top: 12px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.4));
-  backdrop-filter: blur(1px);
+  bottom: var(--space-4);
+  padding: var(--space-4) 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 15, 12, 0.98) 0%,
+    rgba(10, 15, 12, 0.95) 60%,
+    transparent 100%
+  );
+  z-index: 10;
 }
 
 .prompt-label {
-  color: var(--fg-dim);
+  color: var(--accent-secondary);
+  font-weight: 600;
+  font-size: var(--text-lg);
+  user-select: none;
 }
 
 #cmd {
   flex: 1;
-  background: transparent;
+  background: var(--surface-1);
   color: var(--fg);
-  border: none;
-  outline: none;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
   font: inherit;
-  padding: 6px 8px;
-  border-bottom: 1px dashed rgba(0,255,160,0.45);
+  font-size: var(--text-base);
+  outline: none;
+  transition: all 0.2s var(--ease-out);
 }
 
-kbd { 
-  border: 1px solid rgba(0,255,160,0.25);
-  padding: 1px 4px;
-  border-radius: 3px;
-  font-size: .9em;
+#cmd::placeholder {
+  color: var(--fg-muted);
+}
+
+#cmd:focus {
+  border-color: var(--accent-primary);
+  box-shadow:
+    0 0 0 3px rgba(0, 255, 156, 0.1),
+    0 0 20px rgba(0, 255, 156, 0.1);
+  background: var(--surface-2);
+}
+
+/* Blinking cursor - positioned inside input visually */
+.cursor {
+  display: none; /* Hide the external cursor element - input has its own */
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ============================================
+   10. UTILITY ELEMENTS
+   ============================================ */
+
+kbd {
+  display: inline-block;
+  padding: 2px 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.85em;
+  font-family: inherit;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--surface-border) 20%,
+    var(--surface-border) 80%,
+    transparent
+  );
+  margin: var(--space-4) 0;
 }
 
 .footer {
-  margin-top: 18px;
-  opacity: .75;
-  font-size: 12px;
+  margin-top: var(--space-5);
+  padding-top: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--fg-muted);
+  text-align: center;
 }
 
-.glow { text-shadow: 0 0 6px rgba(0,255,160,0.6), 0 0 14px rgba(0,255,160,0.3); }
-
-hr {
-  border: 0;
-  border-top: 1px dashed rgba(0,255,160,0.25);
-  margin: 12px 0;
+/* Glow effect utility */
+.glow {
+  text-shadow:
+    0 0 4px rgba(0, 255, 156, 0.6),
+    0 0 12px rgba(0, 255, 156, 0.3);
 }
 
-/* blink cursor effect */
-.cursor {
-  display: inline-block;
-  width: 8px;
-  height: 1em;
-  background: var(--fg);
-  margin-left: 4px;
-  animation: blink 1s steps(1) infinite;
-}
-@keyframes blink { 50% { opacity: 0; } }
+/* ============================================
+   11. RESPONSIVE: TABLET (768px and below)
+   ============================================ */
 
-/* Mobile and responsive design improvements */
-
-/* Tablet breakpoint (768px and below) */
 @media (max-width: 768px) {
   .screen {
-    padding: 8px;
+    padding: var(--space-2);
   }
-  
+
   .term {
     max-width: calc(100vw - 16px);
-    padding: 20px 16px 80px;
-    border-radius: 4px;
-    margin: 0 auto;
+    padding: var(--space-5) var(--space-4) 90px;
+    border-radius: var(--radius-md);
   }
-  
+
   .header {
     flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-  }
-  
-  .brand {
+    align-items: center;
     text-align: center;
-    font-size: 18px;
+    gap: var(--space-3);
   }
-  
+
+  .brand {
+    font-size: var(--text-lg);
+  }
+
+  .badge {
+    font-size: 10px;
+  }
+
   .nav-inline {
     justify-content: center;
-    gap: 8px 12px;
-    font-size: 14px;
+    gap: var(--space-2) var(--space-3);
   }
-  
-  .badge {
-    font-size: 11px;
-    padding: 1px 6px;
-  }
-  
+
   .output {
     min-height: 200px;
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: var(--text-sm);
   }
-  
+
   .prompt {
-    gap: 8px;
-    bottom: 12px;
-    padding-top: 16px;
+    gap: var(--space-2);
+    padding: var(--space-3) 0;
   }
-  
+
   #cmd {
-    font-size: 16px; /* Prevents zoom on iOS */
-    padding: 12px 10px;
-    border-bottom: 2px solid rgba(0,255,160,0.6);
-    border-radius: 4px;
-    min-height: 44px; /* Touch target size */
+    font-size: 16px; /* Prevents iOS zoom */
+    padding: var(--space-3);
+    min-height: 44px; /* Touch target */
   }
-  
+
   .footer {
-    font-size: 11px;
-    text-align: center;
+    font-size: 10px;
   }
 }
 
-/* Mobile breakpoint (480px and below) */
+/* ============================================
+   12. RESPONSIVE: MOBILE (480px and below)
+   ============================================ */
+
 @media (max-width: 480px) {
-  .screen {
-    padding: 4px;
+  :root {
+    --space-4: 12px;
+    --space-5: 16px;
+    --space-6: 20px;
   }
-  
+
+  .screen {
+    padding: var(--space-1);
+  }
+
   .term {
     max-width: calc(100vw - 8px);
-    padding: 16px 12px 70px;
-    border-width: 1px;
-    margin: 0 auto;
+    padding: var(--space-4) var(--space-3) 80px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 70px; /* Account for fixed prompt */
   }
-  
+
   .header {
-    margin-bottom: 12px;
-    padding-bottom: 8px;
+    padding-bottom: var(--space-3);
+    margin-bottom: var(--space-4);
   }
-  
+
   .brand {
-    font-size: 16px;
-    letter-spacing: 0.5px;
+    font-size: 15px;
+    letter-spacing: 1px;
   }
-  
+
+  /* Grid navigation for touch */
   .nav-inline {
-    gap: 6px 8px;
-    font-size: 13px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+    width: 100%;
   }
-  
+
   .nav-inline a {
-    padding: 4px 6px;
-    border: 1px solid rgba(0,255,160,0.3);
-    border-radius: 3px;
-    background: rgba(0,255,160,0.05);
-    min-height: 32px; /* Touch target */
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    padding: var(--space-3) var(--space-2);
+    background: var(--surface-1);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-md);
+    font-size: 12px;
+    min-height: 40px;
   }
-  
+
   .nav-inline a::before,
   .nav-inline a::after {
-    display: none; /* Remove brackets on mobile for cleaner look */
+    display: none;
   }
-  
+
   .output {
     min-height: 150px;
     font-size: 13px;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+    line-height: 1.8;
   }
-  
+
+  /* Fixed prompt at bottom */
   .prompt {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 12px;
-    background: rgba(0,0,0,0.95);
-    backdrop-filter: blur(4px);
-    border-top: 1px solid rgba(0,255,160,0.3);
+    padding: var(--space-3);
+    padding-bottom: max(var(--space-3), env(safe-area-inset-bottom));
+    background: rgba(10, 15, 12, 0.98);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid var(--surface-border);
+    z-index: 100;
   }
-  
+
   .prompt-label {
-    font-size: 14px;
+    font-size: var(--text-base);
   }
-  
+
   #cmd {
-    font-size: 16px;
-    padding: 14px 12px;
-    border: 1px solid rgba(0,255,160,0.5);
-    border-radius: 6px;
-    background: rgba(0,0,0,0.8);
-    min-height: 48px; /* Larger touch target */
+    padding: var(--space-3) var(--space-4);
+    min-height: 48px;
+    border-radius: var(--radius-md);
+    background: var(--surface-2);
   }
-  
+
   .footer {
-    font-size: 10px;
-    margin-bottom: 60px; /* Account for fixed prompt */
-  }
-  
-  /* Prevent horizontal scrolling */
-  *, *::before, *::after {
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-  
-  /* Ensure no element causes overflow */
-  .term, .header, .output, .nav-inline, .prompt {
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  /* Better link styling for touch */
-  a {
-    min-height: 24px;
-    display: inline-block;
-    padding: 2px 4px;
+    margin-bottom: 60px;
+    font-size: 9px;
   }
 }
 
-/* Enhanced touch and focus styles */
+/* ============================================
+   13. TOUCH DEVICE ENHANCEMENTS
+   ============================================ */
+
 @media (hover: none) and (pointer: coarse) {
-  /* Touch device specific styles */
+  .nav-inline a:active {
+    background: var(--surface-3);
+    transform: scale(0.98);
+  }
+
   #cmd:focus {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--accent-primary);
     outline-offset: 2px;
-    border-color: var(--accent);
-    box-shadow: 0 0 12px rgba(0,255,170,0.4);
   }
-  
-  .nav-inline a:hover,
-  .nav-inline a:focus {
-    background: rgba(0,255,160,0.15);
-    border-color: var(--accent);
-    outline: none;
-  }
-  
-  a:hover,
-  a:focus {
-    background: rgba(0,255,160,0.1);
-    border-radius: 2px;
-    outline: none;
+
+  a:active {
+    background: var(--surface-1);
+    border-radius: var(--radius-sm);
   }
 }
 
-/* Typography improvements */
-@media (max-width: 768px) {
-  html, body {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  
-  .output {
-    line-height: 1.7;
-  }
-  
-  /* Better spacing for terminal output sections */
-  .output > * {
-    margin-bottom: 8px;
-  }
-  
-  .output strong {
-    display: block;
-    margin: 12px 0 8px 0;
-    color: var(--accent);
-  }
-  
-  /* Enhanced visual hierarchy */
-  .output a {
-    font-weight: 500;
-  }
-}
+/* ============================================
+   14. LANDSCAPE MODE
+   ============================================ */
 
-@media (max-width: 480px) {
-  html, body {
-    font-size: 13px;
-  }
-  
-  .output {
-    line-height: 1.8;
-  }
-  
-  /* More spacing on mobile */
-  .output > * {
-    margin-bottom: 10px;
-  }
-}
-
-/* Landscape orientation adjustments for mobile */
 @media (max-width: 768px) and (orientation: landscape) {
   .term {
-    padding: 12px 16px 60px;
+    padding: var(--space-3) var(--space-4) 70px;
   }
-  
+
   .output {
-    min-height: 120px;
+    min-height: 100px;
   }
-  
-  .prompt {
-    bottom: 8px;
-    padding-top: 8px;
+
+  .header {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
-  
+
   #cmd {
     min-height: 36px;
-    padding: 8px 10px;
+    padding: var(--space-2) var(--space-3);
   }
 }
 
-/* Reduced motion */
+/* ============================================
+   15. ACCESSIBILITY & REDUCED MOTION
+   ============================================ */
+
 @media (prefers-reduced-motion: reduce) {
-  .term::after { display: none; }
-  .cursor { animation: none; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .term::after {
+    display: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --fg: #00ff9c;
+    --bg: #000000;
+    --surface-border: var(--fg);
+  }
+
+  .term {
+    border-width: 2px;
+  }
+
+  a::after {
+    height: 2px;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Skip link (if added to HTML) */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg);
+  border: 1px solid var(--fg);
+  border-radius: var(--radius-sm);
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* ============================================
+   16. PRINT STYLES
+   ============================================ */
+
+@media print {
+  .screen {
+    padding: 0;
+  }
+
+  .term {
+    max-width: 100%;
+    padding: 20px;
+    border: 1px solid #333;
+    box-shadow: none;
+    background: white;
+  }
+
+  .term::before,
+  .term::after {
+    display: none;
+  }
+
+  body, .output {
+    color: #000;
+    background: white;
+  }
+
+  .prompt,
+  .cursor,
+  .footer {
+    display: none;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  a::after {
+    display: none;
+  }
 }

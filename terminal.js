@@ -28,7 +28,12 @@
   };
 
   // print helpers
-  const write = (s="") => { out.insertAdjacentHTML("beforeend", s + "\n"); out.scrollTop = out.scrollHeight; };
+  const write = (s="") => {
+    out.insertAdjacentHTML("beforeend", s + "\n");
+    out.scrollTop = out.scrollHeight;
+    // Also scroll the page to show the prompt
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  };
   const line = (s="") => write(s.replace(/\n+$/,"")+"\n");
 
   // Responsive terminal width calculation
