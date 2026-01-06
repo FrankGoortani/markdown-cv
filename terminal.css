@@ -451,6 +451,52 @@ hr {
   margin: var(--space-4) 0;
 }
 
+/* ==============================================
+   Mobile Command Buttons
+   ============================================== */
+
+.mobile-commands {
+  display: none; /* Hidden on desktop */
+  gap: var(--space-2);
+  padding: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+  background: var(--surface-1);
+  border-top: 1px solid var(--surface-border);
+}
+
+.cmd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-2);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  color: var(--fg);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--text-sm);
+  transition: all 0.2s var(--ease-out);
+  user-select: none;
+  min-height: 44px;
+}
+
+.cmd-btn:hover {
+  background: var(--surface-3);
+  border-color: var(--accent-primary);
+}
+
+.cmd-btn:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.cmd-btn:active {
+  background: var(--surface-3);
+  transform: scale(0.96);
+}
+
 .footer {
   margin-top: var(--space-5);
   padding-top: var(--space-3);
@@ -614,6 +660,23 @@ hr {
   .footer {
     margin-bottom: 60px;
     font-size: 9px;
+  }
+
+  /* Show mobile command buttons */
+  .mobile-commands {
+    display: flex;
+  }
+
+  /* Larger touch targets for mobile */
+  .cmd-btn {
+    min-height: 48px;
+    min-width: 80px;
+    padding: var(--space-3);
+  }
+
+  /* Adjust output height to account for buttons */
+  .output {
+    max-height: calc(100dvh - 300px); /* Account for header, buttons, prompt */
   }
 }
 

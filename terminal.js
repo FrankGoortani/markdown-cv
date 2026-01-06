@@ -6,6 +6,10 @@
   const out = $("#out");
   const input = $("#cmd");
 
+  // Command history for arrow key navigation
+  const commandHistory = [];
+  let historyIndex = -1;
+
   // determine base path relative to site root for subdirectory pages
   const rootPath = (() => {
     const depth = window.location.pathname.split("/").filter(Boolean).length;
@@ -113,6 +117,7 @@
         "  about           summary profile",
         "  cv              full CV (loads content/cv-full.html)",
         "  short           short CV (loads content/cv-short.html)",
+        "  fasteroutcomes  current CTO role details",
         "  skills          quick list of skills",
         "  projects        highlights",
         "  links           all important hyperlinks",
@@ -121,7 +126,9 @@
         "  pdf             open resume PDF",
         "  ls              list available commands (directory style)",
         "  search <query>  search CV content for keywords",
-        "  clear           clear screen"
+        "  clear           clear screen",
+        "",
+        "Tip: Press Tab for auto-complete, ↑↓ for command history"
       ].join("\n"));
     },
     ls(){
@@ -130,6 +137,7 @@
         "drwxr-xr-x  frank  staff    about/",
         "drwxr-xr-x  frank  staff    cv/",
         "drwxr-xr-x  frank  staff    short/",
+        "drwxr-xr-x  frank  staff    fasteroutcomes/",
         "drwxr-xr-x  frank  staff    skills/",
         "drwxr-xr-x  frank  staff    projects/",
         "drwxr-xr-x  frank  staff    links/",
@@ -140,7 +148,7 @@
         "-rwxr-xr-x  frank  staff    clear*",
         "-rwxr-xr-x  frank  staff    help*",
         "",
-        "Total: 12 items | Use command names to execute"
+        "Total: 13 items | Use command names to execute"
       ].join("\n"));
     },
     async cv(){
@@ -156,11 +164,63 @@
       hr();
     },
     about(){
-      line("FRANK GOORTANI — Technology Leader & AI Strategist (TOGAF, PMP)");
-      line("Focus: Generative AI (LLMs, agents, agentic coding), distributed systems, cloud-native, and mobile.");
-      line("Expert in Claude Code, Cursor, MCP development - achieving 3-5x productivity gains.");
-      line("Email: "+links.email.replace("mailto:",""));
-      line("Type `cv` for full resume or `short` for concise version.");
+      line("");
+      line("Frank Goortani");
+      line("═══════════════════════════════════════════");
+      line("");
+      line("Chief Technology Officer at FasterOutcomes");
+      line("AI Legal Tech Startup | 0→1→Series A");
+      line("");
+      line("Technology leader with 25+ years scaling AI systems");
+      line("and engineering teams. Currently building production");
+      line("LLM systems at FasterOutcomes. Previously Solution");
+      line("Architect at Uber (ELLE AI Decision Engine).");
+      line("");
+      line("Expertise: Production AI/LLM systems, engineering");
+      line("leadership, 0→1 product development, technical strategy.");
+      line("");
+      line("Education: M.Sc. Management, B.Sc. Computer Software");
+      line("Engineering (AmirKabir University). TOGAF & PMP certified.");
+      line("");
+      hr();
+    },
+    fasteroutcomes(){
+      hr();
+      line("");
+      line("═══════════════════════════════════════════════");
+      line("  FASTEROUTCOMES | CTO ROLE");
+      line("═══════════════════════════════════════════════");
+      line("");
+      line("Company:     FasterOutcomes (AI Legal Tech)");
+      line("Role:        Chief Technology Officer");
+      line("Timeline:    Part-time (Mar 2024) → Full-time (Jan 2026)");
+      line("Stage:       0→1→Series A preparation");
+      line("");
+      line("KEY ACHIEVEMENTS:");
+      line("─────────────────────────────────────────────");
+      line("• Built MVP in 12 weeks (LangGraph, RAG, AI agents)");
+      line("• Scaled from POC to production serving enterprise clients");
+      line("• Established technical architecture and engineering culture");
+      line("• Leading product roadmap and technical strategy");
+      line("");
+      line("TECH STACK:");
+      line("─────────────────────────────────────────────");
+      line("• AI/ML: LangChain, LangGraph, RAG, AI Agents");
+      line("• Backend: Python, FastAPI, LangFx");
+      line("• Frontend: React 18, TypeScript, NextJS");
+      line("• Cloud: Firebase, GCP, Vercel");
+      line("• Data: OpenSearch (vector search), Firestore");
+      line("");
+      line("STATUS:");
+      line("─────────────────────────────────────────────");
+      line("Currently focused full-time on scaling to Series A.");
+      line("Not seeking other opportunities.");
+      line("");
+      line("Links:");
+      line("→ https://fasteroutcomes.com");
+      line("→ https://linkedin.com/in/frankgoortani");
+      line("");
+      hr();
     },
     skills(){
       // intentionally concise; full list lives in cv pages
@@ -292,6 +352,13 @@
     const parts = cmdline.trim().split(/\s+/);
     const [cmd, ...args] = parts;
     if(!cmd) return;
+
+    // Add to command history
+    if(cmdline.trim() !== "") {
+      commandHistory.push(cmdline.trim());
+      historyIndex = -1; // Reset position
+    }
+
     const fn = commands[cmd.toLowerCase()];
     write(`<span class="glow">$ ${cmdline}</span>`);
     if(!fn){
@@ -309,6 +376,52 @@
       input.value = "";
       run(value);
     }
+    else if(e.key === "Tab"){
+      e.preventDefault();
+      const currentInput = input.value.trim().toLowerCase();
+
+      // Get matching commands
+      const possibleCommands = Object.keys(commands).filter(cmd =>
+        cmd.startsWith(currentInput)
+      );
+
+      if(possibleCommands.length === 1){
+        // Single match - auto-complete
+        input.value = possibleCommands[0] + " ";
+        // Move cursor to end
+        input.setSelectionRange(input.value.length, input.value.length);
+      } else if(possibleCommands.length > 1){
+        // Multiple matches - show suggestions
+        line(`\nSuggestions: ${possibleCommands.join(', ')}`);
+      }
+    }
+    else if(e.key === "ArrowUp"){
+      e.preventDefault();
+      if(commandHistory.length > 0 && historyIndex < commandHistory.length - 1){
+        historyIndex++;
+        input.value = commandHistory[commandHistory.length - 1 - historyIndex];
+      }
+    }
+    else if(e.key === "ArrowDown"){
+      e.preventDefault();
+      if(historyIndex > 0){
+        historyIndex--;
+        input.value = commandHistory[commandHistory.length - 1 - historyIndex];
+      } else if(historyIndex === 0){
+        historyIndex = -1;
+        input.value = "";
+      }
+    }
+  });
+
+  // Mobile command button handlers
+  document.querySelectorAll('.cmd-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const command = btn.getAttribute('data-command');
+      input.value = command;
+      input.focus();
+      run(command);
+    });
   });
 
   // Boot message
