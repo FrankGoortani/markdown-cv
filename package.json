@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "type": "module",
   "private": true,
+  "scripts": {
+    "generate-pdfs": "node generate-resume-pdfs.js"
+  },
   "dependencies": {
     "jsdom": "^24.1.0",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "puppeteer": "^21.0.0"
   }
 }
