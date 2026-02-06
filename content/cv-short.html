@@ -1,94 +1,68 @@
 <style>
-/* CV Content Styling - Matches Modern Terminal Theme */
-:root {
-  --fg: #00ff9c;
-  --fg-dim: #5fffb1;
-  --accent-primary: #00ffaa;
-  --accent-secondary: #00d4ff;
-  --bg: #0a0f0c;
-  --surface-1: rgba(0, 255, 156, 0.03);
-  --surface-2: rgba(0, 255, 156, 0.06);
-  --surface-border: rgba(0, 255, 156, 0.15);
-}
-body {
-  font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Monaco, Consolas, monospace;
-  line-height: 1.7;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
-  background: var(--bg);
-  color: var(--fg);
-}
+/* CV Content — 1980s CRT Green Phosphor */
 h1, h2, h3 {
-  color: var(--accent-secondary);
-  border-bottom: 1px solid var(--surface-border);
+  color: #66ff66;
+  border-bottom: 1px solid #0d6b0d;
   padding-bottom: 0.5rem;
   margin-top: 2rem;
+  text-shadow: 0 0 4px rgba(51, 255, 51, 0.4);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
-h1 { font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 0.5rem; margin-top: 0; }
-h2 { font-size: clamp(1.2rem, 3vw, 1.5rem); }
-h3 { font-size: clamp(1rem, 2.5vw, 1.2rem); margin-top: 1.5rem; }
+h1 { font-size: 1.4rem; margin-bottom: 0.5rem; margin-top: 0; }
+h2 { font-size: 1.2rem; }
+h3 { font-size: 1rem; margin-top: 1.5rem; }
 a {
-  color: var(--fg);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  background: linear-gradient(var(--accent-primary), var(--accent-primary)) no-repeat;
-  background-size: 0% 1px;
-  background-position: 0 100%;
-  transition: background-size 0.3s ease, color 0.2s ease;
+  color: #66ff66;
+  text-decoration: underline;
+  text-shadow: 0 0 2px rgba(51, 255, 51, 0.4);
 }
-a:hover {
-  color: var(--accent-secondary);
-  background-size: 100% 1px;
-}
+a:hover { color: #99ff99; }
 .hero {
-  text-align: center;
   margin-bottom: 2rem;
-  padding: 1.5rem;
-  border: 1px solid var(--surface-border);
-  border-radius: 12px;
-  background: var(--surface-1);
-  backdrop-filter: blur(8px);
+  padding: 1rem;
+  border: 1px solid #0d6b0d;
 }
 .hero h1 {
   border: none;
   margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, var(--fg) 0%, var(--accent-secondary) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #66ff66;
+  text-shadow: 0 0 6px rgba(51, 255, 51, 0.5), 0 0 12px rgba(51, 255, 51, 0.2);
+  -webkit-text-fill-color: unset;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
 }
-.hero p { font-size: 1.1rem; margin: 1rem 0; color: var(--fg-dim); }
+.hero p { font-size: 1rem; margin: 0.8rem 0; color: #20cc20; }
 #webaddress { margin-top: 1rem; }
 #webaddress a { margin: 0 0.5rem; }
-ul { padding-left: 1.5rem; }
-li { margin: 0.5rem 0; line-height: 1.6; }
+ul { padding-left: 1.5rem; list-style: none; }
+li { margin: 0.4rem 0; line-height: 1.5; }
+li::before { content: "> "; color: #0d6b0d; }
 code {
-  background: var(--surface-2);
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.85em;
-  color: var(--accent-secondary);
-  border: 1px solid var(--surface-border);
+  background: rgba(51, 255, 51, 0.06);
+  padding: 0.15rem 0.4rem;
+  font-size: 0.9em;
+  color: #66ff66;
+  border: 1px solid #0d6b0d;
 }
-strong { color: var(--accent-secondary); font-weight: 600; }
+strong { color: #66ff66; font-weight: bold; text-shadow: 0 0 2px rgba(51, 255, 51, 0.3); }
 hr {
   border: none;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--surface-border) 20%, var(--surface-border) 80%, transparent);
-  margin: 2rem 0;
+  background: #0d6b0d;
+  margin: 1.5rem 0;
 }
-p { margin: 1rem 0; }
+p { margin: 0.8rem 0; }
 @media (max-width: 768px) {
-  body { padding: 1rem; font-size: 0.9rem; }
-  .hero { padding: 1rem; border-radius: 8px; }
+  .hero { padding: 0.8rem; }
 }
 @media (max-width: 480px) {
-  body { padding: 0.75rem; font-size: 0.85rem; }
-  h1 { font-size: 1.4rem; }
-  h2 { font-size: 1.2rem; }
-  h3 { font-size: 1rem; }
-  #webaddress a { display: block; margin: 0.5rem 0; }
+  h1 { font-size: 1.2rem; }
+  h2 { font-size: 1rem; }
+  h3 { font-size: 0.9rem; }
+  #webaddress a { display: block; margin: 0.4rem 0; }
 }
 </style>
 
