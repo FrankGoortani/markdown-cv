@@ -1,48 +1,49 @@
-/* ============================================
-   1980s CRT Terminal — Green Phosphor Aesthetic
-   Authentic retrofuturism: P1 phosphor monochrome,
-   scanlines, bloom glow, screen curvature, vignette.
-   ============================================ */
+/* Modern Terminal CV - 2025 Refresh */
+/* Retains terminal aesthetic with contemporary design flourishes */
 
 /* ============================================
-   1. DESIGN TOKENS
+   1. DESIGN TOKENS & CUSTOM PROPERTIES
    ============================================ */
 
 :root {
-  /* Monochrome green phosphor palette (P1 phosphor) */
-  --fg: #33ff33;
-  --fg-bright: #66ff66;
-  --fg-dim: #20cc20;
-  --fg-muted: #0d6b0d;
-  --bg: #0a0a0a;
-  --bg-screen: #0c1a0c;
+  /* Core terminal colors - evolved palette */
+  --fg: #00ff9c;
+  --fg-dim: #5fffb1;
+  --fg-muted: #3d9970;
+  --bg: #0a0f0c;
+  --bg-elevated: #0f1512;
+  --bg-surface: #131a16;
 
-  /* All accents are green — monochrome CRT */
-  --accent: #33ff33;
-  --accent-bright: #66ff66;
-  --accent-dim: #1a991a;
+  /* Accent system */
+  --accent-primary: #00ffaa;
+  --accent-secondary: #00d4ff;
+  --accent-warm: #ff6b35;
+  --accent-subtle: rgba(0, 255, 156, 0.08);
 
-  /* Semantic — still green */
-  --success: #33ff33;
-  --warning: #33ff33;
-  --error: #ff3333;
+  /* Semantic colors */
+  --success: #00ff9c;
+  --warning: #ffaa00;
+  --error: #ff4444;
+  --info: #00d4ff;
 
-  /* Surfaces — green tinted */
-  --surface-1: rgba(51, 255, 51, 0.03);
-  --surface-2: rgba(51, 255, 51, 0.06);
-  --surface-3: rgba(51, 255, 51, 0.10);
-  --surface-border: rgba(51, 255, 51, 0.20);
+  /* Surface layers (for glassmorphism) */
+  --surface-1: rgba(0, 255, 156, 0.03);
+  --surface-2: rgba(0, 255, 156, 0.06);
+  --surface-3: rgba(0, 255, 156, 0.10);
+  --surface-border: rgba(0, 255, 156, 0.15);
 
-  /* Typography — period-appropriate monospace */
-  --font-mono: "Courier New", "Lucida Console", Monaco, Consolas, monospace;
+  /* Typography */
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Fira Code",
+               Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-  /* Fixed sizes — CRTs didn't have fluid type */
-  --text-sm: 13px;
-  --text-base: 15px;
-  --text-lg: 17px;
-  --text-xl: 19px;
+  /* Fluid typography scale */
+  --text-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem);
+  --text-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);
+  --text-base: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
+  --text-lg: clamp(1rem, 0.925rem + 0.375vw, 1.125rem);
+  --text-xl: clamp(1.125rem, 1rem + 0.625vw, 1.375rem);
 
-  /* Spacing */
+  /* Spacing scale */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -51,14 +52,19 @@
   --space-6: 24px;
   --space-8: 32px;
 
-  /* Phosphor glow */
-  --glow-sm: 0 0 2px rgba(51, 255, 51, 0.6);
-  --glow-md: 0 0 4px rgba(51, 255, 51, 0.4), 0 0 8px rgba(51, 255, 51, 0.2);
-  --glow-lg: 0 0 4px rgba(51, 255, 51, 0.6), 0 0 12px rgba(51, 255, 51, 0.3), 0 0 24px rgba(51, 255, 51, 0.1);
+  /* Animation timing */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 }
 
 /* ============================================
-   2. BASE RESET
+   2. BASE RESET & FOUNDATIONS
    ============================================ */
 
 *, *::before, *::after {
@@ -68,129 +74,149 @@
 }
 
 html {
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: unset;
-  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 html, body {
   height: 100%;
-  background: #000;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 30% 20%, rgba(0, 255, 156, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(0, 212, 255, 0.02) 0%, transparent 50%),
+    radial-gradient(ellipse at center, var(--bg) 0%, #050807 100%);
   color: var(--fg);
   font-family: var(--font-mono);
   font-size: var(--text-base);
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 /* ============================================
-   3. LINKS
+   3. LINKS & INTERACTIVE ELEMENTS
    ============================================ */
 
 a {
-  color: var(--fg-bright);
+  color: var(--fg);
   text-decoration: none;
-  text-shadow: var(--glow-sm);
-  transition: none;
+  position: relative;
+  transition: color 0.2s var(--ease-out);
 }
 
-a:hover,
-a:focus {
-  color: var(--accent-bright);
-  text-shadow: var(--glow-md);
-  text-decoration: underline;
-}
-
-/* Override: no gradient underline animations */
 a::after {
-  display: none;
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s var(--ease-out);
+}
+
+a:hover::after,
+a:focus::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+a:hover {
+  color: var(--accent-secondary);
 }
 
 /* ============================================
-   4. SCREEN CONTAINER — CRT housing
+   4. SCREEN CONTAINER
    ============================================ */
 
 .screen {
   position: relative;
   min-height: 100vh;
   min-height: 100dvh;
-  padding: var(--space-6);
+  padding: var(--space-4);
   overflow-x: hidden;
   width: 100%;
-  background: #000;
 }
 
 /* ============================================
-   5. TERMINAL — CRT Screen
+   5. TERMINAL CONTAINER - GLASSMORPHISM
    ============================================ */
 
 .term {
   position: relative;
-  max-width: 860px;
+  max-width: min(900px, calc(100vw - 32px));
   width: 100%;
   margin: 0 auto;
   padding: var(--space-6) var(--space-5) 100px;
 
-  /* Flat dark screen — no glassmorphism */
-  background: var(--bg-screen);
-
-  /* Sharp rectangular border — CRT bezel */
-  border: 2px solid var(--fg-muted);
-  border-radius: 0;
-
-  /* Phosphor screen glow */
-  box-shadow:
-    0 0 60px rgba(51, 255, 51, 0.05),
-    0 0 120px rgba(51, 255, 51, 0.02),
-    inset 0 0 80px rgba(0, 0, 0, 0.4);
-}
-
-/* Scanlines overlay */
-.term::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent,
-    transparent 1px,
-    rgba(0, 0, 0, 0.15) 1px,
-    rgba(0, 0, 0, 0.15) 2px
+  /* Glassmorphism effect */
+  background: linear-gradient(
+    135deg,
+    rgba(10, 15, 12, 0.92),
+    rgba(15, 21, 18, 0.88)
   );
-  pointer-events: none;
-  z-index: 2;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* Border with gradient */
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+
+  /* Layered shadows for depth */
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 156, 0.05),
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 12px 24px rgba(0, 0, 0, 0.2),
+    0 0 80px rgba(0, 255, 156, 0.06),
+    inset 0 1px 0 rgba(0, 255, 156, 0.08);
+
+  /* Entrance animation */
+  animation: terminalFadeIn 0.5s var(--ease-out);
 }
 
-/* Vignette — CRT corners darken */
+@keyframes terminalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle noise texture overlay */
 .term::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 50%,
-    rgba(0, 0, 0, 0.35) 100%
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.015;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Optional: subtle scan line effect (reduced from original) */
+.term::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 156, 0.008) 2px,
+    rgba(0, 255, 156, 0.008) 4px
   );
   pointer-events: none;
-  z-index: 3;
-}
-
-/* Subtle screen flicker */
-@keyframes flicker {
-  0%   { opacity: 0.98; }
-  5%   { opacity: 1; }
-  10%  { opacity: 0.97; }
-  15%  { opacity: 1; }
-  90%  { opacity: 1; }
-  92%  { opacity: 0.98; }
-  100% { opacity: 1; }
-}
-
-.term {
-  animation: flicker 4s infinite;
+  opacity: 0.5;
 }
 
 /* ============================================
-   6. HEADER
+   6. HEADER SECTION
    ============================================ */
 
 .header {
@@ -201,28 +227,32 @@ a::after {
   gap: var(--space-3) var(--space-4);
   padding-bottom: var(--space-4);
   margin-bottom: var(--space-5);
-  border-bottom: 1px solid var(--fg-muted);
+  border-bottom: 1px solid var(--surface-2);
 }
 
 .brand {
   font-size: var(--text-xl);
-  font-weight: bold;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--fg);
-  text-shadow: var(--glow-lg);
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, var(--fg) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
 }
 
-/* Status badge */
+/* Status badge with pulse */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-1) var(--space-3);
-  border: 1px solid var(--fg-muted);
-  font-size: var(--text-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
+  font-size: var(--text-xs);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   color: var(--fg-dim);
 }
 
@@ -230,14 +260,21 @@ a::after {
   content: '';
   width: 6px;
   height: 6px;
-  background: var(--fg);
-  box-shadow: var(--glow-sm);
-  animation: blink-dot 1.5s step-end infinite;
+  background: var(--success);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 8px var(--success);
 }
 
-@keyframes blink-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
 }
 
 /* ============================================
@@ -256,39 +293,40 @@ a::after {
   padding: var(--space-1) var(--space-2);
   font-size: var(--text-sm);
   color: var(--fg-dim);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s var(--ease-out);
 }
 
 .nav-inline a::before {
   content: "[";
-  opacity: 0.5;
+  opacity: 0.4;
   margin-right: 2px;
+  transition: opacity 0.2s;
 }
 
 .nav-inline a::after {
-  display: inline;
   content: "]";
-  opacity: 0.5;
+  opacity: 0.4;
   margin-left: 2px;
   position: static;
   background: none;
   transform: none;
   height: auto;
   width: auto;
+  transition: opacity 0.2s;
 }
 
 .nav-inline a:hover,
 .nav-inline a:focus {
-  color: var(--fg-bright);
-  text-shadow: var(--glow-sm);
-  text-decoration: none;
+  color: var(--fg);
+  background: var(--surface-1);
 }
 
 .nav-inline a:hover::before,
 .nav-inline a:hover::after,
 .nav-inline a:focus::before,
 .nav-inline a:focus::after {
-  opacity: 1;
-  color: var(--fg-bright);
+  opacity: 0.8;
 }
 
 /* ============================================
@@ -301,16 +339,14 @@ a::after {
   overflow-wrap: break-word;
   min-height: 280px;
   width: 100%;
-  line-height: 1.5;
-  text-shadow: var(--glow-sm);
+  line-height: 1.7;
 }
 
-/* Content styling — all green, no cyan */
+/* Content styling within output */
 .output strong,
 .output b {
-  color: var(--fg-bright);
-  font-weight: bold;
-  text-shadow: var(--glow-md);
+  color: var(--accent-secondary);
+  font-weight: 600;
 }
 
 .output em,
@@ -319,10 +355,10 @@ a::after {
   font-style: normal;
 }
 
-/* Command echo */
+/* Command echo styling */
 .cmd-echo {
-  color: var(--fg-bright);
-  text-shadow: var(--glow-lg);
+  color: var(--accent-primary);
+  text-shadow: 0 0 10px rgba(0, 255, 156, 0.4);
 }
 
 /* ============================================
@@ -338,53 +374,48 @@ a::after {
   padding: var(--space-4) 0;
   background: linear-gradient(
     to top,
-    var(--bg-screen) 0%,
-    var(--bg-screen) 60%,
+    rgba(10, 15, 12, 0.98) 0%,
+    rgba(10, 15, 12, 0.95) 60%,
     transparent 100%
   );
   z-index: 10;
 }
 
 .prompt-label {
-  color: var(--fg-bright);
-  font-weight: bold;
+  color: var(--accent-secondary);
+  font-weight: 600;
   font-size: var(--text-lg);
-  text-shadow: var(--glow-md);
   user-select: none;
 }
 
 #cmd {
   flex: 1;
-  background: transparent;
+  background: var(--surface-1);
   color: var(--fg);
-  border: none;
-  border-bottom: 1px solid var(--fg-muted);
-  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
   font: inherit;
   font-size: var(--text-base);
   outline: none;
-  text-shadow: var(--glow-sm);
-  caret-color: var(--fg);
+  transition: all 0.2s var(--ease-out);
 }
 
 #cmd::placeholder {
   color: var(--fg-muted);
-  text-shadow: none;
 }
 
 #cmd:focus {
-  border-bottom-color: var(--fg);
-  box-shadow: 0 1px 0 var(--fg-muted);
+  border-color: var(--accent-primary);
+  box-shadow:
+    0 0 0 3px rgba(0, 255, 156, 0.1),
+    0 0 20px rgba(0, 255, 156, 0.1);
+  background: var(--surface-2);
 }
 
-/* Blinking block cursor */
+/* Blinking cursor - positioned inside input visually */
 .cursor {
-  display: inline-block;
-  width: 9px;
-  height: 17px;
-  background: var(--fg);
-  animation: cursorBlink 1s step-end infinite;
-  box-shadow: var(--glow-sm);
+  display: none; /* Hide the external cursor element - input has its own */
 }
 
 @keyframes cursorBlink {
@@ -398,28 +429,40 @@ a::after {
 
 kbd {
   display: inline-block;
-  padding: 1px 4px;
-  border: 1px solid var(--fg-muted);
-  font-size: 0.9em;
+  padding: 2px 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.85em;
   font-family: inherit;
-  color: var(--fg-bright);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 hr {
   border: none;
   height: 1px;
-  background: var(--fg-muted);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--surface-border) 20%,
+    var(--surface-border) 80%,
+    transparent
+  );
   margin: var(--space-4) 0;
 }
 
-/* Mobile command buttons */
+/* ==============================================
+   Mobile Command Buttons
+   ============================================== */
+
 .mobile-commands {
-  display: none;
+  display: none; /* Hidden on desktop */
   gap: var(--space-2);
   padding: var(--space-4);
   flex-wrap: wrap;
   justify-content: center;
-  border-top: 1px solid var(--fg-muted);
+  background: var(--surface-1);
+  border-top: 1px solid var(--surface-border);
 }
 
 .cmd-btn {
@@ -427,66 +470,67 @@ hr {
   align-items: center;
   justify-content: center;
   padding: var(--space-3) var(--space-4);
-  background: transparent;
-  border: 1px solid var(--fg-muted);
-  border-radius: 0;
+  background: var(--surface-2);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
   color: var(--fg);
   cursor: pointer;
   font-family: inherit;
   font-size: var(--text-sm);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  transition: all 0.2s var(--ease-out);
   user-select: none;
   min-height: 44px;
 }
 
 .cmd-btn:hover {
-  background: var(--surface-2);
-  border-color: var(--fg);
-  color: var(--fg-bright);
-  text-shadow: var(--glow-sm);
+  background: var(--surface-3);
+  border-color: var(--accent-primary);
 }
 
 .cmd-btn:focus-visible {
-  outline: 1px solid var(--fg);
+  outline: 2px solid var(--accent-primary);
   outline-offset: 2px;
 }
 
 .cmd-btn:active {
   background: var(--surface-3);
+  transform: scale(0.96);
 }
 
 .footer {
   margin-top: var(--space-5);
   padding-top: var(--space-3);
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   color: var(--fg-muted);
-  text-align: left;
+  text-align: center;
 }
 
-/* Phosphor glow utility */
+/* Glow effect utility */
 .glow {
-  text-shadow: var(--glow-lg);
-  color: var(--fg-bright);
+  text-shadow:
+    0 0 4px rgba(0, 255, 156, 0.6),
+    0 0 12px rgba(0, 255, 156, 0.3);
 }
 
 /* ============================================
-   11. RESPONSIVE: TABLET
+   11. RESPONSIVE: TABLET (768px and below)
    ============================================ */
 
 @media (max-width: 768px) {
   .screen {
-    padding: var(--space-3);
+    padding: var(--space-2);
   }
 
   .term {
-    max-width: calc(100vw - 24px);
+    max-width: calc(100vw - 16px);
     padding: var(--space-5) var(--space-4) 90px;
+    border-radius: var(--radius-md);
   }
 
   .header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: var(--space-3);
   }
 
@@ -495,10 +539,11 @@ hr {
   }
 
   .badge {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .nav-inline {
+    justify-content: center;
     gap: var(--space-2) var(--space-3);
   }
 
@@ -513,21 +558,27 @@ hr {
   }
 
   #cmd {
-    font-size: 16px;
+    font-size: 16px; /* Prevents iOS zoom */
     padding: var(--space-3);
-    min-height: 44px;
+    min-height: 44px; /* Touch target */
   }
 
   .footer {
-    font-size: 11px;
+    font-size: 10px;
   }
 }
 
 /* ============================================
-   12. RESPONSIVE: MOBILE
+   12. RESPONSIVE: MOBILE (480px and below)
    ============================================ */
 
 @media (max-width: 480px) {
+  :root {
+    --space-4: 12px;
+    --space-5: 16px;
+    --space-6: 20px;
+  }
+
   .screen {
     padding: var(--space-1);
   }
@@ -535,7 +586,8 @@ hr {
   .term {
     max-width: calc(100vw - 8px);
     padding: var(--space-4) var(--space-3) 80px;
-    margin-bottom: 70px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 70px; /* Account for fixed prompt */
   }
 
   .header {
@@ -545,28 +597,38 @@ hr {
 
   .brand {
     font-size: 15px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
   }
 
+  /* Grid navigation for touch */
   .nav-inline {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-1) var(--space-2);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
     width: 100%;
   }
 
   .nav-inline a {
-    padding: var(--space-2);
-    font-size: 12px;
-    min-height: 36px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-2);
+    background: var(--surface-1);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-md);
+    font-size: 12px;
+    min-height: 40px;
+  }
+
+  .nav-inline a::before,
+  .nav-inline a::after {
+    display: none;
   }
 
   .output {
     min-height: 150px;
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 1.8;
   }
 
   /* Fixed prompt at bottom */
@@ -577,8 +639,10 @@ hr {
     right: 0;
     padding: var(--space-3);
     padding-bottom: max(var(--space-3), env(safe-area-inset-bottom));
-    background: var(--bg-screen);
-    border-top: 1px solid var(--fg-muted);
+    background: rgba(10, 15, 12, 0.98);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid var(--surface-border);
     z-index: 100;
   }
 
@@ -589,12 +653,13 @@ hr {
   #cmd {
     padding: var(--space-3) var(--space-4);
     min-height: 48px;
-    background: transparent;
+    border-radius: var(--radius-md);
+    background: var(--surface-2);
   }
 
   .footer {
     margin-bottom: 60px;
-    font-size: 10px;
+    font-size: 9px;
   }
 
   /* Show mobile command buttons */
@@ -602,34 +667,42 @@ hr {
     display: flex;
   }
 
+  /* Larger touch targets for mobile */
   .cmd-btn {
     min-height: 48px;
     min-width: 80px;
     padding: var(--space-3);
   }
 
+  /* Adjust output height to account for buttons */
   .output {
-    max-height: calc(100dvh - 300px);
+    max-height: calc(100dvh - 300px); /* Account for header, buttons, prompt */
   }
 }
 
 /* ============================================
-   13. TOUCH DEVICES
+   13. TOUCH DEVICE ENHANCEMENTS
    ============================================ */
 
 @media (hover: none) and (pointer: coarse) {
   .nav-inline a:active {
-    background: var(--surface-2);
+    background: var(--surface-3);
+    transform: scale(0.98);
   }
 
   #cmd:focus {
-    outline: 1px solid var(--fg);
+    outline: 2px solid var(--accent-primary);
     outline-offset: 2px;
+  }
+
+  a:active {
+    background: var(--surface-1);
+    border-radius: var(--radius-sm);
   }
 }
 
 /* ============================================
-   14. LANDSCAPE
+   14. LANDSCAPE MODE
    ============================================ */
 
 @media (max-width: 768px) and (orientation: landscape) {
@@ -670,24 +743,30 @@ hr {
   }
 }
 
+/* High contrast mode support */
 @media (prefers-contrast: high) {
   :root {
-    --fg: #33ff33;
+    --fg: #00ff9c;
     --bg: #000000;
-    --bg-screen: #000000;
     --surface-border: var(--fg);
   }
 
   .term {
-    border-width: 3px;
+    border-width: 2px;
+  }
+
+  a::after {
+    height: 2px;
   }
 }
 
+/* Focus visible for keyboard navigation */
 :focus-visible {
-  outline: 1px solid var(--fg);
+  outline: 2px solid var(--accent-primary);
   outline-offset: 2px;
 }
 
+/* Skip link (if added to HTML) */
 .skip-link {
   position: absolute;
   top: -100px;
@@ -695,7 +774,7 @@ hr {
   padding: var(--space-2) var(--space-4);
   background: var(--bg);
   border: 1px solid var(--fg);
-  color: var(--fg);
+  border-radius: var(--radius-sm);
   z-index: 1000;
 }
 
@@ -728,7 +807,6 @@ hr {
   body, .output {
     color: #000;
     background: white;
-    text-shadow: none;
   }
 
   .prompt,
@@ -740,7 +818,6 @@ hr {
   a {
     color: #000;
     text-decoration: underline;
-    text-shadow: none;
   }
 
   a::after {

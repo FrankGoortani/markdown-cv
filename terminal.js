@@ -63,30 +63,30 @@
     return terminalWidth;
   };
 
-  // Responsive horizontal rule — ASCII only
+  // Responsive horizontal rule
   const hr = () => {
     const width = getTerminalWidth();
-    write("=".repeat(width));
+    write("─".repeat(width));
   };
 
-  // Responsive box creation — ASCII box characters
+  // Responsive box creation
   const createBox = (content) => {
     const width = getTerminalWidth();
     const lines = Array.isArray(content) ? content : [content];
 
     // Top border
-    write("+" + "-".repeat(width - 2) + "+");
+    write("┌" + "─".repeat(width - 2) + "┐");
 
     // Content lines
     lines.forEach(line => {
       const paddedLine = line.length > width - 4
         ? line.substring(0, width - 7) + "..."
         : line + " ".repeat(width - 4 - line.length);
-      write("| " + paddedLine + " |");
+      write("│ " + paddedLine + " │");
     });
 
     // Bottom border
-    write("+" + "-".repeat(width - 2) + "+");
+    write("└" + "─".repeat(width - 2) + "┘");
   };
 
   // content cache
@@ -112,178 +112,170 @@
   const commands = {
     help(){
       line([
-        "AVAILABLE COMMANDS:",
-        "---------------------------------------",
-        "  HELP            SHOW THIS HELP",
-        "  ABOUT           SUMMARY PROFILE",
-        "  CV              FULL CV",
-        "  SHORT           SHORT CV",
-        "  FASTEROUTCOMES  CURRENT CTO ROLE",
-        "  SKILLS          SKILLS LIST",
-        "  PROJECTS        PROJECT HIGHLIGHTS",
-        "  LINKS           ALL HYPERLINKS",
-        "  CONTACT         EMAIL + SCHEDULE",
-        "  BLOG            OPEN MEDIUM PROFILE",
-        "  PDF             OPEN RESUME PDF",
-        "  LS              DIRECTORY LISTING",
-        "  SEARCH <QUERY>  SEARCH CV CONTENT",
-        "  CLEAR           CLEAR SCREEN",
-        "---------------------------------------",
-        "TAB=AUTOCOMPLETE  ARROWS=HISTORY"
+        "AVAILABLE COMMANDS",
+        "  help            show this help",
+        "  about           summary profile",
+        "  cv              full CV (loads content/cv-full.html)",
+        "  short           short CV (loads content/cv-short.html)",
+        "  fasteroutcomes  current CTO role details",
+        "  skills          quick list of skills",
+        "  projects        highlights",
+        "  links           all important hyperlinks",
+        "  contact         email + schedule",
+        "  blog            open Medium profile",
+        "  pdf             open resume PDF",
+        "  ls              list available commands (directory style)",
+        "  search <query>  search CV content for keywords",
+        "  clear           clear screen",
+        "",
+        "Tip: Press Tab for auto-complete, ↑↓ for command history"
       ].join("\n"));
     },
     ls(){
       line([
-        "DIRECTORY LISTING:",
-        "---------------------------------------",
-        "DRWXR-XR-X  FRANK  STAFF    ABOUT/",
-        "DRWXR-XR-X  FRANK  STAFF    CV/",
-        "DRWXR-XR-X  FRANK  STAFF    SHORT/",
-        "DRWXR-XR-X  FRANK  STAFF    FASTEROUTCOMES/",
-        "DRWXR-XR-X  FRANK  STAFF    SKILLS/",
-        "DRWXR-XR-X  FRANK  STAFF    PROJECTS/",
-        "DRWXR-XR-X  FRANK  STAFF    LINKS/",
-        "DRWXR-XR-X  FRANK  STAFF    CONTACT/",
-        "-RWXR-XR-X  FRANK  STAFF    BLOG*",
-        "-RWXR-XR-X  FRANK  STAFF    PDF*",
-        "-RWXR-XR-X  FRANK  STAFF    SEARCH*",
-        "-RWXR-XR-X  FRANK  STAFF    CLEAR*",
-        "-RWXR-XR-X  FRANK  STAFF    HELP*",
-        "---------------------------------------",
-        "TOTAL: 13 ITEMS"
+        "DIRECTORY LISTING",
+        "drwxr-xr-x  frank  staff    about/",
+        "drwxr-xr-x  frank  staff    cv/",
+        "drwxr-xr-x  frank  staff    short/",
+        "drwxr-xr-x  frank  staff    fasteroutcomes/",
+        "drwxr-xr-x  frank  staff    skills/",
+        "drwxr-xr-x  frank  staff    projects/",
+        "drwxr-xr-x  frank  staff    links/",
+        "drwxr-xr-x  frank  staff    contact/",
+        "-rwxr-xr-x  frank  staff    blog*",
+        "-rwxr-xr-x  frank  staff    pdf*",
+        "-rwxr-xr-x  frank  staff    search*",
+        "-rwxr-xr-x  frank  staff    clear*",
+        "-rwxr-xr-x  frank  staff    help*",
+        "",
+        "Total: 13 items | Use command names to execute"
       ].join("\n"));
     },
     async cv(){
-      line("LOADING FULL CV...");
+      line("Loading full CV…");
       const html = await load("./content/cv-full.html");
       write(html);
       hr();
     },
     async short(){
-      line("LOADING SHORT CV...");
+      line("Loading short CV…");
       const html = await load("./content/cv-short.html");
       write(html);
       hr();
     },
     about(){
-      hr();
-      line("FRANK GOORTANI");
-      line("=======================================");
       line("");
-      line("ROLE:  CHIEF TECHNOLOGY OFFICER");
-      line("ORG:   FASTEROUTCOMES (AI LEGAL TECH)");
-      line("STAGE: 0 -> 1 -> SERIES A");
+      line("Frank Goortani");
+      line("═══════════════════════════════════════════");
       line("");
-      line("25+ YEARS SCALING AI SYSTEMS AND");
-      line("ENGINEERING TEAMS. CURRENTLY BUILDING");
-      line("PRODUCTION LLM SYSTEMS. PREVIOUSLY");
-      line("SOLUTION ARCHITECT AT UBER.");
+      line("Chief Technology Officer at FasterOutcomes");
+      line("AI Legal Tech Startup | 0→1→Series A");
       line("");
-      line("EXPERTISE:");
-      line("  - PRODUCTION AI/LLM SYSTEMS");
-      line("  - ENGINEERING LEADERSHIP");
-      line("  - 0->1 PRODUCT DEVELOPMENT");
-      line("  - TECHNICAL STRATEGY");
+      line("Technology leader with 25+ years scaling AI systems");
+      line("and engineering teams. Currently building production");
+      line("LLM systems at FasterOutcomes. Previously Solution");
+      line("Architect at Uber (ELLE AI Decision Engine).");
       line("");
-      line("EDUCATION:");
-      line("  M.SC. MANAGEMENT (AMIRKABIR UNIV.)");
-      line("  B.SC. SOFTWARE ENG. (AMIRKABIR UNIV.)");
-      line("  TOGAF 9.1 | PMP CERTIFIED");
+      line("Expertise: Production AI/LLM systems, engineering");
+      line("leadership, 0→1 product development, technical strategy.");
+      line("");
+      line("Education: M.Sc. Management, B.Sc. Computer Software");
+      line("Engineering (AmirKabir University). TOGAF & PMP certified.");
+      line("");
       hr();
     },
     fasteroutcomes(){
       hr();
-      line("=======================================");
-      line("  FASTEROUTCOMES | CTO ROLE");
-      line("=======================================");
       line("");
-      line("COMPANY:  FASTEROUTCOMES (AI LEGAL TECH)");
-      line("ROLE:     CHIEF TECHNOLOGY OFFICER");
-      line("TIMELINE: PT (MAR 2024) -> FT (JAN 2026)");
-      line("STAGE:    0 -> 1 -> SERIES A PREP");
+      line("═══════════════════════════════════════════════");
+      line("  FASTEROUTCOMES | CTO ROLE");
+      line("═══════════════════════════════════════════════");
+      line("");
+      line("Company:     FasterOutcomes (AI Legal Tech)");
+      line("Role:        Chief Technology Officer");
+      line("Timeline:    Part-time (Mar 2024) → Full-time (Jan 2026)");
+      line("Stage:       0→1→Series A preparation");
       line("");
       line("KEY ACHIEVEMENTS:");
-      line("---------------------------------------");
-      line("* MVP IN 12 WEEKS (LANGGRAPH, RAG, AI)");
-      line("* POC -> PRODUCTION (ENTERPRISE)");
-      line("* TECHNICAL ARCH + ENG CULTURE");
-      line("* PRODUCT ROADMAP + TECH STRATEGY");
+      line("─────────────────────────────────────────────");
+      line("• Built MVP in 12 weeks (LangGraph, RAG, AI agents)");
+      line("• Scaled from POC to production serving enterprise clients");
+      line("• Established technical architecture and engineering culture");
+      line("• Leading product roadmap and technical strategy");
       line("");
       line("TECH STACK:");
-      line("---------------------------------------");
-      line("* AI:    LANGCHAIN, LANGGRAPH, RAG");
-      line("* BE:    PYTHON, FASTAPI, LANGFX");
-      line("* FE:    REACT 18, TYPESCRIPT, NEXTJS");
-      line("* CLOUD: FIREBASE, GCP, VERCEL");
-      line("* DATA:  OPENSEARCH, FIRESTORE");
+      line("─────────────────────────────────────────────");
+      line("• AI/ML: LangChain, LangGraph, RAG, AI Agents");
+      line("• Backend: Python, FastAPI, LangFx");
+      line("• Frontend: React 18, TypeScript, NextJS");
+      line("• Cloud: Firebase, GCP, Vercel");
+      line("• Data: OpenSearch (vector search), Firestore");
       line("");
-      line("STATUS: FULL-TIME / SERIES A FOCUS");
-      line("NOT SEEKING OTHER OPPORTUNITIES.");
+      line("STATUS:");
+      line("─────────────────────────────────────────────");
+      line("Currently focused full-time on scaling to Series A.");
+      line("Not seeking other opportunities.");
       line("");
-      line(">> https://fasteroutcomes.com");
-      line(">> https://linkedin.com/in/frankgoortani");
+      line("Links:");
+      line("→ https://fasteroutcomes.com");
+      line("→ https://linkedin.com/in/frankgoortani");
+      line("");
       hr();
     },
     skills(){
+      // intentionally concise; full list lives in cv pages
       line([
-        "SKILLS SNAPSHOT:",
-        "---------------------------------------",
-        "* AGENTIC: CLAUDE CODE, CURSOR, COPILOT",
-        "* AI/ML:   LLMS, AGENTS, RAG, LANGCHAIN",
-        "* LANG:    PYTHON, GO, JAVA, TYPESCRIPT",
-        "* SYSTEMS: APIS, MICROSERVICES, KAFKA",
-        "* CLOUD:   GCP, AWS, K8S, CI/CD",
-        "* FE:      REACT, ANGULAR, IOS/ANDROID"
+        "SKILLS SNAPSHOT",
+        "- Agentic Coding: Claude Code, Cursor, GitHub Copilot, MCP Development",
+        "- GenAI (LLMs, agents, RAG), Python, Go, Java, TypeScript",
+        "- Systems: APIs, microservices, event streams (Kafka)",
+        "- Cloud/DevOps: GCP, AWS, Kubernetes, CI/CD",
+        "- Frontend/mobile: React, Angular, Native iOS/Android"
       ].join("\n"));
     },
     projects(){
       line([
-        "PROJECT HIGHLIGHTS:",
-        "---------------------------------------",
-        "* UBER ELLE: AI DECISION ENGINE FOR",
-        "  PRIVACY/SECURITY REVIEWS (AWARD)",
-        "* CANADA LIFE NEST: ENTERPRISE",
-        "  COMPONENT LIBRARY",
-        "* PERSIAN POINTS: LOYALTY PLATFORM",
-        "  ARCHITECTURE"
+        "PROJECT HIGHLIGHTS",
+        "- Uber ELLE: AI decision engine for privacy/security reviews (award-winning)",
+        "- Canada Life NEST: enterprise component library",
+        "- Persian Points: loyalty platform architecture"
       ].join("\n"));
     },
     links(){
       const rows = [
-        ["DOWNLOAD PDF", links.resume_pdf],
-        ["SHORT VERSION", links.short],
-        ["BLOG", links.blog],
-        ["LINKEDIN", links.linkedin],
-        ["TWITTER", links.twitter],
-        ["GITHUB", links.github],
-        ["PRODUCTHUNT", links.producthunt],
-        ["CALENDLY", links.calendly],
-        ["ARCHITECT.SOLUTIONS", links.architect_solutions],
-        ["VISIONZLAB", links.visionzlab]
+        ["Download PDF", links.resume_pdf],
+        ["Short Version", links.short],
+        ["Blog", links.blog],
+        ["LinkedIn", links.linkedin],
+        ["Twitter", links.twitter],
+        ["GitHub", links.github],
+        ["ProductHunt", links.producthunt],
+        ["Calendly", links.calendly],
+        ["Architect Solutions", links.architect_solutions],
+        ["VisionzLab", links.visionzlab]
       ];
-      write("<strong>LINKS:</strong>");
+      write("<strong>LINKS</strong>");
       rows.forEach(([label, href]) => {
-        write(`  >> <a href="${href}" target="_blank" rel="noopener">${label}</a>`);
+        write(`• <a href="${href}" target="_blank" rel="noopener">${label}</a>`);
       });
       hr();
     },
     contact(){
-      line("EMAIL:    " + links.email.replace("mailto:", ""));
-      line("SCHEDULE: " + links.calendly);
-      line("");
-      line("TYPE 'LINKS' FOR ALL CONTACT METHODS.");
+      line("Email: " + links.email.replace("mailto:", ""));
+      line("Schedule: " + links.calendly);
+      line("Use `links` to see everything.");
     },
     pdf(){
       window.open(links.resume_pdf, "_blank");
     },
     async search(query){
       if(!query || query.trim() === ""){
-        line("USAGE: SEARCH <QUERY>");
-        line("EXAMPLE: SEARCH AI");
+        line("Usage: search <query>");
+        line("Example: search \"AI\" or search \"python\"");
         return;
       }
 
-      line("SEARCHING FOR: \"" + query.toUpperCase() + "\"...");
+      line("Searching CV content for: \"" + query + "\"");
 
       const searchTerms = query.toLowerCase().split(/\s+/).filter(term => term.length > 0);
       const results = [];
@@ -306,6 +298,7 @@
 
         // Remove HTML tags and convert to text
         const textContent = content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+        const lowerContent = textContent.toLowerCase();
 
         // Find matches
         const matches = [];
@@ -333,10 +326,10 @@
       }
 
       if(results.length === 0){
-        line("NO MATCHES FOUND FOR: \"" + query.toUpperCase() + "\"");
-        line("TRY BROADER TERMS OR CHECK SPELLING.");
+        line("No matches found for: \"" + query + "\"");
+        line("Try broader terms or check spelling.");
       } else {
-        line("FOUND " + results.reduce((total, r) => total + r.matches.length, 0) + " MATCH(ES):");
+        line("Found " + results.reduce((total, r) => total + r.matches.length, 0) + " match(es):");
         line("");
 
         results.forEach(result => {
@@ -347,7 +340,7 @@
           line("");
         });
 
-        line("TYPE 'CV' OR 'SHORT' TO VIEW FULL CONTENT.");
+        line("Use 'cv' or 'short' commands to view full content.");
       }
     },
     clear(){
@@ -369,7 +362,7 @@
     const fn = commands[cmd.toLowerCase()];
     write(`<span class="glow">$ ${cmdline}</span>`);
     if(!fn){
-      line("COMMAND NOT FOUND. TYPE 'HELP'.");
+      line("Command not found. Type `help`.");
       return;
     }
     // Pass arguments to command function
@@ -431,16 +424,12 @@
     });
   });
 
-  // Boot sequence
-  write("BIOS POST... OK");
-  write("MEM TEST: 640K RAM... OK");
-  write("LOADING GOORTANI//TERMINAL v1.99...");
-  write("");
+  // Boot message
   createBox([
-    "GOORTANI//TERMINAL  v1.99",
-    "(C) 2025 FRANK GOORTANI",
-    "TYPE 'HELP' FOR COMMANDS"
+    "GOORTANI//TERMINAL  v1.99  ::  HomeBrew Edition",
+    "Type `help` to get started."
   ]);
-  write("");
+  write(""); // Empty line
+  // show quick links
   commands.links();
 })();
