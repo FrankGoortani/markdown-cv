@@ -98,10 +98,17 @@
     return "../".repeat(depth) + contentPath.replace("./", "");
   }
 
+  // Thin wrapper over the global `track()` helper from assets/analytics.js.
+  // Safe to call even if analytics failed to load.
+  const trackEvent = (name, data) => {
+    try { if (typeof window.track === "function") window.track(name, data); } catch (_) {}
+  };
+
   async function load(path){
     const resolvedPath = resolvePath(path);
     if(cache[resolvedPath]) return cache[resolvedPath];
 
+    trackEvent("content_load", { path: resolvedPath });
     const res = await fetch(resolvedPath, {cache:"no-store"});
     if(!res.ok) throw new Error("Failed to load "+resolvedPath+" (Status: "+res.status+")");
     const txt = await res.text();
@@ -266,6 +273,7 @@
       line("Use `links` to see everything.");
     },
     pdf(){
+      trackEvent("resume_pdf_download", { variant: "default" });
       window.open(links.resume_pdf, "_blank");
     },
     async search(query){
@@ -361,7 +369,9 @@
 
     const fn = commands[cmd.toLowerCase()];
     write(`<span class="glow">$ ${cmdline}</span>`);
+    trackEvent("terminal_command", { cmd: cmd.toLowerCase(), has_args: args.length > 0 });
     if(!fn){
+      trackEvent("terminal_command_unknown", { cmd: cmd.toLowerCase() });
       line("Command not found. Type `help`.");
       return;
     }
