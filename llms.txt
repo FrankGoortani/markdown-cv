@@ -1,0 +1,37 @@
+# Frank Goortani
+
+> Personal site of Frank Goortani — CTO at FasterOutcomes, AI engineering leader, author of "The AI-Powered CTO" (2026). Hosts CV, resume variants, and supporting documentation.
+
+Frank is the Chief Technology Officer at FasterOutcomes (AI legal tech, scaling toward Series A). Previously Solution Architect at Uber where he built the award-winning ELLE AI Decision Engine, and Lead Solution Architect at Home Depot Canada. 25+ years of experience across enterprise architecture, production LLM systems, agentic workflows, and scaling engineering teams from 0-to-1 through Series A.
+
+## CV and resume
+
+- [Full CV](https://goortani.com/cv/): Comprehensive career history with role-by-role detail.
+- [Short CV](https://goortani.com/short/): One-page overview.
+- [Master resume](https://goortani.com/resume-master/): Complete experience.
+- [CTO resume](https://goortani.com/resume-cto/): Targeted for CTO roles, emphasizes leadership and scaling.
+- [Cofounder resume](https://goortani.com/resume-cofounder/): Targeted for cofounder/founder-engineer roles.
+- [Contractor resume](https://goortani.com/resume-contractor/): Targeted for independent consulting engagements.
+- [Forward Deployed Engineer resume](https://goortani.com/resume-fde/): Targeted for FDE roles.
+- [Staff Engineer resume](https://goortani.com/resume-staff/): Targeted for IC track.
+
+## Writing and presence
+
+- [Medium](https://medium.com/@FrankGoortani): Articles on AI engineering and CTO leadership.
+- [LinkedIn](https://linkedin.com/in/frankgoortani): 13K+ followers; primary thought-leadership channel.
+- [GitHub](https://github.com/FrankGoortani): Open source projects and code.
+
+## Companies and other sites
+
+- [FasterOutcomes](https://fasteroutcomes.com): Current company (AI legal tech, full-time CTO).
+- [Architect.Solutions](https://architect.solutions): Personal CTO portfolio and book site.
+- [VisionzLab](https://visionzlab.com): AI consulting brand.
+
+## Contact
+
+- Email: frank@goortani.com
+- LinkedIn DM: https://linkedin.com/in/frankgoortani
+
+## Optional
+
+- [Source repository](https://github.com/FrankGoortani/markdown-cv): This site's source code.
