@@ -1,4 +1,6 @@
-# AGENTS.md - Technical Architecture & Agent Interaction Guidelines
+# Markdown CV Agent Instructions
+
+This project is Frank's terminal-themed CV website and resume generation workspace. It is a static site with vanilla JavaScript plus Node scripts for importing content and generating PDFs. Use `CLAUDE.md` for detailed background, but follow this file first for Codex workflow.
 
 ## Technical Architecture Overview
 
@@ -40,11 +42,27 @@ The terminal CV website is built on a **lightweight, static architecture** that 
 - **GitHub Pages**: Automated deployment from repository
 - **Jekyll**: Static site generation (optional processing)
 - **Git**: Version control and collaboration
+- **Node scripts**: Content import and PDF generation
 
 ### Performance Optimizations
 - **Minimal Dependencies**: No external frameworks or libraries
 - **Efficient Loading**: Deferred script execution, optimized CSS
 - **Caching Strategy**: Browser caching with cache-busting for updates
+
+## Local Commands
+
+Use a local server for browser validation; direct `file://` opens can break content loading because of CORS:
+
+```bash
+python3 -m http.server 8080
+```
+
+Generate resume PDFs only when touching PDF output or source pages used by the generator:
+
+```bash
+npm install
+npm run generate-pdfs
+```
 
 ## Agent Interaction Guidelines
 
@@ -109,7 +127,7 @@ async function load(path) {
 ### For Content Management Agents
 
 #### Content Update Workflow
-1. **Backup Current Content**: Store existing versions before changes
+1. **Read Current Content**: Inspect existing versions before changes
 2. **Update Source Files**: Modify [`content/cv-full.html`](content/cv-full.html) or [`content/cv-short.html`](content/cv-short.html)
 3. **Sync Link References**: Update both [`content/links.json`](content/links.json) and [`terminal.js`](terminal.js)
 4. **Test Commands**: Verify `cv`, `short`, and `links` commands work correctly
@@ -229,3 +247,11 @@ plugins:
 - **Releases**: Tag stable versions for rollback capability
 
 This architecture supports scalable, maintainable development while preserving the unique terminal-style user experience that defines this CV website.
+
+## Codex-Specific Guardrails
+
+- Do not edit `node_modules/`, `.git/`, generated PDFs, or verification token files unless explicitly requested.
+- Do not fabricate resume facts, dates, metrics, employers, titles, or links.
+- Keep all public profile links synchronized between `terminal.js`, `content/links.json`, and rendered resume pages when applicable.
+- Preserve the terminal aesthetic: green-on-black, monospace, command-driven interaction, accessible contrast.
+- When changing generated resume pages, verify the generator contract before editing outputs by hand.
