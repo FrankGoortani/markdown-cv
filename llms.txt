@@ -8,6 +8,7 @@ Frank is the Chief Technology Officer at FasterOutcomes (AI legal tech, scaling 
 
 - [Full CV](https://goortani.com/cv/): Comprehensive career history with role-by-role detail.
 - [Short CV](https://goortani.com/short/): One-page overview.
+- [Terminal CV](https://goortani.com/terminal/): Interactive terminal-style version of the profile.
 - [Master resume](https://goortani.com/resume-master/): Complete experience.
 - [CTO resume](https://goortani.com/resume-cto/): Targeted for CTO roles, emphasizes leadership and scaling.
 - [Cofounder resume](https://goortani.com/resume-cofounder/): Targeted for cofounder/founder-engineer roles.

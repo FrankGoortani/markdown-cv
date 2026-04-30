@@ -48,6 +48,10 @@
     var a = e.target.closest && e.target.closest('a[href]');
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var namedEvent = a.getAttribute('data-track');
+    if (namedEvent) {
+      window.track(namedEvent, { href: href, text: (a.textContent || '').trim().slice(0, 80) });
+    }
     if (!/^https?:\/\//i.test(href)) return;
     try {
       var url = new URL(href);

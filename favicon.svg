@@ -1,35 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <defs>
-    <style>
-      .terminal-bg { fill: #0b0f0c; }
-      .terminal-fg { fill: #00ff9c; }
-      .terminal-text { 
-        font-family: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-        font-size: 14px;
-        font-weight: bold;
-        text-anchor: middle;
-        dominant-baseline: central;
-      }
-      .terminal-border { 
-        fill: none; 
-        stroke: #00ff9c; 
-        stroke-width: 1;
-      }
-    </style>
-  </defs>
-  
-  <!-- Background -->
-  <rect class="terminal-bg" width="32" height="32" rx="2"/>
-  
-  <!-- Border -->
-  <rect class="terminal-border" x="1" y="1" width="30" height="30" rx="1"/>
-  
-  <!-- CV Text -->
-  <text class="terminal-fg terminal-text" x="16" y="16">CV</text>
-  
-  <!-- Small terminal-style decorations -->
-  <circle class="terminal-fg" cx="5" cy="5" r="1" opacity="0.6"/>
-  <circle class="terminal-fg" cx="27" cy="5" r="1" opacity="0.6"/>
-  <circle class="terminal-fg" cx="5" cy="27" r="1" opacity="0.6"/>
-  <circle class="terminal-fg" cx="27" cy="27" r="1" opacity="0.6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FG">
+  <rect width="64" height="64" fill="#d33122"/>
+  <rect x="6" y="6" width="52" height="52" fill="#f2d23a" stroke="#17120e" stroke-width="4"/>
+  <path d="M58 6h6v19z" fill="#17120e"/>
+  <text x="32" y="42" text-anchor="middle" font-family="Impact, 'Arial Black', sans-serif" font-size="28" font-weight="900" fill="#efe2bd" stroke="#17120e" stroke-width="2" paint-order="stroke">FG</text>
 </svg>

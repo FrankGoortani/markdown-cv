@@ -7,7 +7,5 @@ Sitemap: https://goortani.com/sitemap.xml
 # Crawl-delay for polite crawling
 Crawl-delay: 1
 
-# Disallow any sensitive paths (none for this site)
-# Allow all content to be indexed
-Disallow: /assets/
-Disallow: /media/
+# Public profile assets are intentionally crawlable for social previews.
+Disallow:

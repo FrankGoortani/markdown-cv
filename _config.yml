@@ -1,9 +1,9 @@
-# GitHub Pages configuration for terminal-themed CV website
+# GitHub Pages configuration for Frank Goortani's personal profile site
 # This ensures proper handling of assets and paths
 
 # Site settings
-title: "Frank Goortani | Terminal CV"
-description: "Technology Leader & AI Strategist - Terminal-themed CV website"
+title: "Frank Goortani | CTO at FasterOutcomes"
+description: "AI engineering executive, CTO, and production LLM systems leader."
 baseurl: "" # Leave empty for GitHub Pages user/organization sites
 url: "" # Will be set automatically by GitHub Pages
 
