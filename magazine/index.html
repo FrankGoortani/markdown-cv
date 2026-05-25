@@ -21,6 +21,7 @@
   <meta name="twitter:image" content="https://goortani.com/media/goortani-profile-cover.png">
 
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="preload" href="../media/goortani-profile-cover.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="./magazine.css">
   <script defer src="../assets/analytics.js"></script>
 </head>
@@ -41,7 +42,10 @@
   <main>
     <section class="hero" id="profile">
       <div class="cover-panel">
-        <img src="../media/goortani-profile-cover.png" alt="Retro magazine cover profile of Frank Goortani" width="1024" height="1536">
+        <picture>
+          <source srcset="../media/goortani-profile-cover.webp" type="image/webp">
+          <img src="../media/goortani-profile-cover.png" alt="Retro magazine cover profile of Frank Goortani" width="1024" height="1536" fetchpriority="high" decoding="async">
+        </picture>
       </div>
 
       <div class="hero-copy" aria-labelledby="hero-title">
@@ -76,10 +80,16 @@
 
     <section class="feature-grid" aria-label="Magazine pages">
       <article class="feature-page">
-        <img src="../media/goortani-profile-feature.png" alt="Retro interior feature page about Frank Goortani's AI agent stack" width="1024" height="1536">
+        <picture>
+          <source srcset="../media/goortani-profile-feature.webp" type="image/webp">
+          <img src="../media/goortani-profile-feature.png" alt="Retro interior feature page about Frank Goortani's AI agent stack" width="1024" height="1536" loading="lazy" decoding="async">
+        </picture>
       </article>
       <article class="feature-page">
-        <img src="../media/goortani-profile-detail.png" alt="Retro detail page about shipping AI agents" width="1024" height="1536">
+        <picture>
+          <source srcset="../media/goortani-profile-detail.webp" type="image/webp">
+          <img src="../media/goortani-profile-detail.png" alt="Retro detail page about shipping AI agents" width="1024" height="1536" loading="lazy" decoding="async">
+        </picture>
       </article>
     </section>
 

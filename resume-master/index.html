@@ -13,12 +13,53 @@
   <style>
     html, body {
       margin: 0;
-      height: 100%;
+      min-height: 100%;
     }
-    .pdf-container {
-      width: 100%;
-      height: 100%;
-      border: none;
+    body {
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+      background: #f7f4ee;
+      color: #18201f;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    main {
+      width: min(100%, 42rem);
+      border-top: 4px solid #0b4f4a;
+      background: #fffdf8;
+      padding: clamp(1.5rem, 5vw, 2.5rem);
+      box-shadow: 0 1rem 3rem rgba(24, 32, 31, 0.08);
+    }
+    h1 {
+      margin: 0 0 0.75rem;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      line-height: 1.05;
+    }
+    p {
+      margin: 0 0 1.25rem;
+      color: #53615f;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    a {
+      display: inline-flex;
+      min-height: 2.75rem;
+      align-items: center;
+      border: 1px solid #d8d1c5;
+      padding: 0.65rem 0.9rem;
+      color: inherit;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    a.primary {
+      background: #0b4f4a;
+      border-color: #0b4f4a;
+      color: #fffdf8;
     }
   </style>
 
@@ -26,8 +67,13 @@
   <script defer src="/assets/analytics.js"></script>
 </head>
 <body>
-  <object data="../media/frank-goortani-master-resume_2026.pdf" type="application/pdf" class="pdf-container">
-    <p>Your browser does not support PDFs. <a href="../media/frank-goortani-master-resume_2026.pdf">Download the PDF</a>.</p>
-  </object>
+  <main>
+    <h1>Frank Goortani Master Resume</h1>
+    <p>Open the PDF directly, or return to the professional profile.</p>
+    <div class="actions">
+      <a class="primary" href="../media/frank-goortani-master-resume_2026.pdf">Open PDF</a>
+      <a href="../">Back to profile</a>
+    </div>
+  </main>
 </body>
 </html>

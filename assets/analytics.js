@@ -12,27 +12,37 @@
 (function () {
   var UMAMI_HOST = 'https://goortani.synology.me:3100';
   var WEBSITE_ID = 'd7924d62-4849-4d6b-8bc5-4a0ce9baae50';
-
-  // Load the Umami tracker once per page.
-  var s = document.createElement('script');
-  s.defer = true;
-  s.src = UMAMI_HOST + '/script.js';
-  s.setAttribute('data-website-id', WEBSITE_ID);
-  s.setAttribute('data-domains', 'goortani.com');
-  document.head.appendChild(s);
-
-  // Small wrapper so other scripts can call track() without worrying about
-  // whether umami.js has loaded yet. Events are queued and flushed when ready.
+  var trackerRequested = false;
   var queue = [];
-  var readyInterval = setInterval(function () {
-    if (window.umami && typeof window.umami.track === 'function') {
-      clearInterval(readyInterval);
-      queue.forEach(function (args) {
-        try { window.umami.track.apply(window.umami, args); } catch (_) {}
-      });
-      queue = null;
+
+  function flushQueue() {
+    if (!window.umami || typeof window.umami.track !== 'function' || !queue) return;
+    queue.forEach(function (args) {
+      try { window.umami.track.apply(window.umami, args); } catch (_) {}
+    });
+    queue = null;
+  }
+
+  function loadTracker() {
+    if (trackerRequested) return;
+    trackerRequested = true;
+
+    var s = document.createElement('script');
+    s.defer = true;
+    s.src = UMAMI_HOST + '/script.js';
+    s.setAttribute('data-website-id', WEBSITE_ID);
+    s.setAttribute('data-domains', 'goortani.com');
+    s.addEventListener('load', flushQueue, { once: true });
+    document.head.appendChild(s);
+  }
+
+  function scheduleTracker() {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(loadTracker, { timeout: 2500 });
+    } else {
+      setTimeout(loadTracker, 1200);
     }
-  }, 200);
+  }
 
   window.track = function (event, data) {
     var args = data ? [event, data] : [event];
@@ -40,6 +50,7 @@
       try { window.umami.track.apply(window.umami, args); } catch (_) {}
     } else if (queue) {
       queue.push(args);
+      scheduleTracker();
     }
   };
 
@@ -59,4 +70,10 @@
       window.track('outbound_click', { href: href, host: url.hostname });
     } catch (_) {}
   }, { capture: true });
+
+  if (document.readyState === 'complete') {
+    scheduleTracker();
+  } else {
+    window.addEventListener('load', scheduleTracker, { once: true });
+  }
 })();

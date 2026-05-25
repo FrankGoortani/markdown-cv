@@ -5,6 +5,7 @@
   const $$ = sel => Array.from(document.querySelectorAll(sel));
   const out = $("#out");
   const input = $("#cmd");
+  let scrollScheduled = false;
 
   // Command history for arrow key navigation
   const commandHistory = [];
@@ -35,8 +36,13 @@
   const write = (s="") => {
     out.insertAdjacentHTML("beforeend", s + "\n");
     out.scrollTop = out.scrollHeight;
-    // Also scroll the page to show the prompt
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    if (!scrollScheduled) {
+      scrollScheduled = true;
+      requestAnimationFrame(() => {
+        scrollScheduled = false;
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+    }
   };
   const line = (s="") => write(s.replace(/\n+$/,"")+"\n");
 
