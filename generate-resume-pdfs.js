@@ -73,7 +73,7 @@ async function main() {
   console.log('\nUpdated dates:');
   console.log('  - Uber: January 2021 - December 2025');
   console.log('  - FasterOutcomes: June 2025 - Present (Full-Time CTO)');
-  console.log('  - BayRockLabs: January 2021 - December 2025');
+  console.log('  - BayRockLabs: January 2021 - January 2026');
 }
 
 main().catch(console.error);
