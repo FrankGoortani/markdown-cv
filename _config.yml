@@ -23,6 +23,10 @@ exclude:
   - package.json
   - package-lock.json
   - tools/
+  # Printable resume sources are local PDF inputs, not public profile pages.
+  - resume-cto/resume.html
+  - resume-master/resume.html
+  - BACKUP_OLD_RESUMES/
   - README.md
   - .gitignore
 
