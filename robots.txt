@@ -1,11 +1,5 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Allow crawling so search engines can read noindex on alternate profiles.
 Sitemap: https://goortani.com/sitemap.xml
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
-
-# Public profile assets are intentionally crawlable for social previews.
-Disallow:

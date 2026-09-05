@@ -136,7 +136,7 @@
         "  links           all important hyperlinks",
         "  contact         email + schedule",
         "  blog            open Medium profile",
-        "  pdf             open resume PDF",
+        "  pdf             open profile information",
         "  ls              list available commands (directory style)",
         "  search <query>  search CV content for keywords",
         "  clear           clear screen",
@@ -206,7 +206,7 @@
       line("");
       line("Company:     FasterOutcomes (AI Legal Tech)");
       line("Role:        Chief Technology Officer");
-      line("Timeline:    Part-time (Mar 2024) → Full-time (Jan 2026)");
+      line("Timeline:    Part-time (Mar 2024) → Full-time (Jun 2025)");
       line("Stage:       0→1→Series A preparation");
       line("");
       line("KEY ACHIEVEMENTS:");
@@ -256,7 +256,7 @@
     },
     links(){
       const rows = [
-        ["Download PDF", links.resume_pdf],
+        ["Profile information", links.resume_pdf],
         ["Short Version", links.short],
         ["Blog", links.blog],
         ["LinkedIn", links.linkedin],

@@ -72,7 +72,7 @@ async function main() {
   console.log('\n✓ All PDFs regenerated successfully!');
   console.log('\nUpdated dates:');
   console.log('  - Uber: January 2021 - December 2025');
-  console.log('  - FasterOutcomes: January 2026 - Present (Full-Time CTO)');
+  console.log('  - FasterOutcomes: June 2025 - Present (Full-Time CTO)');
   console.log('  - BayRockLabs: January 2021 - December 2025');
 }
 

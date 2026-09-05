@@ -27,6 +27,10 @@ exclude:
   - resume-cto/resume.html
   - resume-master/resume.html
   - BACKUP_OLD_RESUMES/
+  # Retired public PDF URLs: keep originals locally until career facts are reconciled.
+  - media/frank-goortani-cto-executive_2026.pdf
+  - media/frank-goortani-master-resume_2026.pdf
+  - media/frank-goortani-profile-magazine.pdf
   - README.md
   - .gitignore
 
