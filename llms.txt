@@ -11,7 +11,7 @@ Alternate CV layouts and historical resumes are not the authoritative public pro
 ## Writing and presence
 
 - [Writing](https://architect.solutions/writing/): Essays on production AI and CTO leadership.
-- [Architect.Solutions](https://architect.solutions/): CTO portfolio and book project.
+- [Architect.Solutions](https://architect.solutions/): CTO portfolio and The Centaur CTO book project.
 - [VisionzLab](https://visionzlab.com/): AI architecture and development studio.
 - [LinkedIn](https://linkedin.com/in/frankgoortani): Professional updates.
 - [Medium](https://medium.com/@FrankGoortani): Technical writing.
