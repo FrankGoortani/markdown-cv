@@ -1,0 +1,13 @@
+{
+  "name": "Frank Goortani — CTO at FasterOutcomes",
+  "short_name": "Frank Goortani",
+  "description": "AI engineering executive, CTO, and production LLM systems leader.",
+  "icons": [
+    { "src": "/favicon-32x32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ],
+  "theme_color": "#2f5d62",
+  "background_color": "#f7f4ee",
+  "display": "browser",
+  "start_url": "/"
+}

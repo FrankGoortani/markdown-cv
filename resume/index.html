@@ -3,77 +3,55 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Frank Goortani | CTO Resume</title>
-  <meta name="description" content="Professional resume of Frank Goortani - CTO at FasterOutcomes, AI/LLM systems leader.">
+  <title>Frank Goortani | Résumé</title>
+  <meta name="description" content="Résumé of Frank Goortani — CTO at FasterOutcomes, production LLM systems and AI engineering leadership.">
   <link rel="canonical" href="https://goortani.com/resume/">
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-  <meta name="robots" content="noindex">
+  <meta name="robots" content="noindex, follow">
   <style>
-    html, body {
-      margin: 0;
-      min-height: 100%;
+    :root { --ink:#18201f; --muted:#5a6663; --rule:#ddd8cd; --accent:#2f5d62; --bg:#f7f4ee; --card:#fff; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --ink:#e8e6e1; --muted:#9aa5a2; --rule:#333b39; --accent:#7fb2b7; --bg:#14191a; --card:#1b2122; }
     }
-    body {
-      display: grid;
-      place-items: center;
-      padding: 2rem;
-      background: #f7f4ee;
-      color: #18201f;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5;
-    }
-    main {
-      width: min(100%, 42rem);
-      border-top: 4px solid #0b4f4a;
-      background: #fffdf8;
-      padding: clamp(1.5rem, 5vw, 2.5rem);
-      box-shadow: 0 1rem 3rem rgba(24, 32, 31, 0.08);
-    }
-    h1 {
-      margin: 0 0 0.75rem;
-      font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
-      font-size: clamp(2rem, 6vw, 3.2rem);
-      line-height: 1.05;
-    }
-    p {
-      margin: 0 0 1.25rem;
-      color: #53615f;
-    }
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    a {
-      display: inline-flex;
-      min-height: 2.75rem;
-      align-items: center;
-      border: 1px solid #d8d1c5;
-      padding: 0.65rem 0.9rem;
-      color: inherit;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    a.primary {
-      background: #0b4f4a;
-      border-color: #0b4f4a;
-      color: #fffdf8;
-    }
+    :root[data-theme="dark"] { --ink:#e8e6e1; --muted:#9aa5a2; --rule:#333b39; --accent:#7fb2b7; --bg:#14191a; --card:#1b2122; }
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; background:var(--bg); color:var(--ink); line-height:1.55;
+           font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+           display:grid; place-items:center; padding:2rem 16px; }
+    .card { background:var(--card); border:1px solid var(--rule); border-radius:14px;
+            padding:2rem; max-width:620px; width:100%; }
+    h1 { margin:0 0 .35rem; font-size:1.6rem; letter-spacing:-.01em; }
+    .eyebrow { margin:0 0 1rem; color:var(--muted); font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; }
+    p { margin:0 0 1.1rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:1.4rem; }
+    a.button { display:inline-block; padding:.6rem 1rem; border-radius:8px; text-decoration:none;
+               border:1px solid var(--accent); color:var(--accent); font-weight:600; font-size:.95rem; }
+    a.button.primary { background:var(--accent); color:var(--bg); }
+    ul { margin:0; padding-left:1.1rem; color:var(--muted); font-size:.92rem; }
+    li { margin-bottom:.4rem; }
+    li a { color:var(--accent); }
+    .foot { margin-top:1.4rem; padding-top:1rem; border-top:1px solid var(--rule);
+            font-size:.85rem; color:var(--muted); }
+    .foot a { color:var(--accent); }
   </style>
-
-  <!-- Analytics (Umami, self-hosted) -->
-  <script defer src="/assets/analytics.js"></script>
 </head>
 <body>
-  <main>
-    <h1>Frank Goortani CTO Resume</h1>
-    <p>For current career information, visit the professional profile. Downloadable resumes are being updated.</p>
+  <main class="card">
+    <p class="eyebrow">Frank Goortani</p>
+    <h1>Résumé</h1>
+    <p>Chief Technology Officer at FasterOutcomes. Production LLM systems, AI engineering leadership, and 25 years of architecture across legal, healthcare, privacy, banking and retail.</p>
     <div class="actions">
-      <a class="primary" href="../">View professional profile</a>
-      <a href="../cv/">View full CV</a>
+      <a class="button primary" href="../media/frank-goortani-cto-executive_2026.pdf" download>Download résumé (PDF)</a>
+      <a class="button" href="../cv/">Full CV</a>
+      <a class="button" href="../">Profile</a>
     </div>
+    <ul>
+      <li><a href="../media/frank-goortani-master-resume_2026.pdf" download>Comprehensive CV (PDF)</a> — the complete record, all roles</li>
+      <li><a href="../cv/">Full CV on the web</a> · <a href="../short/">short version</a></li>
+    </ul>
+    <p class="foot">Generated 2026-09-21 from a single canonical source. Contact: <a href="mailto:frank@goortani.com">frank@goortani.com</a> · <a href="https://www.linkedin.com/in/frankgoortani/">LinkedIn</a></p>
   </main>
 </body>
 </html>

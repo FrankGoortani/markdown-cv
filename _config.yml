@@ -27,9 +27,10 @@ exclude:
   - resume-cto/resume.html
   - resume-master/resume.html
   - BACKUP_OLD_RESUMES/
-  # Retired public PDF URLs: keep originals locally until career facts are reconciled.
-  - media/frank-goortani-cto-executive_2026.pdf
-  - media/frank-goortani-master-resume_2026.pdf
+  # 2026-09-21: the CTO and master resume PDFs are RE-PUBLISHED. They are now
+  # generated from career-stack/30-portfolio/resumes/SOURCE_OF_TRUTH.yaml, which
+  # resolved the date/title conflicts and removed the unsourced metrics that
+  # caused the 2026-09-04 retirement. The magazine PDF stays excluded.
   - media/frank-goortani-profile-magazine.pdf
   - README.md
   - .gitignore
