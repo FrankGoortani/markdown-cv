@@ -83,7 +83,7 @@
           </div>
           <div>
             <dt>Credentials</dt>
-            <dd>TOGAF, PMP</dd>
+            <dd>OpenAI Academy AI Leadership, TOGAF, PMP</dd>
           </div>
         </dl>
       </aside>
@@ -173,49 +173,100 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Frank Goortani",
-    "jobTitle": "Chief Technology Officer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "FasterOutcomes"
-    },
-    "description": "Full-time CTO at FasterOutcomes since June 2025, with 25+ years in software and architecture; focused on production AI systems and engineering leadership.",
-    "url": "https://goortani.com/",
-    "image": "https://goortani.com/media/frank.png",
-    "sameAs": [
-      "https://www.linkedin.com/in/frankgoortani/",
-      "https://twitter.com/FrankGoortani",
-      "https://github.com/FrankGoortani",
-      "https://medium.com/@FrankGoortani",
-      "https://architect.solutions",
-      "https://visionzlab.com"
-    ],
-    "email": "frank@goortani.com",
-    "knowsAbout": [
-      "AI Agents",
-      "Large Language Models",
-      "LangChain",
-      "LangGraph",
-      "RAG Systems",
-      "Cloud Architecture",
-      "Engineering Leadership",
-      "Python",
-      "Go",
-      "TypeScript",
-      "React"
-    ],
-    "hasCredential": [
+    "@graph": [
       {
-        "@type": "EducationalOccupationalCredential",
-        "name": "TOGAF"
+        "@type": "ProfilePage",
+        "@id": "https://goortani.com/#profilepage",
+        "url": "https://goortani.com/",
+        "name": "Frank Goortani | FasterOutcomes CTO | AI Leader",
+        "dateModified": "2026-09-23",
+        "mainEntity": {
+          "@id": "https://goortani.com/#person"
+        }
       },
       {
-        "@type": "EducationalOccupationalCredential",
-        "name": "PMP"
+        "@type": "Person",
+        "@id": "https://goortani.com/#person",
+        "name": "Frank Goortani",
+        "jobTitle": "Chief Technology Officer",
+        "worksFor": {
+          "@id": "https://www.fasteroutcomes.com/#organization"
+        },
+        "description": "Frank Goortani has been full-time CTO at FasterOutcomes since June 2025, focused on production LLM systems for legal and healthcare workflows, AI governance, and engineering leadership.",
+        "url": "https://goortani.com/",
+        "image": "https://goortani.com/media/frank.png",
+        "email": "frank@goortani.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/frankgoortani/",
+          "https://twitter.com/FrankGoortani",
+          "https://github.com/FrankGoortani",
+          "https://medium.com/@FrankGoortani",
+          "https://architect.solutions/",
+          "https://visionzlab.com/"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Amirkabir University of Technology (Tehran Polytechnic)"
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "AI Leadership learning path",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "OpenAI Academy"
+            }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "TOGAF 9.1 Certified",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "The Open Group"
+            }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Project Management Professional (PMP)",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Project Management Institute"
+            }
+          }
+        ],
+        "knowsAbout": [
+          "AI Agents",
+          "Large Language Models",
+          "LangChain",
+          "LangGraph",
+          "RAG Systems",
+          "Cloud Architecture",
+          "Engineering Leadership",
+          "Python",
+          "Go",
+          "TypeScript",
+          "React"
+        ],
+        "subjectOf": {
+          "@id": "https://architect.solutions/#book"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.fasteroutcomes.com/#organization",
+        "name": "FasterOutcomes",
+        "url": "https://www.fasteroutcomes.com/"
+      },
+      {
+        "@type": "Book",
+        "@id": "https://architect.solutions/#book",
+        "name": "The Centaur CTO: Leading with AI to Be More Human",
+        "author": {
+          "@id": "https://goortani.com/#person"
+        },
+        "url": "https://architect.solutions/#book"
       }
-    ],
-    "@id": "https://goortani.com/#person"
+    ]
   }
   </script>
 </body>

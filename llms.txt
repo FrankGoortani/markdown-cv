@@ -1,12 +1,14 @@
 # Frank Goortani
 
-> Frank Goortani is full-time CTO at FasterOutcomes since June 2025, focused on production AI systems, architecture, and engineering leadership.
+> Frank Goortani has been full-time CTO at FasterOutcomes since June 2025, focused on production LLM systems for legal and healthcare workflows, AI governance, and engineering leadership.
 
 ## Primary profile
 
 - [Professional profile](https://goortani.com/): Current public career summary and contact information.
 
-Alternate CV layouts and historical resumes are not the authoritative public profile. Public PDF downloads are retired while conflicting historical details are reconciled.
+Alternate CV layouts are not the authoritative public profile; the homepage is.
+
+- [Résumé (PDF)](https://goortani.com/media/frank-goortani-cto-executive_2026.pdf): CTO résumé, regenerated 2026-09-21 from the reconciled career record.
 
 ## Writing and presence
 
