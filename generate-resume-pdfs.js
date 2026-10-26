@@ -31,7 +31,7 @@ async function generatePDF(htmlPath, pdfPath) {
   console.log(`Generating: ${pdfPath}`);
 
   const browser = await puppeteer.launch({
-    headless: 'new',
+    headless: true,
   });
 
   const page = await browser.newPage();
