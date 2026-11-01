@@ -1,5 +1,19 @@
-User-agent: *
+# AI answer engines are welcome to read and cite this profile. Named groups make
+# that explicit, so a future edit to the * group can't block them by accident.
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
 Allow: /
 
 # Allow crawling so search engines can read noindex on alternate profiles.
+User-agent: *
+Allow: /
+
 Sitemap: https://goortani.com/sitemap.xml
