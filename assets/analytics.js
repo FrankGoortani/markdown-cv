@@ -10,7 +10,7 @@
  * identifier, not a secret (it is embedded in the HTML anyway).
  */
 (function () {
-  var UMAMI_HOST = 'https://goortani.synology.me:3100';
+  var UMAMI_HOST = 'https://nas.tailb423d6.ts.net';
   var WEBSITE_ID = 'd7924d62-4849-4d6b-8bc5-4a0ce9baae50';
   var trackerRequested = false;
   var queue = [];
