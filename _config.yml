@@ -15,7 +15,6 @@ timezone: America/Toronto
 # Jekyll plugins
 plugins:
   - jekyll-sitemap
-  - jekyll-feed
 
 # Exclude files from processing
 exclude:
