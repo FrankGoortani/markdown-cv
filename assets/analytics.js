@@ -2,7 +2,7 @@
  * Umami analytics loader + event helpers for goortani.com
  *
  * Injects the Umami tracking script and exposes a global `window.track(event, data)`
- * helper used by terminal.js. Safe to include from any page in the site
+ * helper. Safe to include from any page in the site
  * (root, short, cv, resume, resume-cto, ...). Uses an absolute URL so
  * subdirectory depth does not matter.
  *

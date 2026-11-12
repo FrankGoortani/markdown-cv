@@ -23,9 +23,9 @@ exclude:
   - package.json
   - package-lock.json
   - tools/
-  # Printable resume sources are local PDF inputs, not public profile pages.
-  - resume-cto/resume.html
-  - resume-master/resume.html
+  # 2026-11-12: terminal and magazine modes removed; these fragments were only
+  # loaded by terminal.js and are not public pages.
+  - content/
   - BACKUP_OLD_RESUMES/
   # 2026-09-21: the CTO and master resume PDFs are RE-PUBLISHED. They are now
   # generated from career-stack/30-portfolio/resumes/SOURCE_OF_TRUTH.yaml, which

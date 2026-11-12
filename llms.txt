@@ -5,8 +5,7 @@
 ## Primary profile
 
 - [Professional profile](https://goortani.com/): Current public career summary and contact information.
-
-Alternate CV layouts are not the authoritative public profile; the homepage is.
+- [Full CV](https://goortani.com/cv/): Complete role history with dates, achievements and technologies, plus skills, certifications and education.
 
 - [Résumé (PDF)](https://goortani.com/media/frank-goortani-cto-executive_2026.pdf): CTO résumé, regenerated 2026-09-21 from the reconciled career record.
 

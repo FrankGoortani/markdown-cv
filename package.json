@@ -1,11 +1,9 @@
 {
-  "name": "goortani-terminal-importer",
+  "name": "goortani-com",
   "version": "1.0.0",
   "type": "module",
   "private": true,
-  "scripts": {
-    "generate-pdfs": "node generate-resume-pdfs.js"
-  },
+  "scripts": {},
   "dependencies": {
     "jsdom": "^24.1.0",
     "node-fetch": "^3.3.2",

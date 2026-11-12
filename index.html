@@ -42,12 +42,11 @@
 
   <header class="site-header" aria-label="Site header">
     <a class="brand" href="./" aria-label="Frank Goortani home">Frank Goortani</a>
-    <nav class="style-switcher" aria-label="Profile styles">
-      <a href="./" aria-current="page">Professional</a>
-      <a href="./resume/" data-track="resume_nav_open">Résumé</a>
+    <nav class="style-switcher" aria-label="Main">
+      <a href="./" aria-current="page">Profile</a>
       <a href="./cv/" data-track="full_cv_nav_open">Full CV</a>
-      <a href="./magazine/" data-track="magazine_nav_open">PC Magazine</a>
-      <a href="./terminal/" data-track="terminal_nav_open">Terminal</a>
+      <a href="./media/frank-goortani-cto-executive_2026.pdf" download data-track="resume_pdf_download">Résumé (PDF)</a>
+      <a href="mailto:frank@goortani.com" data-track="email_open">Contact</a>
     </nav>
   </header>
 
@@ -99,12 +98,12 @@
     <section class="section-grid below-fold" id="work" aria-labelledby="work-title">
       <div>
         <p class="eyebrow">Current Work</p>
-        <h2 id="work-title">Building AI legal tech with executive and hands-on technical ownership.</h2>
+        <h2 id="work-title">Building AI for legal and healthcare workflows, with executive and hands-on technical ownership.</h2>
       </div>
       <div class="content-stack">
         <article>
           <h3>FasterOutcomes</h3>
-          <p>Full-time CTO for an AI legal tech startup, leading product architecture, technical strategy, engineering hiring, and systems prepared for the next stage of company growth.</p>
+          <p>Full-time CTO of an AI platform for legal and healthcare workflows. Architected the platform and built most of it hands-on, working AI-assisted, and leads technical strategy, engineering hiring and SOC 2 Type 2 and HIPAA compliance.</p>
         </article>
         <article>
           <h3>Production AI Systems</h3>
@@ -120,19 +119,19 @@
       </div>
       <div class="timeline">
         <article>
-          <span>FasterOutcomes</span>
+          <span>FasterOutcomes · Jun 2025 – Present</span>
           <h3>Chief Technology Officer</h3>
-          <p>Leading AI legal tech product architecture, technical strategy, engineering hiring, delivery systems, and scale readiness.</p>
+          <p>Product architecture, technical strategy, engineering hiring and delivery for an AI platform serving legal and healthcare workflows. Part-time CTO from March 2024; built the MVP in 12 weeks.</p>
         </article>
         <article>
-          <span>Uber</span>
+          <span>Uber · Jan 2021 – Dec 2025</span>
           <h3>Solution Architect</h3>
           <p>Built the award-winning ELLE AI Decision Engine for security and privacy automation across large-scale internal systems.</p>
         </article>
         <article>
-          <span>Home Depot Canada</span>
-          <h3>Platform and Architecture Leadership</h3>
-          <p>Led web platform, cloud migration, microservices, Angular/React architecture, and mobile team formation work.</p>
+          <span>The Home Depot Canada · Dec 2017 – Dec 2019</span>
+          <h3>Software Consultant (contract)</h3>
+          <p>Led 10+ onshore and 50+ offshore developers on homedepot.ca, built the onshore mobile team and CI/CD pipeline, and drove the roadmap from monolith to microservices on Google Cloud.</p>
         </article>
       </div>
     </section>
@@ -140,15 +139,15 @@
     <section class="link-band" aria-labelledby="links-title">
       <div>
         <p class="eyebrow">Explore</p>
-        <h2 id="links-title">Professional profile first. Alternate styles still one click away.</h2>
+        <h2 id="links-title">The full record, writing and code.</h2>
       </div>
       <div class="link-list">
-        <a href="./resume/" data-track="resume_open">Résumé</a>
-        <a href="./media/frank-goortani-cto-executive_2026.pdf" download data-track="resume_pdf_download">Résumé (PDF)</a>
         <a href="./cv/" data-track="full_cv_open">Full CV</a>
-        <a href="./magazine/">PC Magazine Version</a>
-        <a href="./terminal/">Terminal Version</a>
-        <a href="https://medium.com/@FrankGoortani" target="_blank" rel="noopener">Writing</a>
+        <a href="./media/frank-goortani-cto-executive_2026.pdf" download data-track="resume_pdf_download">Résumé (PDF)</a>
+        <a href="./media/frank-goortani-master-resume_2026.pdf" download data-track="master_pdf_download">Comprehensive CV (PDF)</a>
+        <a href="https://architect.solutions/writing/" data-track="writing_open">Essays</a>
+        <a href="https://architect.solutions/book/">The Centaur CTO (book)</a>
+        <a href="https://medium.com/@FrankGoortani" target="_blank" rel="noopener">Medium</a>
         <a href="https://github.com/FrankGoortani" target="_blank" rel="noopener">GitHub</a>
       </div>
     </section>
@@ -167,7 +166,7 @@
 
   <footer class="site-footer">
     <span>Frank Goortani / Ontario, Canada</span>
-    <span>CTO at FasterOutcomes. Professional profile with retro alternates.</span>
+    <span>CTO at FasterOutcomes · <a href="./cv/">Full CV</a></span>
   </footer>
 
   <script type="application/ld+json">
@@ -179,7 +178,7 @@
         "@id": "https://goortani.com/#profilepage",
         "url": "https://goortani.com/",
         "name": "Frank Goortani | FasterOutcomes CTO | AI Leader",
-        "dateModified": "2026-11-01T10:00:00-04:00",
+        "dateModified": "2026-11-12T10:00:00-05:00",
         "isPartOf": {
           "@id": "https://goortani.com/#website"
         },
@@ -263,7 +262,11 @@
         ],
         "subjectOf": {
           "@id": "https://architect.solutions/#book"
-        }
+        },
+        "mainEntityOfPage": [
+          "https://goortani.com/",
+          "https://goortani.com/cv/"
+        ]
       },
       {
         "@type": "Organization",
